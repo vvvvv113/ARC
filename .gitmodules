@@ -1,0 +1,6 @@
+[submodule "codelt"]
+	path = codelt
+	url = https://github.com/Qualcomm-AI-research/codeit.git
+[submodule "human_data/h-arc"]
+	path = human_data/h-arc
+	url = https://github.com/Le-Gris/h-arc.git

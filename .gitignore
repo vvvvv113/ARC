@@ -18,6 +18,9 @@
 *.cpython-36.pyc
 *.egg-info
 *.pycharm_helpers*
+__pycache__/
+*.pyc
+*.pyo
 
 # Patches (not to be committed by mistake)
 *.patch
@@ -30,3 +33,8 @@ outputs/
 
 # Duplicate clone (local only)
 codeit-1/
+
+# Data files - do not upload
+human_data/data/
+analysis/processed/
+human_data/h-arc/data/
