@@ -21,3 +21,12 @@
 
 # Patches (not to be committed by mistake)
 *.patch
+
+# Claude Code local config
+.claude/
+
+# Hydra run outputs (local)
+outputs/
+
+# Duplicate clone (local only)
+codeit-1/
