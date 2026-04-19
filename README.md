@@ -200,6 +200,52 @@ Else, if you re-ran the [mutation baseline](#running-the-mutation-baseline) and 
 
 The domain-specific language for solving ARC, implemented in [`codeit/dsl`](codeit/dsl), is largely based on [Michael Hodel's implementation](https://github.com/michaelhodel/arc-dsl), with some minor updates for ease of program execution and mutation.
 
+## Human–CodeIt Comparative Analysis
+
+This repository extends the original CodeIt work with a comparative analysis between CodeIt's solutions and human behavioral data from the [H-ARC dataset](https://github.com/Le-Gris/h-arc) (Le Gris et al.), which records how humans solve ARC tasks step by step.
+
+### Data sources
+
+- `human_data/` — human behavioral data (action-level traces and attempt summaries); raw CSVs are excluded from version control
+- `human_data/h-arc/` — H-ARC repository (submodule), contains analysis notebooks and utilities
+- `codelt/data/solutions_100.json` — CodeIt solutions after 100 meta-iterations
+
+### Analysis scripts (`analysis/`)
+
+| Script | What it does |
+|---|---|
+| `extract_shared_tasks.py` | Identifies the 59 ARC evaluation tasks solved by CodeIt (test split) that also appear in the human dataset; saves filtered human data to `analysis/processed/` |
+| `01_human_vs_ai_difficulty.py` | Computes human solve rate per task and CodeIt's first-solution iteration; classifies all 59 tasks into four difficulty quadrants |
+| `02_solving_effort_correlation.py` | Measures human effort (actions, attempts) per task and tests Spearman correlation with CodeIt's iteration number |
+| `03_task_overlap.py` | Compares the full set of human-solved tasks against CodeIt-solved tasks across all 400 ARC evaluation tasks; runs Fisher's exact test |
+
+Run all scripts from the repo root:
+
+```bash
+python3 analysis/extract_shared_tasks.py
+python3 analysis/01_human_vs_ai_difficulty.py
+python3 analysis/02_solving_effort_correlation.py
+python3 analysis/03_task_overlap.py
+```
+
+### Processed outputs (`analysis/processed/`)
+
+> Raw data files are excluded from version control via `.gitignore`.
+
+| File | Description |
+|---|---|
+| `solved_task_ids.json` | List of the 59 CodeIt-solved task IDs (test split) |
+| `human_data_solved_tasks.csv` | Filtered human action traces for the 59 shared tasks (36,091 rows, 422 participants) |
+| `task_difficulty.csv` | Per-task: human solve rate, CodeIt first iteration, difficulty category |
+| `solving_effort.csv` | Per-task: avg actions/attempts to solve (human solvers only), overall avg actions, CodeIt first iteration, difficulty category |
+| `task_overlap.csv` | All 400 evaluation tasks labeled by whether humans, CodeIt, both, or neither solved them |
+
+### Key findings (see `analysis/report.md` for full details)
+
+- **Difficulty**: Of the 59 tasks, 18 are easy for both, 16 hard for both, 13 only hard for AI, and 12 only hard for humans. One task (`31d5ba1a`) was solved by CodeIt but by no human participant.
+- **Effort correlation**: Human action count correlates significantly with CodeIt's iteration number (Spearman ρ = 0.44, p < 0.001), suggesting a shared underlying difficulty signal. Number of attempts does not correlate.
+- **Overlap**: 58 of 59 CodeIt-solved tasks were also solved by at least one human. The main gap is the reverse: 337 tasks humans solved that CodeIt did not.
+
 ## Citation
 
 If you find our code useful, please cite:
