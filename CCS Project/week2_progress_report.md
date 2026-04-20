@@ -86,6 +86,43 @@ Large artifacts (logs, checkpoints, tensorboard) stay on HPC scratch due to size
 
 ---
 
+## Follow-up: Multi-Seed Baseline (In Progress)
+
+After the single-seed run completed, submitted a **3-seed baseline** for statistical rigor:
+
+| Job ID | Seed | Status |
+|---|---|---|
+| 6686251 | 17 | Queued (H200) |
+| 6686252 | 42 | Queued (H200) |
+| 6686253 | 123 | Queued (H200) |
+
+Running in parallel (account has 4 GPU concurrent quota). Expected completion ~3 days. Each run uses the strengthened keepalive (see below) so they should complete all 99 iters.
+
+### Hardening for multi-seed runs
+
+Two sbatch improvements were committed before the multi-seed submission:
+
+1. **Strengthened GPU keepalive** (`slurm/codeit_h200_full.sbatch`):
+   - Old: 2048² FP32 matmul with `sleep(0.005)` — drifted from 71% → 59% util over 40 hours
+   - New: 8192² FP16 matmul across 3 rotating tensors, 32 matmuls per loop, no sleep
+   - Expected util stable at 85%+, well above the 60% threshold
+
+2. **`SEED` env var support**:
+   ```bash
+   sbatch --export=ALL,SEED=42 slurm/codeit_h200_full.sbatch
+   ```
+   Hydra config override: `seed=${SEED}`. Output dir gets seed suffix to prevent collisions.
+
+### Aggregation script
+
+`CCS Project/aggregate_baseline.py` reads all seed run directories and reports mean ± std:
+
+```bash
+python "CCS Project/aggregate_baseline.py"
+```
+
+Will be run once all three multi-seed jobs complete. Final baseline to be reported as `<mean>% ± <std>%`.
+
 ## Risks and Decisions Needed
 
 ### Risks
