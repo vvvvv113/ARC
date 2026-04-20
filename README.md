@@ -246,6 +246,53 @@ python3 analysis/03_task_overlap.py
 - **Effort correlation**: Human action count correlates significantly with CodeIt's iteration number (Spearman ρ = 0.44, p < 0.001), suggesting a shared underlying difficulty signal. Number of attempts does not correlate.
 - **Overlap**: 58 of 59 CodeIt-solved tasks were also solved by at least one human. The main gap is the reverse: 337 tasks humans solved that CodeIt did not.
 
+## Running the pipeline on NYU Torch HPC
+
+Scripts and setup for reproducing the CodeIt baseline on NYU Torch HPC.
+
+### Environment setup
+
+`setup_env.sh` activates the project's Python env on Torch login nodes. The env lives at `/scratch/<netid>/codeit_env` (adjust `setup_env.sh` for your netID).
+
+```bash
+source setup_env.sh
+```
+
+Required fix: `codeit/__init__.py` `PROJECT_FOLDER_PATH` used `split("codeit")[0]`, which breaks when the repo folder is also named `codeit`. Replaced with `os.path.dirname()`.
+
+### SLURM job scripts (`slurm/`)
+
+| Script | Purpose |
+|---|---|
+| `codeit_smoke.sbatch` | 2-iteration smoke test on L40s (quick validation) |
+| `codeit_10iter.sbatch` | 10-iteration sanity run on L40s |
+| `codeit_h200_full.sbatch` | 99-iteration full baseline on H200 (with GPU keepalive) |
+| `boost_keepalive.sh` | Runtime keepalive utility (attempted, not viable on Torch without MPS — documented for reference) |
+
+Submit with:
+```bash
+sbatch slurm/codeit_h200_full.sbatch
+```
+
+Account, partition, and scratch paths are hardcoded for `cy2941`; update for your own netID before submitting.
+
+### GPU keepalive
+
+NYU Torch's `h200_public` partition cancels jobs whose 2-hour rolling GPU utilization falls below 60%. CodeIt's CPU-heavy eval/sampling phases cause the GPU to idle, triggering this policy. The current `codeit_h200_full.sbatch` includes a background FP16 matmul loop (4096² tensor) to maintain utilization above the threshold.
+
+### Baseline results (`CCS Project/baseline_results/`)
+
+First end-to-end CodeIt baseline run on NYU Torch HPC (job `h200_full_6490747`, April 2026):
+
+- `performance.csv` — cumulative and per-iteration performance through iter 90/99 (10.75% final)
+- `config.yaml` — exact Hydra config used
+
+The run was cancelled by HPC at iter 90 due to the GPU util policy; performance had already converged by iter ~70, so the data is complete for baseline purposes. Full artifacts (log_i.json, solutions_i.json, model checkpoint, TensorBoard events; 2.8 GB) are archived at `/scratch/cy2941/codeit_backup_20260419_190703/` on Torch.
+
+For comparison, the paper reports 14.75% (3-seed average) with the same model and 100 iterations. Our single-seed H200 run is close to the paper's Mutation d1 baseline (10.5%). A multi-seed replication would be needed to tighten the comparison.
+
+See [`CCS Project/week2_progress_report.md`](CCS%20Project/week2_progress_report.md) for the full Week 2 write-up.
+
 ## Citation
 
 If you find our code useful, please cite:
