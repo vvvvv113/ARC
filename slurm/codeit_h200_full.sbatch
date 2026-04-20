@@ -38,10 +38,12 @@ KEEPALIVE_PID=$!
 trap 'kill $KEEPALIVE_PID 2>/dev/null; wait $KEEPALIVE_PID 2>/dev/null' EXIT
 echo "keepalive PID=$KEEPALIVE_PID"
 
-echo "--- starting codeit 99-iter run on H200 ---"
+SEED=${SEED:-17}
+echo "--- starting codeit 99-iter run on H200 (seed=${SEED}) ---"
 
 python run/run_codeit.py \
-    hydra.run.dir=/scratch/cy2941/codeit_outputs/h200_full_${SLURM_JOB_ID} \
+    hydra.run.dir=/scratch/cy2941/codeit_outputs/h200_full_${SLURM_JOB_ID}_seed${SEED} \
     models=codet5p_220m_A100 \
     data.dataloader.num_workers=8 \
-    exit.n_iters=99
+    exit.n_iters=99 \
+    seed=${SEED}
