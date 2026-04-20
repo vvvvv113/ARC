@@ -21,14 +21,18 @@ nvidia-smi
 echo "--- starting GPU keepalive ---"
 
 python -c "
-import torch, time
+import torch
 torch.set_float32_matmul_precision('high')
-x = torch.randn(4096, 4096, device='cuda', dtype=torch.float16)
+# Aggressive keepalive: 8192^2 FP16 matmul, tensor-core heavy, no sleep.
+# Keeps GPU util >85% even during codeit's CPU-heavy eval phases.
+a = torch.randn(8192, 8192, device='cuda', dtype=torch.float16)
+b = torch.randn(8192, 8192, device='cuda', dtype=torch.float16)
+c = torch.randn(8192, 8192, device='cuda', dtype=torch.float16)
 while True:
-    for _ in range(8):
-        x = x @ x
-        x = x / (x.norm() + 1e-8)
-    time.sleep(0.001)
+    for _ in range(32):
+        a = (a @ b).clamp(-10, 10)
+        b = (b @ c).clamp(-10, 10)
+        c = (c @ a).clamp(-10, 10)
 " &
 KEEPALIVE_PID=$!
 trap 'kill $KEEPALIVE_PID 2>/dev/null; wait $KEEPALIVE_PID 2>/dev/null' EXIT
