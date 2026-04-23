@@ -1,0 +1,4 @@
+seed,run_dir,final_iter,cumulative_performance,per_iter_performance
+17,/scratch/cy2941/codeit_outputs/h200_full_6686251_seed17,96,0.125,0.1275
+42,/scratch/cy2941/codeit_outputs/h200_full_6686252_seed42,94,0.1075,0.095
+123,/scratch/cy2941/codeit_outputs/h200_full_6686253_seed123,95,0.1275,0.1175
