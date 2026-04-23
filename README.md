@@ -218,6 +218,9 @@ This repository extends the original CodeIt work with a comparative analysis bet
 | `01_human_vs_ai_difficulty.py` | Computes human solve rate per task and CodeIt's first-solution iteration; classifies all 59 tasks into four difficulty quadrants |
 | `02_solving_effort_correlation.py` | Measures human effort (actions, attempts) per task and tests Spearman correlation with CodeIt's iteration number |
 | `03_task_overlap.py` | Compares the full set of human-solved tasks against CodeIt-solved tasks across all 400 ARC evaluation tasks; runs Fisher's exact test |
+| `04_human_grid_traces.py` | Extracts per-participant grid-state trajectories from human action sequences (last attempt only; deduplicates consecutive identical states) |
+| `05_codeit_grid_traces.py` | Executes every saved DSL program for the 59 tasks line-by-line, capturing intermediate grid states; classifies programs as success/failed based on `test_performance` |
+| `06_progress_curves.py` | Converts grid-state trajectories to progress curves (fraction of cells matching the target), normalises to a [0,1] x-axis, plots up to 4 mean curves per task (human success/failed, CodeIt success/failed), and saves both PNG plots and raw JSON data |
 
 Run all scripts from the repo root:
 
@@ -226,6 +229,9 @@ python3 analysis/extract_shared_tasks.py
 python3 analysis/01_human_vs_ai_difficulty.py
 python3 analysis/02_solving_effort_correlation.py
 python3 analysis/03_task_overlap.py
+python3 analysis/04_human_grid_traces.py
+python3 analysis/05_codeit_grid_traces.py   # add --test-task <id> to validate one task first
+python3 analysis/06_progress_curves.py
 ```
 
 ### Processed outputs (`analysis/processed/`)
@@ -239,6 +245,10 @@ python3 analysis/03_task_overlap.py
 | `task_difficulty.csv` | Per-task: human solve rate, CodeIt first iteration, difficulty category |
 | `solving_effort.csv` | Per-task: avg actions/attempts to solve (human solvers only), overall avg actions, CodeIt first iteration, difficulty category |
 | `task_overlap.csv` | All 400 evaluation tasks labeled by whether humans, CodeIt, both, or neither solved them |
+| `human_traces.json` | Per-task list of participant trajectories: last-attempt grid-state sequences labelled success/failed (603 trajectories, avg 20 states each) |
+| `codeit_traces.json` | Per-task list of DSL program traces: intermediate grid states for 29,278 programs labelled success/failed |
+| `progress_curves.json` | Per-task mean progress curves for up to 4 groups; used by downstream aggregation analysis |
+| `curves/{task_id}.png` | One progress-curve plot per task (59 PNG files) |
 
 ### Key findings (see `analysis/report.md` for full details)
 
