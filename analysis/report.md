@@ -115,7 +115,7 @@ The more meaningful finding is the **asymmetry**:
 
 ---
 
-## Q4: Progress Curves — How Do Humans and CodeIt Navigate the Grid State Space?
+## Q4: Progress Curves — Convergence Speed (AUC)
 
 ### Method
 
@@ -123,41 +123,111 @@ For each of the 59 tasks, intermediate grid states were captured during solving:
 - **Human traces** (script 04): each participant's last attempt; `test_output_grid` per action, deduplicated consecutive frames. 603 trajectories total (367 success, 236 failed).
 - **CodeIt traces** (script 05): DSL programs executed line-by-line; each line whose output is a valid grid is recorded. 29,278 programs traced across all three splits.
 
-**Progress** at each step = fraction of cells matching the target output grid.  
-**Normalisation**: each trajectory is resampled to 100 evenly-spaced points, then shifted and scaled so it starts at 0:  
-`norm(t) = (progress(t) − progress(0)) / (1 − progress(0))`  
-This removes the baseline advantage from tasks where the input grid already resembles the target.
+**Progress** at each step = fraction of cells matching the target output grid.
 
-For each task, four mean curves are computed (any may be absent):
+**Normalisation** (per trajectory):
+`norm(t) = (progress(t) − progress(0)) / (1 − progress(0))`
+Each trajectory is resampled to 100 evenly-spaced points, then shifted and scaled so it starts at 0. This removes the baseline advantage from tasks where the input grid already resembles the target. Negative values are meaningful: they indicate the solver moved *further from* the target than where they started (e.g., grid reset).
+
+**Aggregation**: element-wise **median** across all normalised trajectories within a group per task. The median is used instead of the mean because some trajectories have high starting progress (denominator near 0), causing extreme amplification under individual normalisation; the median is robust to these outliers.
+
+Four median curves per task (any may be absent):
 1. Human success — participants whose last attempt solved the task
 2. Human failed — participants who never solved the task
 3. CodeIt success — programs with `test_performance = True`
 4. CodeIt failed — programs with `test_performance = False`
 
-**AUC** (area under the normalised curve, via trapezoidal integration) measures convergence speed: higher = faster progress.  
-**Steps-to-90%** = normalised x position where the mean curve first reaches 0.9; NaN if never reached.
+**AUC** = area under the median normalised curve (trapezoidal integration): higher = faster convergence.
 
 ### Results
 
-**Spearman correlation between human_success AUC and codeit_success AUC across 59 tasks:**  
-ρ = **−0.018**, p = 0.89 → **no correlation**
+**Spearman ρ (human_success AUC ~ codeit_success AUC, n = 58 tasks):** ρ = **+0.069**, p = 0.60 → **no significant correlation**
 
 | Difficulty category | Human success AUC | CodeIt success AUC | Human failed AUC | CodeIt failed AUC |
 |---|---|---|---|---|
-| Easy for both | 0.465 | 0.383 | −0.015 | 0.121 |
-| Hard for both | 0.467 | 0.269 | −0.032 | 0.086 |
-| Only hard for AI | 0.468 | 0.114 | −0.026 | 0.075 |
-| Only hard for humans | 0.452 | 0.338 | — | 0.060 |
+| Easy for both | 0.539 | 0.413 | −0.022 | 0.147 |
+| Hard for both | 0.495 | 0.311 | −0.023 | 0.316 |
+| Only hard for AI | 0.597 | 0.139 | −0.051 | 0.200 |
+| Only hard for humans | 0.550 | 0.330 | +0.002 | 0.160 |
 
 ### Interpretation
 
-**Human success AUC is nearly constant (~0.46–0.47) across all difficulty categories.** Once humans commit to a successful solve, their convergence speed is similar regardless of task difficulty quadrant.
+**Human success AUC is roughly stable (~0.50–0.60) across difficulty categories.** Once a human commits to a successful attempt, their convergence speed is largely independent of task difficulty.
 
-**CodeIt success AUC varies dramatically by category**: highest for tasks "Easy for both" (0.383), dropping to 0.114 for tasks "Only hard for AI". Even when CodeIt eventually produces a correct program for a hard task, it tends to converge on the solution grid more slowly — the programs make less incremental progress per DSL line.
+**CodeIt success AUC drops sharply with difficulty**: from 0.413 ("Easy for both") to 0.139 ("Only hard for AI"). Even when CodeIt eventually synthesises a correct program, the program navigates the grid state space less efficiently on harder tasks — DSL lines produce less incremental progress per step.
 
-**Human failed AUC is negative (around −0.02 to −0.03)**: participants who never solve a task on average move the grid *away* from the target over time, likely because they reset the grid or explore wrong transformations. This is structurally different from CodeIt failed programs, which show small positive AUC (~0.06–0.12) — failed programs still tend to partially match the target even without fully solving it.
+**Human failed AUC is negative (−0.02 to −0.05)**: failed participants on average end up further from the target than where they started — driven by grid resets and wrong-direction edits. This is qualitatively different from CodeIt failed programs, which show positive AUC (0.15–0.32): failed programs still make partial progress even without reaching the answer.
 
-**No correlation between human and CodeIt convergence speed** (ρ = −0.018): the speed at which humans solve a task is completely unrelated to how efficiently CodeIt's programs navigate to the answer. This suggests the two agents are using fundamentally different strategies — humans converge incrementally through interactive edits, while CodeIt's programs jump to the answer in a single execution with variable intermediate quality.
+**No correlation between human and CodeIt convergence speed** (ρ = +0.069, p = 0.60): how efficiently a human solves a task is unrelated to how efficiently CodeIt's program reaches the answer on the same task. This is consistent with the two agents using fundamentally different search strategies.
+
+---
+
+## Q5: Pairwise Curve Similarity — L2 Distance and Pearson r
+
+### Method
+
+For each task, the four median normalised curves are compared in all four within-agent and between-agent pairs:
+
+| Pair | Question |
+|---|---|
+| human_success vs codeit_success | Do agents take similar paths when both succeed? |
+| human_failed vs codeit_failed | Do agents fail in the same way? |
+| human_success vs human_failed | How different is human success from human failure? |
+| codeit_success vs codeit_failed | How different is CodeIt success from CodeIt failure? |
+
+Two metrics per pair per task:
+- **L2 distance** = `sqrt(sum_t (curve_A(t) − curve_B(t))^2)` — absolute path dissimilarity over all 100 time steps. Larger = curves are further apart in progress space.
+- **Pearson r** — correlation between the two 100-point curves. Measures trend similarity: r ≈ 1 = same learning-rate profile; r < 0 = one rises while the other falls.
+
+### Results
+
+Median L2 distance and Pearson r across tasks by difficulty category:
+
+**human_success vs codeit_success**
+
+| Difficulty category | Median L2 | Median Pearson r |
+|---|---|---|
+| Easy for both | 2.87 | +0.878 |
+| Hard for both | 3.95 | +0.657 |
+| Only hard for AI | 4.14 | +0.687 |
+| Only hard for humans | 2.25 | +0.894 |
+
+**human_failed vs codeit_failed**
+
+| Difficulty category | Median L2 | Median Pearson r |
+|---|---|---|
+| Easy for both | 2.28 | −0.587 |
+| Hard for both | 4.31 | −0.522 |
+| Only hard for AI | 3.79 | +0.324 |
+| Only hard for humans | 2.31 | +0.283 |
+
+**human_success vs human_failed**
+
+| Difficulty category | Median L2 | Median Pearson r |
+|---|---|---|
+| Easy for both | 5.79 | −0.404 |
+| Hard for both | 6.07 | −0.627 |
+| Only hard for AI | 7.66 | −0.008 |
+| Only hard for humans | 6.52 | +0.057 |
+
+**codeit_success vs codeit_failed**
+
+| Difficulty category | Median L2 | Median Pearson r |
+|---|---|---|
+| Easy for both | 3.91 | +0.940 |
+| Hard for both | 1.69 | +0.905 |
+| Only hard for AI | 2.10 | +0.972 |
+| Only hard for humans | 2.78 | +0.943 |
+
+### Interpretation
+
+**Human success and CodeIt success share similar trajectory shapes** (Pearson r ≈ +0.66–0.89 across difficulty categories), despite the absolute path difference (L2 ≈ 2–4). Both agents generally move monotonically toward the target when they succeed — the similarity is highest on tasks that are "easy for both" or "only hard for humans."
+
+**Human failure and CodeIt failure are structurally opposite on easy and hard-for-both tasks** (Pearson r ≈ −0.52 to −0.59): human failed participants tend to regress (negative progress over time) while CodeIt failed programs still make partial upward progress. This reversal disappears on "Only hard for AI" tasks (r ≈ +0.32), where failed CodeIt programs may also stagnate near zero — more similar to human failure.
+
+**Human success vs human failure shows the largest L2 distance of any pair** (median 5.8–7.7), with strongly negative Pearson r on easy and hard-for-both tasks (r ≈ −0.4 to −0.6). The two human groups take qualitatively opposite paths: solvers climb toward the target while non-solvers drift away. The correlation is near zero on "Only hard for AI" tasks (r ≈ 0.0), where even successful humans take irregular non-monotone paths.
+
+**CodeIt success vs CodeIt failure have very similar curve shapes** (Pearson r ≈ +0.90–0.97) despite measurable L2 distance. Both groups make progress in the same direction — the difference is in *how far* they get, not *how* they move. This reflects the deterministic, program-based nature of CodeIt: a failed program often executes most of the correct transformations but makes an error at one step.
 
 ---
 
@@ -168,4 +238,5 @@ For each task, four mean curves are computed (any may be absent):
 | **Q1** | Tasks split roughly evenly across 4 difficulty quadrants. 12 tasks are uniquely hard for humans (CodeIt solves them early); 13 are uniquely hard for AI (humans solve intuitively but DSL search takes long). |
 | **Q2** | Significant positive correlation between human action count and CodeIt iteration (ρ=0.44, p<0.001). Number of attempts is not correlated. Both agents share a common difficulty signal at the action/search level. |
 | **Q3** | Almost complete overlap: CodeIt solves 58/59 tasks that humans also solve. 337 human-solved tasks remain unsolved by CodeIt. Only 1 task (`31d5ba1a`) is uniquely solved by CodeIt. |
-| **Q4** | No correlation between human and CodeIt convergence speed (ρ=−0.018, p=0.89). Human success AUC is stable across difficulty categories (~0.46); CodeIt success AUC drops sharply for harder tasks (0.38 → 0.11). Human failed solvers go backward (negative AUC); CodeIt failed programs still partially converge. |
+| **Q4** | No correlation between human and CodeIt convergence speed (ρ=+0.069, p=0.60). Human success AUC is stable across difficulty (~0.50–0.60); CodeIt success AUC drops sharply for harder tasks (0.41 → 0.14). Human failed solvers go backward (negative AUC); CodeIt failed programs still partially converge. |
+| **Q5** | Human and CodeIt success curves share similar trend shapes (Pearson r ≈ 0.66–0.89) but differ in absolute path. Human failure and CodeIt failure are trend-opposite on easy tasks (r ≈ −0.55): humans regress while CodeIt programs partially progress. CodeIt success vs failure are nearly identical in shape (r ≈ 0.94) — they differ in endpoint, not strategy. |
