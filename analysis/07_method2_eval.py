@@ -15,6 +15,7 @@ import os
 import sys
 
 import numpy as np
+from scipy.stats import wasserstein_distance
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, REPO)
@@ -96,10 +97,37 @@ def evaluate_solutions(solutions_path, human_curves):
     mean_dtw = float(np.mean(all_dtw_sims)) if all_dtw_sims else 0.0
     median_dtw = float(np.median(all_dtw_sims)) if all_dtw_sims else 0.0
 
-    return per_task, solve_rate, mean_dtw, median_dtw, all_dtw_sims
+    # collect all program curves (recompute for Wasserstein)
+    all_program_curves = []
+    for task_id, programs in tasks.items():
+        if task_id not in human_curves:
+            continue
+        try:
+            input_grid, target_grid = load_input_target(task_id)
+        except Exception:
+            continue
+        for program_str in programs:
+            curve = get_program_curve(program_str, input_grid, target_grid)
+            if curve is not None:
+                all_program_curves.append(curve)
+
+    return per_task, solve_rate, mean_dtw, median_dtw, all_dtw_sims, all_program_curves
 
 
-def print_report(label, per_task, solve_rate, mean_dtw, median_dtw):
+def compute_wasserstein(program_curves, human_curves_dict):
+    """
+    Compute Wasserstein distance between the distribution of all program curves
+    and the distribution of all human curves, using mean curve value as a
+    1-D projection (AUC proxy).
+    """
+    ai_aucs = [float(np.mean(c)) for c in program_curves]
+    human_aucs = [float(np.mean(c)) for curves in human_curves_dict.values() for c in curves]
+    if not ai_aucs or not human_aucs:
+        return float("nan")
+    return float(wasserstein_distance(ai_aucs, human_aucs))
+
+
+def print_report(label, per_task, solve_rate, mean_dtw, median_dtw, wass):
     print(f"\n{'='*50}")
     print(f"  {label}")
     print(f"{'='*50}")
@@ -107,6 +135,7 @@ def print_report(label, per_task, solve_rate, mean_dtw, median_dtw):
     print(f"  Solve rate:             {solve_rate:.3f}")
     print(f"  Mean DTW similarity:    {mean_dtw:.4f}")
     print(f"  Median DTW similarity:  {median_dtw:.4f}")
+    print(f"  Wasserstein distance:   {wass:.4f}  (lower = more human-like distribution)")
 
 
 def main():
@@ -121,17 +150,19 @@ def main():
     print(f"Loaded curves for {len(human_curves)} tasks")
 
     print("\nEvaluating baseline...")
-    b_per_task, b_solve, b_mean_dtw, b_med_dtw, b_sims = evaluate_solutions(
+    b_per_task, b_solve, b_mean_dtw, b_med_dtw, b_sims, b_curves = evaluate_solutions(
         args.baseline, human_curves
     )
-    print_report("Baseline (λ=0)", b_per_task, b_solve, b_mean_dtw, b_med_dtw)
+    b_wass = compute_wasserstein(b_curves, human_curves)
+    print_report("Baseline (λ=0)", b_per_task, b_solve, b_mean_dtw, b_med_dtw, b_wass)
 
     if args.biased:
         print("\nEvaluating biased...")
-        h_per_task, h_solve, h_mean_dtw, h_med_dtw, h_sims = evaluate_solutions(
+        h_per_task, h_solve, h_mean_dtw, h_med_dtw, h_sims, h_curves = evaluate_solutions(
             args.biased, human_curves
         )
-        print_report("Human-biased (λ>0)", h_per_task, h_solve, h_mean_dtw, h_med_dtw)
+        h_wass = compute_wasserstein(h_curves, human_curves)
+        print_report("Human-biased (λ>0)", h_per_task, h_solve, h_mean_dtw, h_med_dtw, h_wass)
 
         print(f"\n{'='*50}")
         print("  Delta (biased - baseline)")
@@ -139,6 +170,7 @@ def main():
         print(f"  Solve rate delta:       {h_solve - b_solve:+.3f}")
         print(f"  Mean DTW sim delta:     {h_mean_dtw - b_mean_dtw:+.4f}  ({'better' if h_mean_dtw > b_mean_dtw else 'worse'})")
         print(f"  Median DTW sim delta:   {h_med_dtw - b_med_dtw:+.4f}  ({'better' if h_med_dtw > b_med_dtw else 'worse'})")
+        print(f"  Wasserstein delta:      {h_wass - b_wass:+.4f}  ({'better' if h_wass < b_wass else 'worse'})")
 
         # per-task breakdown
         print(f"\n{'='*50}")
