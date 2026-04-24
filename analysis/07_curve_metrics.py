@@ -51,16 +51,16 @@ diff_df = pd.read_csv(DIFF_PATH)[["task_id", "difficulty_category"]]
 
 rows = []
 groups = [
-    ("human_success",  "human_success_mean",  "human_success_n"),
-    ("human_failed",   "human_failed_mean",   "human_failed_n"),
-    ("codeit_success", "codeit_success_mean", "codeit_success_n"),
-    ("codeit_failed",  "codeit_failed_mean",  "codeit_failed_n"),
+    ("human_success",  "human_success_median",  "human_success_n"),
+    ("human_failed",   "human_failed_median",   "human_failed_n"),
+    ("codeit_success", "codeit_success_median", "codeit_success_n"),
+    ("codeit_failed",  "codeit_failed_median",  "codeit_failed_n"),
 ]
 
 for task_id, entry in curves.items():
     row = {"task_id": task_id}
-    for name, mean_key, n_key in groups:
-        c = entry.get(mean_key)
+    for name, median_key, n_key in groups:
+        c = entry.get(median_key)
         n = entry.get(n_key, 0)
         row[f"{name}_n"] = n
         if c is not None and n > 0:

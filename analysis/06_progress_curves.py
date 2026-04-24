@@ -81,6 +81,13 @@ def mean_curves(curves):
     arr = np.array(curves)
     return arr.mean(axis=0).tolist()
 
+def median_curves(curves):
+    """Element-wise median of a list of length-n lists. Robust to outlier trajectories."""
+    if not curves:
+        return None
+    arr = np.array(curves)
+    return np.median(arr, axis=0).tolist()
+
 def load_target_grid(task_id):
     path = os.path.join(EVAL_DIR, f"{task_id}.json")
     with open(path) as f:
@@ -121,12 +128,12 @@ for task_id in all_task_ids:
         else:
             codeit_failed_curves.append(curve)
 
-    # ── mean curves (None if group is empty) ──────────────────────────────────
+    # ── median curves (robust to extreme individual trajectories) ─────────────
     entry = {
-        "human_success_mean":  mean_curves(human_success_curves),
-        "human_failed_mean":   mean_curves(human_failed_curves),
-        "codeit_success_mean": mean_curves(codeit_success_curves),
-        "codeit_failed_mean":  mean_curves(codeit_failed_curves),
+        "human_success_median":  median_curves(human_success_curves),
+        "human_failed_median":   median_curves(human_failed_curves),
+        "codeit_success_median": median_curves(codeit_success_curves),
+        "codeit_failed_median":  median_curves(codeit_failed_curves),
         "human_success_n":  len(human_success_curves),
         "human_failed_n":   len(human_failed_curves),
         "codeit_success_n": len(codeit_success_curves),
@@ -139,24 +146,29 @@ for task_id in all_task_ids:
     fig, ax = plt.subplots(figsize=(7, 4))
 
     plot_spec = [
-        ("human_success_mean",  "human_success_n",  "tab:blue",   "Human success"),
-        ("human_failed_mean",   "human_failed_n",   "tab:cyan",   "Human failed"),
-        ("codeit_success_mean", "codeit_success_n", "tab:orange", "CodeIt success"),
-        ("codeit_failed_mean",  "codeit_failed_n",  "tab:red",    "CodeIt failed"),
+        ("human_success_median",  "human_success_n",  "tab:blue",   "Human success"),
+        ("human_failed_median",   "human_failed_n",   "tab:cyan",   "Human failed"),
+        ("codeit_success_median", "codeit_success_n", "tab:orange", "CodeIt success"),
+        ("codeit_failed_median",  "codeit_failed_n",  "tab:red",    "CodeIt failed"),
     ]
     any_plotted = False
+    y_min = 0.0
     for key, n_key, color, label in plot_spec:
         curve = entry[key]
         n     = entry[n_key]
         if curve is not None and n > 0:
             ax.plot(x, curve, color=color, label=f"{label} (n={n})", linewidth=2)
             any_plotted = True
+            y_min = min(y_min, min(curve))
 
     if any_plotted:
         ax.set_xlabel("Normalised step (0=start, 1=end)")
-        ax.set_ylabel("Progress (fraction of cells correct)")
+        ax.set_ylabel("Normalised progress (median across trajectories)")
         ax.set_title(f"Task {task_id}")
-        ax.set_ylim(0, 1.05)
+        # extend bottom below 0 when curves backtrack; add small padding
+        bottom = min(y_min - 0.05, -0.05) if y_min < 0 else -0.05
+        ax.set_ylim(bottom, 1.05)
+        ax.axhline(0, color="black", linewidth=0.6, linestyle="--", alpha=0.4)
         ax.legend(fontsize=8)
         ax.grid(alpha=0.3)
         plt.tight_layout()
@@ -171,26 +183,26 @@ with open(OUT_JSON, "w") as f:
 summary_rows = []
 for task_id, entry in all_curves.items():
     row = {"task_id": task_id}
-    for group, mean_key, n_key in [
-        ("human_success",  "human_success_mean",  "human_success_n"),
-        ("human_failed",   "human_failed_mean",   "human_failed_n"),
-        ("codeit_success", "codeit_success_mean", "codeit_success_n"),
-        ("codeit_failed",  "codeit_failed_mean",  "codeit_failed_n"),
+    for group, median_key, n_key in [
+        ("human_success",  "human_success_median",  "human_success_n"),
+        ("human_failed",   "human_failed_median",   "human_failed_n"),
+        ("codeit_success", "codeit_success_median", "codeit_success_n"),
+        ("codeit_failed",  "codeit_failed_median",  "codeit_failed_n"),
     ]:
         n = entry.get(n_key, 0)
-        curve = entry.get(mean_key)
+        curve = entry.get(median_key)
         row[f"{group}_n"] = n
-        row[f"{group}_final_progress"] = round(curve[-1], 4) if curve and n > 0 else float("nan")
-        row[f"{group}_mean_progress"]  = round(float(np.mean(curve)), 4) if curve and n > 0 else float("nan")
+        row[f"{group}_final_progress"]  = round(curve[-1], 4)           if curve and n > 0 else float("nan")
+        row[f"{group}_median_progress"] = round(float(np.median(curve)), 4) if curve and n > 0 else float("nan")
     summary_rows.append(row)
 
 summary_df = pd.DataFrame(summary_rows)
 col_order = [
     "task_id",
-    "human_success_n", "human_success_final_progress", "human_success_mean_progress",
-    "human_failed_n",  "human_failed_final_progress",  "human_failed_mean_progress",
-    "codeit_success_n","codeit_success_final_progress","codeit_success_mean_progress",
-    "codeit_failed_n", "codeit_failed_final_progress", "codeit_failed_mean_progress",
+    "human_success_n", "human_success_final_progress", "human_success_median_progress",
+    "human_failed_n",  "human_failed_final_progress",  "human_failed_median_progress",
+    "codeit_success_n","codeit_success_final_progress","codeit_success_median_progress",
+    "codeit_failed_n", "codeit_failed_final_progress", "codeit_failed_median_progress",
 ]
 summary_df[col_order].to_csv(OUT_SUMMARY, index=False)
 
