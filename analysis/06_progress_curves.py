@@ -61,6 +61,17 @@ def resample(curve, n=N_POINTS):
     x_new = np.linspace(0, 1, n)
     return np.interp(x_new, x_old, curve).tolist()
 
+def normalise_curve(curve):
+    """Shift and scale so curve starts at 0 and max possible end is 1.
+    norm(t) = (curve(t) - curve(0)) / (1 - curve(0))
+    If curve(0) == 1.0, the task is already solved from the start — return all-ones.
+    """
+    start = curve[0]
+    if start >= 1.0:
+        return [1.0] * len(curve)
+    denom = 1.0 - start
+    return [(v - start) / denom for v in curve]
+
 def mean_curves(curves):
     """Element-wise mean of a list of length-n lists. Returns None if empty."""
     if not curves:
@@ -90,7 +101,7 @@ for task_id in all_task_ids:
     human_success_curves = []
     human_failed_curves  = []
     for traj in human_traces.get(task_id, []):
-        curve = resample([progress(g, target) for g in traj["grids"]])
+        curve = normalise_curve(resample([progress(g, target) for g in traj["grids"]]))
         if traj["success"]:
             human_success_curves.append(curve)
         else:
@@ -102,7 +113,7 @@ for task_id in all_task_ids:
     for traj in codeit_traces.get(task_id, []):
         if not traj["grids"]:
             continue
-        curve = resample([progress(g, target) for g in traj["grids"]])
+        curve = normalise_curve(resample([progress(g, target) for g in traj["grids"]]))
         if traj["class"] == "success":
             codeit_success_curves.append(curve)
         else:

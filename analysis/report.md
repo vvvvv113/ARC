@@ -1,15 +1,20 @@
 # Analysis Report: Human vs CodeIt on ARC Evaluation Tasks
 
-**Date:** 2026-04-19  
+**Date:** 2026-04-23  
 **Data sources:**  
 - `human_data/data/summary_data.csv` — 15,736 attempt-level rows (800 tasks, 422+ participants)  
+- `human_data/data/data.csv` — 586,266 action-level rows with intermediate grid states  
 - `codelt/data/solutions_100.json` — CodeIt solutions after 100 meta-iterations  
 - Processed outputs in `analysis/processed/`
 
 **Scripts:**  
 - `analysis/01_human_vs_ai_difficulty.py` → `processed/task_difficulty.csv`  
 - `analysis/02_solving_effort_correlation.py` → `processed/solving_effort.csv`  
-- `analysis/03_task_overlap.py` → `processed/task_overlap.csv`
+- `analysis/03_task_overlap.py` → `processed/task_overlap.csv`  
+- `analysis/04_human_grid_traces.py` → `processed/human_traces.json`  
+- `analysis/05_codeit_grid_traces.py` → `processed/codeit_traces.json`  
+- `analysis/06_progress_curves.py` → `processed/progress_curves.json` + `processed/curves/*.png`  
+- `analysis/07_curve_metrics.py` → `processed/curve_metrics.csv` + scatter plots
 
 ---
 
@@ -110,6 +115,52 @@ The more meaningful finding is the **asymmetry**:
 
 ---
 
+## Q4: Progress Curves — How Do Humans and CodeIt Navigate the Grid State Space?
+
+### Method
+
+For each of the 59 tasks, intermediate grid states were captured during solving:
+- **Human traces** (script 04): each participant's last attempt; `test_output_grid` per action, deduplicated consecutive frames. 603 trajectories total (367 success, 236 failed).
+- **CodeIt traces** (script 05): DSL programs executed line-by-line; each line whose output is a valid grid is recorded. 29,278 programs traced across all three splits.
+
+**Progress** at each step = fraction of cells matching the target output grid.  
+**Normalisation**: each trajectory is resampled to 100 evenly-spaced points, then shifted and scaled so it starts at 0:  
+`norm(t) = (progress(t) − progress(0)) / (1 − progress(0))`  
+This removes the baseline advantage from tasks where the input grid already resembles the target.
+
+For each task, four mean curves are computed (any may be absent):
+1. Human success — participants whose last attempt solved the task
+2. Human failed — participants who never solved the task
+3. CodeIt success — programs with `test_performance = True`
+4. CodeIt failed — programs with `test_performance = False`
+
+**AUC** (area under the normalised curve, via trapezoidal integration) measures convergence speed: higher = faster progress.  
+**Steps-to-90%** = normalised x position where the mean curve first reaches 0.9; NaN if never reached.
+
+### Results
+
+**Spearman correlation between human_success AUC and codeit_success AUC across 59 tasks:**  
+ρ = **−0.018**, p = 0.89 → **no correlation**
+
+| Difficulty category | Human success AUC | CodeIt success AUC | Human failed AUC | CodeIt failed AUC |
+|---|---|---|---|---|
+| Easy for both | 0.465 | 0.383 | −0.015 | 0.121 |
+| Hard for both | 0.467 | 0.269 | −0.032 | 0.086 |
+| Only hard for AI | 0.468 | 0.114 | −0.026 | 0.075 |
+| Only hard for humans | 0.452 | 0.338 | — | 0.060 |
+
+### Interpretation
+
+**Human success AUC is nearly constant (~0.46–0.47) across all difficulty categories.** Once humans commit to a successful solve, their convergence speed is similar regardless of task difficulty quadrant.
+
+**CodeIt success AUC varies dramatically by category**: highest for tasks "Easy for both" (0.383), dropping to 0.114 for tasks "Only hard for AI". Even when CodeIt eventually produces a correct program for a hard task, it tends to converge on the solution grid more slowly — the programs make less incremental progress per DSL line.
+
+**Human failed AUC is negative (around −0.02 to −0.03)**: participants who never solve a task on average move the grid *away* from the target over time, likely because they reset the grid or explore wrong transformations. This is structurally different from CodeIt failed programs, which show small positive AUC (~0.06–0.12) — failed programs still tend to partially match the target even without fully solving it.
+
+**No correlation between human and CodeIt convergence speed** (ρ = −0.018): the speed at which humans solve a task is completely unrelated to how efficiently CodeIt's programs navigate to the answer. This suggests the two agents are using fundamentally different strategies — humans converge incrementally through interactive edits, while CodeIt's programs jump to the answer in a single execution with variable intermediate quality.
+
+---
+
 ## Summary
 
 | Question | Key Finding |
@@ -117,3 +168,4 @@ The more meaningful finding is the **asymmetry**:
 | **Q1** | Tasks split roughly evenly across 4 difficulty quadrants. 12 tasks are uniquely hard for humans (CodeIt solves them early); 13 are uniquely hard for AI (humans solve intuitively but DSL search takes long). |
 | **Q2** | Significant positive correlation between human action count and CodeIt iteration (ρ=0.44, p<0.001). Number of attempts is not correlated. Both agents share a common difficulty signal at the action/search level. |
 | **Q3** | Almost complete overlap: CodeIt solves 58/59 tasks that humans also solve. 337 human-solved tasks remain unsolved by CodeIt. Only 1 task (`31d5ba1a`) is uniquely solved by CodeIt. |
+| **Q4** | No correlation between human and CodeIt convergence speed (ρ=−0.018, p=0.89). Human success AUC is stable across difficulty categories (~0.46); CodeIt success AUC drops sharply for harder tasks (0.38 → 0.11). Human failed solvers go backward (negative AUC); CodeIt failed programs still partially converge. |
