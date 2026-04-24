@@ -1,8 +1,10 @@
 """
-Extract AUC and steps_to_90pct from normalised mean progress curves for each task.
+Extract AUC and steps_to_90pct from v2 normalised progress curves for each task.
 
-Curves in progress_curves.json are already normalised (start=0, end=1 for success groups).
-Metrics are computed from these normalised curves and saved to curve_metrics.csv.
+Reads progress_curves_v2.json (normalization: norm = (progress - task_baseline) /
+(1 - task_baseline), where task_baseline = progress(input_grid, target_grid)).
+
+Metrics are computed from median curves and saved to curve_metrics.csv.
 
 Two scatter plots compare human_success vs codeit_success across 59 tasks,
 coloured by difficulty_category.
@@ -17,7 +19,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 
 REPO       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CURVES_PATH = os.path.join(REPO, "analysis/processed/06_curves/progress_curves.json")
+CURVES_PATH = os.path.join(REPO, "analysis/processed/06_curves/progress_curves_v2.json")
 DIFF_PATH   = os.path.join(REPO, "analysis/processed/01_difficulty/task_difficulty.csv")
 OUT_CSV     = os.path.join(REPO, "analysis/processed/07_metrics/curve_metrics.csv")
 OUT_AUC     = os.path.join(REPO, "analysis/processed/07_metrics/auc_scatter.png")
@@ -50,18 +52,14 @@ diff_df = pd.read_csv(DIFF_PATH)[["task_id", "difficulty_category"]]
 # ── compute metrics ────────────────────────────────────────────────────────────
 
 rows = []
-groups = [
-    ("human_success",  "human_success_median",  "human_success_n"),
-    ("human_failed",   "human_failed_median",   "human_failed_n"),
-    ("codeit_success", "codeit_success_median", "codeit_success_n"),
-    ("codeit_failed",  "codeit_failed_median",  "codeit_failed_n"),
-]
+groups = ["human_success", "human_failed", "codeit_success", "codeit_failed"]
 
-for task_id, entry in curves.items():
+for task_id, task_data in curves["tasks"].items():
     row = {"task_id": task_id}
-    for name, median_key, n_key in groups:
-        c = entry.get(median_key)
-        n = entry.get(n_key, 0)
+    for name in groups:
+        grp = task_data.get(name) or {}
+        c = grp.get("median_curve")
+        n = grp.get("sample_size", 0)
         row[f"{name}_n"] = n
         if c is not None and n > 0:
             row[f"{name}_auc"]     = auc(c)

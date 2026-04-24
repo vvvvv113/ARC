@@ -41,7 +41,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 
 REPO        = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CURVES_PATH = os.path.join(REPO, "analysis/processed/06_curves/progress_curves.json")
+CURVES_PATH = os.path.join(REPO, "analysis/processed/06_curves/progress_curves_v2.json")
 DIFF_PATH   = os.path.join(REPO, "analysis/processed/01_difficulty/task_difficulty.csv")
 OUT_DIR     = os.path.join(REPO, "analysis/processed/08_curve_comparison")
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -54,10 +54,10 @@ OUT_PEARSON  = os.path.join(OUT_DIR, "pearson_stripplot.png")
 N_POINTS = 100
 
 PAIRS = {
-    "human_success_vs_codeit_success": ("human_success_median", "codeit_success_median"),
-    "human_failed_vs_codeit_failed":   ("human_failed_median",  "codeit_failed_median"),
-    "human_success_vs_human_failed":   ("human_success_median", "human_failed_median"),
-    "codeit_success_vs_codeit_failed": ("codeit_success_median","codeit_failed_median"),
+    "human_success_vs_codeit_success": ("human_success", "codeit_success"),
+    "human_failed_vs_codeit_failed":   ("human_failed",  "codeit_failed"),
+    "human_success_vs_human_failed":   ("human_success", "human_failed"),
+    "codeit_success_vs_codeit_failed": ("codeit_success","codeit_failed"),
 }
 
 PAIR_LABELS = {
@@ -85,13 +85,15 @@ diff_map = dict(zip(diff_df["task_id"], diff_df["difficulty_category"]))
 # ── per-task metrics ───────────────────────────────────────────────────────────
 
 rows = []
-for task_id, entry in curves.items():
+for task_id, task_data in curves["tasks"].items():
     diff_cat = diff_map.get(task_id, "Unknown")
     for pair_name, (key_a, key_b) in PAIRS.items():
-        ca = entry.get(key_a)
-        cb = entry.get(key_b)
-        n_a = entry.get(key_a.replace("_median", "_n"), 0)
-        n_b = entry.get(key_b.replace("_median", "_n"), 0)
+        grp_a = task_data.get(key_a) or {}
+        grp_b = task_data.get(key_b) or {}
+        ca = grp_a.get("median_curve")
+        cb = grp_b.get("median_curve")
+        n_a = grp_a.get("sample_size", 0)
+        n_b = grp_b.get("sample_size", 0)
         if ca is None or cb is None or n_a == 0 or n_b == 0:
             continue
         ca_arr = np.array(ca)
