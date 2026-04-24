@@ -22,6 +22,8 @@ DIFF_PATH   = os.path.join(REPO, "analysis/processed/task_difficulty.csv")
 OUT_CSV     = os.path.join(REPO, "analysis/processed/curve_metrics.csv")
 OUT_AUC     = os.path.join(REPO, "analysis/processed/auc_scatter.png")
 OUT_S90     = os.path.join(REPO, "analysis/processed/steps90_scatter.png")
+OUT_DIFF    = os.path.join(REPO, "analysis/processed/auc_by_difficulty.csv")
+OUT_CORR    = os.path.join(REPO, "analysis/processed/correlation_stats.csv")
 N_POINTS    = 100
 
 # ── helpers ────────────────────────────────────────────────────────────────────
@@ -89,18 +91,35 @@ valid = metrics[["human_success_auc", "codeit_success_auc"]].dropna()
 rho, p = stats.spearmanr(valid["human_success_auc"], valid["codeit_success_auc"])
 print(f"\nSpearman rho (human_success_auc ~ codeit_success_auc): {rho:+.3f}  p={p:.4f}  n={len(valid)}")
 
+corr_df = pd.DataFrame([{
+    "metric_x": "human_success_auc",
+    "metric_y": "codeit_success_auc",
+    "spearman_rho": round(rho, 4),
+    "p_value": round(p, 4),
+    "n": len(valid),
+}])
+corr_df.to_csv(OUT_CORR, index=False)
+print(f"Saved correlation stats -> {OUT_CORR}")
+
 # ── summary by difficulty_category ────────────────────────────────────────────
 
 print("\nMean AUC by difficulty category:")
 summary = (
     metrics.groupby("difficulty_category")[
         ["human_success_auc", "codeit_success_auc",
-         "human_failed_auc",  "codeit_failed_auc"]
+         "human_failed_auc",  "codeit_failed_auc",
+         "human_success_n",   "codeit_success_n",
+         "human_failed_n",    "codeit_failed_n"]
     ]
-    .mean()
+    .agg({"human_success_auc": "mean", "codeit_success_auc": "mean",
+          "human_failed_auc":  "mean", "codeit_failed_auc":  "mean",
+          "human_success_n":   "sum",  "codeit_success_n":   "sum",
+          "human_failed_n":    "sum",  "codeit_failed_n":    "sum"})
     .round(3)
 )
+summary.to_csv(OUT_DIFF)
 print(summary.to_string())
+print(f"Saved difficulty summary -> {OUT_DIFF}")
 
 # ── scatter plots ──────────────────────────────────────────────────────────────
 

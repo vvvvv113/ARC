@@ -21,6 +21,7 @@ Output:
 
 import json, os
 import numpy as np
+import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -31,6 +32,7 @@ CODEIT_PATH= os.path.join(REPO, "analysis/processed/codeit_traces.json")
 EVAL_DIR   = os.path.join(REPO, "codelt/data/evaluation")
 CURVES_DIR = os.path.join(REPO, "analysis/processed/curves")
 OUT_JSON   = os.path.join(REPO, "analysis/processed/progress_curves.json")
+OUT_SUMMARY= os.path.join(REPO, "analysis/processed/curve_summary.csv")
 N_POINTS   = 100   # x-axis resolution after resampling
 
 os.makedirs(CURVES_DIR, exist_ok=True)
@@ -165,6 +167,34 @@ for task_id in all_task_ids:
 with open(OUT_JSON, "w") as f:
     json.dump(all_curves, f, indent=2)
 
+# ── per-task summary CSV ───────────────────────────────────────────────────────
+summary_rows = []
+for task_id, entry in all_curves.items():
+    row = {"task_id": task_id}
+    for group, mean_key, n_key in [
+        ("human_success",  "human_success_mean",  "human_success_n"),
+        ("human_failed",   "human_failed_mean",   "human_failed_n"),
+        ("codeit_success", "codeit_success_mean", "codeit_success_n"),
+        ("codeit_failed",  "codeit_failed_mean",  "codeit_failed_n"),
+    ]:
+        n = entry.get(n_key, 0)
+        curve = entry.get(mean_key)
+        row[f"{group}_n"] = n
+        row[f"{group}_final_progress"] = round(curve[-1], 4) if curve and n > 0 else float("nan")
+        row[f"{group}_mean_progress"]  = round(float(np.mean(curve)), 4) if curve and n > 0 else float("nan")
+    summary_rows.append(row)
+
+summary_df = pd.DataFrame(summary_rows)
+col_order = [
+    "task_id",
+    "human_success_n", "human_success_final_progress", "human_success_mean_progress",
+    "human_failed_n",  "human_failed_final_progress",  "human_failed_mean_progress",
+    "codeit_success_n","codeit_success_final_progress","codeit_success_mean_progress",
+    "codeit_failed_n", "codeit_failed_final_progress", "codeit_failed_mean_progress",
+]
+summary_df[col_order].to_csv(OUT_SUMMARY, index=False)
+
 print(f"Plots saved to {CURVES_DIR}/")
 print(f"Curve data saved to {OUT_JSON}")
+print(f"Curve summary saved to {OUT_SUMMARY}")
 print(f"Tasks processed: {len(all_curves)}")
