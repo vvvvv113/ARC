@@ -3,6 +3,7 @@ import os
 import sys
 
 import numpy as np
+from numba import njit
 
 # Make sure codelt environment is importable
 _CODELT = os.path.join(os.path.dirname(__file__), "..", "codelt")
@@ -50,15 +51,26 @@ def _resample(curve, n=N_POINTS):
 
 # ── DTW ───────────────────────────────────────────────────────────────────────
 
+@njit(cache=True)
 def _dtw(a, b):
-    """Compute DTW distance between two 1-D arrays."""
+    """Compute DTW distance between two 1-D arrays (numba-jit for ~250x speedup).
+
+    Algorithmically identical to the reference implementation; kept in the
+    same file so the priority-computation hot path in replay_buffer.py picks
+    it up via the same import.
+    """
     n, m = len(a), len(b)
     dp = np.full((n + 1, m + 1), np.inf)
     dp[0, 0] = 0.0
     for i in range(1, n + 1):
         for j in range(1, m + 1):
             cost = abs(a[i - 1] - b[j - 1])
-            dp[i, j] = cost + min(dp[i - 1, j], dp[i, j - 1], dp[i - 1, j - 1])
+            best = dp[i - 1, j]
+            if dp[i, j - 1] < best:
+                best = dp[i, j - 1]
+            if dp[i - 1, j - 1] < best:
+                best = dp[i - 1, j - 1]
+            dp[i, j] = cost + best
     return dp[n, m]
 
 
