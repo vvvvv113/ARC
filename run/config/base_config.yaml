@@ -57,6 +57,8 @@ replay_buffer:
   mutated_file_end: 19_200
   mutated_file_interval: 9_600
   priority_in_mutated: True
+  human_lambda: 0.0  # set > 0 to enable DTW trajectory bias (0 = original CodeIt)
+  human_traces_path: './analysis/processed/human_traces.json'
 
 exit:
   solutions_interval: 1

@@ -12,6 +12,50 @@ from codeit.dsl.dsl import *
 from codeit.dsl.primitives import *
 
 
+def execute_candidate_program_with_trace(program_string, program_input, max_state_size=1_000, sig_alarm=False):
+    """Execute a DSL program line-by-line, recording the output grid after each line.
+
+    Returns (final_output, trace) where trace is a list of (line, grid) pairs.
+    If execution fails, returns (error_string, []).
+    """
+    program_string = program_string.rstrip("\n")
+    valid_syntax = check_syntax(program_string)
+    if valid_syntax != "Valid Syntax":
+        return valid_syntax, []
+    if not valid_grid(program_input):
+        return "Invalid Input", []
+    lines = program_string.split("\n")
+    memory = {"I": program_input}
+    trace = []
+    for line in lines:
+        var_name = None
+        try:
+            var_name, var_def = line.split("=")
+            environment = {**globals(), **memory}
+            state = execute_with_timeout(
+                func=eval_code,
+                timeout=0.25,
+                var_def=var_def.strip(),
+                environment=environment,
+                sig_alarm=sig_alarm,
+            )
+            if max_state_size:
+                if hasattr(state, "__len__"):
+                    if len(state) < max_state_size:
+                        memory[var_name.strip()] = state
+                else:
+                    memory[var_name.strip()] = state
+            else:
+                memory[var_name.strip()] = state
+            if "O" in memory and valid_grid(memory["O"]):
+                trace.append((line, memory["O"]))
+        except:
+            return f"Error evaluating {var_name}: {traceback.format_exc()}", []
+    if "O" not in memory:
+        return "No output variable defined", []
+    return memory["O"], trace
+
+
 def execute_candidate_program(program_string, program_input, max_state_size=1_000, sig_alarm=False):
     program_string = program_string.rstrip("\n")
     valid_syntax = check_syntax(program_string)

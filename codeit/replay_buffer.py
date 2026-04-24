@@ -6,6 +6,7 @@ import json
 
 import numpy as np
 
+from codeit.human_trajectories import build_human_curves, compute_dtw_similarity, get_program_curve
 from codeit.policy.tokenize import TextEncoder
 from codeit.policy.tokenize import tokenize_task as tokenize_task_seq_2_seq
 from codeit.task import Task, from_dict
@@ -72,6 +73,17 @@ class Buffer:
         self.sparse = config.data.dataloader.tokenizer.sparse
 
         self.priority_in_mutated = config.replay_buffer.priority_in_mutated
+        self.human_lambda = getattr(config.replay_buffer, "human_lambda", 0.0)
+        if self.human_lambda > 0:
+            human_traces_path = getattr(
+                config.replay_buffer,
+                "human_traces_path",
+                "./analysis/processed/human_traces.json",
+            )
+            print("Loading human trajectory curves...")
+            self.human_curves = build_human_curves(human_traces_path)
+        else:
+            self.human_curves = None
 
         self.programs = {"policy": set(), "mutated": set()}
 
@@ -246,6 +258,18 @@ class Buffer:
                 + distance * self.distance_penalty
                 + task_demonstration_performance * self.performance_penalty
             )
-            return total_weighted_value / total_penalty + 0.0000000000000000001
+            priority = total_weighted_value / total_penalty
+
+            if self.human_lambda > 0 and self.human_curves is not None:
+                task_id = task.parent_key.split("_")[0] if task.parent_key else task.task_key.split("_")[0]
+                human_curves_for_task = self.human_curves.get(task_id, [])
+                if human_curves_for_task and task.test_examples:
+                    input_grid = task.test_examples[0]["input"]
+                    target_grid = task.test_examples[0]["output"]
+                    program_curve = get_program_curve(task.program_lines, input_grid, target_grid)
+                    dtw_sim = compute_dtw_similarity(program_curve, human_curves_for_task)
+                    priority += self.human_lambda * dtw_sim
+
+            return priority + 0.0000000000000000001
         else:
             return 0
