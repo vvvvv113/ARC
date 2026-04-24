@@ -137,7 +137,7 @@ print(summary.to_string(index=False))
 
 def strip_plot(metric, ylabel, title, out_path):
     pair_names = list(PAIRS.keys())
-    fig, ax = plt.subplots(figsize=(11, 5))
+    fig, ax = plt.subplots(figsize=(13, 5))
     rng = np.random.default_rng(42)
 
     legend_added = set()
@@ -160,9 +160,9 @@ def strip_plot(metric, ylabel, title, out_path):
     ax.set_xticklabels([PAIR_LABELS[p] for p in pair_names], fontsize=9)
     ax.set_ylabel(ylabel)
     ax.set_title(title)
-    ax.legend(fontsize=7, loc="upper right")
+    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1.01, 1), borderaxespad=0)
     ax.grid(alpha=0.3, axis="y")
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0, 0.87, 1])
     plt.savefig(out_path, dpi=130)
     plt.close()
     print(f"Saved plot -> {out_path}")
