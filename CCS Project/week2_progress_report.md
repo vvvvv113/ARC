@@ -110,6 +110,34 @@ Max:      12.75%
 
 **Baseline: 12.00% ± 1.09%** (produced by `CCS Project/aggregate_baseline.py`; per-seed CSV at `CCS Project/baseline_results/multi_seed_summary.csv`).
 
+### Convergence check
+
+Per-seed `performance.csv` rsynced back from HPC scratch to
+`CCS Project/baseline_results/performance_seed{17,42,123}.csv`. Checked
+via `CCS Project/plot_baseline.py` using a tail-window criterion
+(last 20 iters of `cumulative_performance`; strict = fully flat, band = <1pp range):
+
+| Seed | Final iter | Final cum | Tail cum range | Status |
+|---|---|---|---|---|
+| 17  | 96 | 12.50% | 0.75pp | converged (noisy) |
+| 42  | 94 | 10.75% | 0.00pp | converged |
+| 123 | 95 | 12.75% | 1.00pp | **not fully converged** — stepwise rise through iter 89, only 7 iters of plateau before walltime |
+
+Seed 123 was truncated by walltime while still at the top of its step-rise,
+so its 12.75% is a **lower bound**. The reported baseline 12.00% ± 1.09% is
+therefore a slightly conservative estimate (expected mean if run to iter 99:
+~12.1%, well within the current ±σ). Direction of comparison vs paper
+(14.75% CodeIt, 10.5% Mutation d1) is unaffected.
+
+Visual: `CCS Project/baseline_results/baseline_multiseed_curves.png`
+(three-seed cumulative curves + mean ± 1σ band + paper reference lines).
+
+**Recommendation — do not re-run seed 123 yet.** Expected lift is <0.2pp
+(within σ); cost is 3.5 d HPC which is better spent on Week 3 interventions.
+Week 3 intervention experiments will use the same iter/walltime budget,
+so the truncation bias cancels in the intervention-vs-baseline comparison.
+Revisit only if an intervention shows <1pp effect size.
+
 ### Comparison with CodeIt paper — updated
 
 - Paper: 14.75% (CodeT5+ 220M, 100 iters)
