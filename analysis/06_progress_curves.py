@@ -8,15 +8,18 @@ Progress(grid, target) = fraction of cells with matching colour.
 X-axis is normalised to [0, 1] by resampling each trajectory to 100 points
 via linear interpolation, so curves of different lengths are comparable.
 
-Four mean curves per task (any may be absent — only present ones are plotted):
-  1. Human success   : participants whose last attempt solved the task
-  2. Human failed    : participants who never solved the task
-  3. CodeIt success  : programs with test_performance == True
-  4. CodeIt failed   : programs with test_performance == False
+For each task, per-trajectory curves are collected in two forms:
+  - raw      : resampled progress ∈ [0, 1], reflects absolute cell-match rate
+  - normalised: (raw - raw[0]) / (1 - raw[0]), so every trajectory starts at 0
 
-Output:
-  analysis/processed/progress_curves.json  — raw + mean curves per task
-  analysis/processed/curves/{task_id}.png  — one plot per task
+Both forms are aggregated via element-wise median across trajectories within
+each of four groups (human success / failed, codeit success / failed).
+
+Outputs:
+  06_curves/progress_curves.json     — median normalised + raw median curves
+  06_curves/curve_summary.csv        — per-task summary statistics
+  06_curves/curves/{task_id}.png     — normalised median curves (y starts at 0)
+  06_curves/origin_curves/{task_id}.png — raw median curves (y = absolute progress)
 """
 
 import json, os
@@ -30,12 +33,14 @@ REPO       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HUMAN_PATH = os.path.join(REPO, "analysis/processed/04_human_traces/human_traces.json")
 CODEIT_PATH= os.path.join(REPO, "analysis/processed/05_codeit_traces/codeit_traces.json")
 EVAL_DIR   = os.path.join(REPO, "codelt/data/evaluation")
-CURVES_DIR = os.path.join(REPO, "analysis/processed/06_curves/curves")
-OUT_JSON   = os.path.join(REPO, "analysis/processed/06_curves/progress_curves.json")
-OUT_SUMMARY= os.path.join(REPO, "analysis/processed/06_curves/curve_summary.csv")
-N_POINTS   = 100   # x-axis resolution after resampling
+CURVES_DIR  = os.path.join(REPO, "analysis/processed/06_curves/curves")
+ORIGIN_DIR  = os.path.join(REPO, "analysis/processed/06_curves/origin_curves")
+OUT_JSON    = os.path.join(REPO, "analysis/processed/06_curves/progress_curves.json")
+OUT_SUMMARY = os.path.join(REPO, "analysis/processed/06_curves/curve_summary.csv")
+N_POINTS    = 100   # x-axis resolution after resampling
 
 os.makedirs(CURVES_DIR, exist_ok=True)
+os.makedirs(ORIGIN_DIR, exist_ok=True)
 
 # ── helpers ────────────────────────────────────────────────────────────────────
 
@@ -106,38 +111,51 @@ all_curves   = {}
 for task_id in all_task_ids:
     target = load_target_grid(task_id)
 
-    # ── human curves ──────────────────────────────────────────────────────────
-    human_success_curves = []
-    human_failed_curves  = []
+    # ── collect raw + normalised curves for each group ────────────────────────
+    # raw       : resampled progress in [0,1] — absolute cell-match rate
+    # normalised: (raw - raw[0]) / (1 - raw[0]) — starts at 0 for every traj
+    human_success_norm, human_success_raw = [], []
+    human_failed_norm,  human_failed_raw  = [], []
     for traj in human_traces.get(task_id, []):
-        curve = normalise_curve(resample([progress(g, target) for g in traj["grids"]]))
+        raw = resample([progress(g, target) for g in traj["grids"]])
+        norm = normalise_curve(raw)
         if traj["success"]:
-            human_success_curves.append(curve)
+            human_success_raw.append(raw)
+            human_success_norm.append(norm)
         else:
-            human_failed_curves.append(curve)
+            human_failed_raw.append(raw)
+            human_failed_norm.append(norm)
 
-    # ── codeit curves ─────────────────────────────────────────────────────────
-    codeit_success_curves = []
-    codeit_failed_curves  = []
+    codeit_success_norm, codeit_success_raw = [], []
+    codeit_failed_norm,  codeit_failed_raw  = [], []
     for traj in codeit_traces.get(task_id, []):
         if not traj["grids"]:
             continue
-        curve = normalise_curve(resample([progress(g, target) for g in traj["grids"]]))
+        raw = resample([progress(g, target) for g in traj["grids"]])
+        norm = normalise_curve(raw)
         if traj["class"] == "success":
-            codeit_success_curves.append(curve)
+            codeit_success_raw.append(raw)
+            codeit_success_norm.append(norm)
         else:
-            codeit_failed_curves.append(curve)
+            codeit_failed_raw.append(raw)
+            codeit_failed_norm.append(norm)
 
-    # ── median curves (robust to extreme individual trajectories) ─────────────
     entry = {
-        "human_success_median":  median_curves(human_success_curves),
-        "human_failed_median":   median_curves(human_failed_curves),
-        "codeit_success_median": median_curves(codeit_success_curves),
-        "codeit_failed_median":  median_curves(codeit_failed_curves),
-        "human_success_n":  len(human_success_curves),
-        "human_failed_n":   len(human_failed_curves),
-        "codeit_success_n": len(codeit_success_curves),
-        "codeit_failed_n":  len(codeit_failed_curves),
+        # normalised median curves (primary analysis)
+        "human_success_median":  median_curves(human_success_norm),
+        "human_failed_median":   median_curves(human_failed_norm),
+        "codeit_success_median": median_curves(codeit_success_norm),
+        "codeit_failed_median":  median_curves(codeit_failed_norm),
+        # raw median curves (absolute progress, for reference)
+        "human_success_raw_median":  median_curves(human_success_raw),
+        "human_failed_raw_median":   median_curves(human_failed_raw),
+        "codeit_success_raw_median": median_curves(codeit_success_raw),
+        "codeit_failed_raw_median":  median_curves(codeit_failed_raw),
+        # trajectory counts
+        "human_success_n":  len(human_success_norm),
+        "human_failed_n":   len(human_failed_norm),
+        "codeit_success_n": len(codeit_success_norm),
+        "codeit_failed_n":  len(codeit_failed_norm),
     }
     all_curves[task_id] = entry
 
@@ -165,7 +183,6 @@ for task_id in all_task_ids:
         ax.set_xlabel("Normalised step (0=start, 1=end)")
         ax.set_ylabel("Normalised progress (median across trajectories)")
         ax.set_title(f"Task {task_id}")
-        # extend bottom below 0 when curves backtrack; add small padding
         bottom = min(y_min - 0.05, -0.05) if y_min < 0 else -0.05
         ax.set_ylim(bottom, 1.05)
         ax.axhline(0, color="black", linewidth=0.6, linestyle="--", alpha=0.4)
@@ -173,6 +190,32 @@ for task_id in all_task_ids:
         ax.grid(alpha=0.3)
         plt.tight_layout()
         plt.savefig(os.path.join(CURVES_DIR, f"{task_id}.png"), dpi=120)
+    plt.close()
+
+    # ── origin (raw) curves plot ──────────────────────────────────────────────
+    origin_spec = [
+        ("human_success_raw_median",  "human_success_n",  "tab:blue",   "Human success"),
+        ("human_failed_raw_median",   "human_failed_n",   "tab:cyan",   "Human failed"),
+        ("codeit_success_raw_median", "codeit_success_n", "tab:orange", "CodeIt success"),
+        ("codeit_failed_raw_median",  "codeit_failed_n",  "tab:red",    "CodeIt failed"),
+    ]
+    fig2, ax2 = plt.subplots(figsize=(7, 4))
+    any_origin = False
+    for key, n_key, color, label in origin_spec:
+        curve = entry[key]
+        n     = entry[n_key]
+        if curve is not None and n > 0:
+            ax2.plot(x, curve, color=color, label=f"{label} (n={n})", linewidth=2)
+            any_origin = True
+    if any_origin:
+        ax2.set_xlabel("Normalised step (0=start, 1=end)")
+        ax2.set_ylabel("Raw progress (fraction of cells correct)")
+        ax2.set_title(f"Task {task_id} — raw (no normalisation)")
+        ax2.set_ylim(-0.02, 1.05)
+        ax2.legend(fontsize=8)
+        ax2.grid(alpha=0.3)
+        plt.tight_layout()
+        plt.savefig(os.path.join(ORIGIN_DIR, f"{task_id}.png"), dpi=120)
     plt.close()
 
 # Save JSON
@@ -206,7 +249,8 @@ col_order = [
 ]
 summary_df[col_order].to_csv(OUT_SUMMARY, index=False)
 
-print(f"Plots saved to {CURVES_DIR}/")
-print(f"Curve data saved to {OUT_JSON}")
-print(f"Curve summary saved to {OUT_SUMMARY}")
+print(f"Normalised plots  -> {CURVES_DIR}/")
+print(f"Raw origin plots  -> {ORIGIN_DIR}/")
+print(f"Curve data        -> {OUT_JSON}")
+print(f"Curve summary     -> {OUT_SUMMARY}")
 print(f"Tasks processed: {len(all_curves)}")
