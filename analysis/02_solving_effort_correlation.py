@@ -23,8 +23,8 @@ from scipy import stats
 # ── paths ─────────────────────────────────────────────────────────────────────
 REPO    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SUMM    = os.path.join(REPO, "human_data/data/summary_data.csv")
-OUT     = os.path.join(os.path.dirname(os.path.abspath(__file__)), "processed")
-DIFF_IN = os.path.join(OUT, "task_difficulty.csv")   # produced by script 01
+OUT     = os.path.join(os.path.dirname(os.path.abspath(__file__)), "processed", "02_effort")
+DIFF_IN = os.path.join(os.path.dirname(os.path.abspath(__file__)), "processed", "01_difficulty", "task_difficulty.csv")
 
 # ── load data ─────────────────────────────────────────────────────────────────
 summ = pd.read_csv(SUMM)

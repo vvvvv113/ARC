@@ -17,8 +17,8 @@ import json, os
 import pandas as pd
 
 REPO    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA    = os.path.join(REPO, "analysis/processed/human_data_solved_tasks.csv")
-OUT     = os.path.join(REPO, "analysis/processed/human_traces.json")
+DATA    = os.path.join(REPO, "analysis/processed/00_shared_tasks/human_data_solved_tasks.csv")
+OUT     = os.path.join(REPO, "analysis/processed/04_human_traces/human_traces.json")
 
 df = pd.read_csv(DATA)
 
@@ -50,6 +50,7 @@ for (task_id, hashed_id), group in df.groupby(["task_id", "hashed_id"]):
     entry = {"hashed_id": hashed_id, "success": success, "grids": grids_dedup}
     traces.setdefault(task_id, []).append(entry)
 
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
 with open(OUT, "w") as f:
     json.dump(traces, f)
 

@@ -27,12 +27,12 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 REPO       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HUMAN_PATH = os.path.join(REPO, "analysis/processed/human_traces.json")
-CODEIT_PATH= os.path.join(REPO, "analysis/processed/codeit_traces.json")
+HUMAN_PATH = os.path.join(REPO, "analysis/processed/04_human_traces/human_traces.json")
+CODEIT_PATH= os.path.join(REPO, "analysis/processed/05_codeit_traces/codeit_traces.json")
 EVAL_DIR   = os.path.join(REPO, "codelt/data/evaluation")
-CURVES_DIR = os.path.join(REPO, "analysis/processed/curves")
-OUT_JSON   = os.path.join(REPO, "analysis/processed/progress_curves.json")
-OUT_SUMMARY= os.path.join(REPO, "analysis/processed/curve_summary.csv")
+CURVES_DIR = os.path.join(REPO, "analysis/processed/06_curves/curves")
+OUT_JSON   = os.path.join(REPO, "analysis/processed/06_curves/progress_curves.json")
+OUT_SUMMARY= os.path.join(REPO, "analysis/processed/06_curves/curve_summary.csv")
 N_POINTS   = 100   # x-axis resolution after resampling
 
 os.makedirs(CURVES_DIR, exist_ok=True)

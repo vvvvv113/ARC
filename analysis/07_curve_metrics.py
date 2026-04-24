@@ -17,13 +17,13 @@ import matplotlib.pyplot as plt
 from scipy import stats
 
 REPO       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CURVES_PATH = os.path.join(REPO, "analysis/processed/progress_curves.json")
-DIFF_PATH   = os.path.join(REPO, "analysis/processed/task_difficulty.csv")
-OUT_CSV     = os.path.join(REPO, "analysis/processed/curve_metrics.csv")
-OUT_AUC     = os.path.join(REPO, "analysis/processed/auc_scatter.png")
-OUT_S90     = os.path.join(REPO, "analysis/processed/steps90_scatter.png")
-OUT_DIFF    = os.path.join(REPO, "analysis/processed/auc_by_difficulty.csv")
-OUT_CORR    = os.path.join(REPO, "analysis/processed/correlation_stats.csv")
+CURVES_PATH = os.path.join(REPO, "analysis/processed/06_curves/progress_curves.json")
+DIFF_PATH   = os.path.join(REPO, "analysis/processed/01_difficulty/task_difficulty.csv")
+OUT_CSV     = os.path.join(REPO, "analysis/processed/07_metrics/curve_metrics.csv")
+OUT_AUC     = os.path.join(REPO, "analysis/processed/07_metrics/auc_scatter.png")
+OUT_S90     = os.path.join(REPO, "analysis/processed/07_metrics/steps90_scatter.png")
+OUT_DIFF    = os.path.join(REPO, "analysis/processed/07_metrics/auc_by_difficulty.csv")
+OUT_CORR    = os.path.join(REPO, "analysis/processed/07_metrics/correlation_stats.csv")
 N_POINTS    = 100
 
 # ── helpers ────────────────────────────────────────────────────────────────────
@@ -37,6 +37,8 @@ def steps_to_90(curve):
     x = np.linspace(0, 1, N_POINTS)
     hits = [x[i] for i, v in enumerate(curve) if v >= 0.9]
     return hits[0] if hits else float("nan")
+
+os.makedirs(os.path.dirname(OUT_CSV), exist_ok=True)
 
 # ── load data ──────────────────────────────────────────────────────────────────
 

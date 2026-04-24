@@ -29,7 +29,7 @@ from codeit.augment.mutate_grid import valid_grid
 
 SOL_PATH  = os.path.join(REPO, "codelt/data/solutions_100.json")
 EVAL_DIR  = os.path.join(REPO, "codelt/data/evaluation")
-OUT_PATH  = os.path.join(REPO, "analysis/processed/codeit_traces.json")
+OUT_PATH  = os.path.join(REPO, "analysis/processed/05_codeit_traces/codeit_traces.json")
 
 # Parse optional single-task flag
 parser = argparse.ArgumentParser()
@@ -125,6 +125,7 @@ for task_id in tasks_to_run:
           f"(success={sum(1 for t in task_traces if t['class']=='success')}, "
           f"failed={sum(1 for t in task_traces if t['class']=='failed')})")
 
+os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
 with open(OUT_PATH, "w") as f:
     json.dump(results, f)
 

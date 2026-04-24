@@ -23,7 +23,7 @@ import pandas as pd
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SUMM = os.path.join(REPO, "human_data/data/summary_data.csv")
 SOL  = os.path.join(REPO, "codelt/data/solutions_100.json")
-OUT  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "processed")
+OUT  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "processed", "03_overlap")
 os.makedirs(OUT, exist_ok=True)
 
 # ── CodeIt solved tasks ───────────────────────────────────────────────────────

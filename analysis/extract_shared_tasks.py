@@ -5,7 +5,7 @@ import pandas as pd
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOLUTIONS_PATH = os.path.join(REPO_ROOT, "codelt/data/solutions_100.json")
 HUMAN_DATA_PATH = os.path.join(REPO_ROOT, "human_data/data/data.csv")
-OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "processed")
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "processed", "00_shared_tasks")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
