@@ -3,7 +3,16 @@ import os
 import sys
 
 import numpy as np
-from numba import njit
+
+try:
+    from numba import njit
+    _NUMBA = True
+except ImportError:
+    _NUMBA = False
+    def njit(*args, **kwargs):
+        def decorator(fn):
+            return fn
+        return decorator
 
 # Make sure codelt environment is importable
 _CODELT = os.path.join(os.path.dirname(__file__), "..", "codelt")
