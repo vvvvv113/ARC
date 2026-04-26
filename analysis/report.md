@@ -239,6 +239,97 @@ Median L2 distance and Pearson r across tasks by difficulty category:
 
 ---
 
+## Q6: DTW Curve Comparison — Temporal Alignment and Strategy Similarity
+
+### Method
+
+Script 08 measured point-wise L2 distance and Pearson r, which assume the two curves are
+time-aligned (same normalised step = same moment for both agents). Dynamic Time Warping
+(DTW) relaxes this: it finds the optimal many-to-one temporal alignment that minimises
+cumulative squared difference between two sequences.
+
+**Key metric: DTW/L2 ratio ∈ [0, 1]**
+- Ratio ≈ 1 → temporal warping does not reduce the gap → agents differ in *level*, not timing
+- Ratio ≪ 1 → large L2 collapses under alignment → agents share the same *shape* but
+  operate at different paces ("strategy-equivalent, pace-different")
+
+**Implementation**: manual DP with Sakoe-Chiba band (window = ±10 time steps, 10% of N = 100)
+to prevent pathological many-to-one alignments. DTW ≤ L2 by construction.
+
+**Bootstrap CIs**: for pairs involving human groups, B = 200 resamples of individual
+v2-normalised trajectories; bootstrap 95% CI for DTW(median_A, median_B). Skipped for
+`codeit_success_vs_codeit_failed` (large stable n on both sides). CIs are not computed for
+tasks where either group has n < 3.
+
+**Reliability caveat**: Human per-task sample sizes are small (median n_a = 6 for
+`human_success_vs_codeit_success`). Among the 48 tasks with valid bootstrap CIs, **23 have
+CI width > DTW point estimate**, meaning the point estimate is not distinguishable from
+zero for those tasks. Aggregate findings (median across tasks within a category) are
+reliable; single-task DTW values for human n < 6 should be treated as indicative only.
+
+### Results
+
+**DTW/L2 ratio — human_success vs codeit_success**
+
+| Difficulty category | Median DTW | Median L2 | Median DTW/L2 | Interpretation |
+|---|---|---|---|---|
+| Easy for both | 1.95 | 2.77 | **0.70** | 30% of gap explained by pace difference |
+| Only hard for humans | 1.82 | 2.43 | **0.73** | 27% of gap explained by pace difference |
+| Hard for both | 4.27 | 5.15 | 0.86 | 14% gap reduction |
+| Only hard for AI | 6.61 | 7.24 | 0.91 | Only 9% gap reduction |
+
+**DTW/L2 ratio — codeit_success vs codeit_failed**
+
+| Difficulty category | Median DTW/L2 | Interpretation |
+|---|---|---|
+| Easy for both | 0.95 | Minimal warping benefit |
+| Hard for both | **0.65** | Significant temporal structure |
+| Only hard for AI | **0.67** | Significant temporal structure |
+| Only hard for humans | 0.94 | Minimal warping benefit |
+
+**DTW/L2 ratio — failure pairs**
+
+| Pair | Median DTW/L2 | Interpretation |
+|---|---|---|
+| human_failed vs codeit_failed | 0.997 | No temporal alignment helps |
+| human_success vs human_failed | 1.000 | No temporal alignment helps |
+
+### Interpretation
+
+**On easy and "only hard for humans" tasks, human and CodeIt success trajectories are
+strategy-equivalent but pace-different** (DTW/L2 ≈ 0.70–0.73). Once temporally aligned,
+30% of the absolute distance disappears — meaning both agents are tracing essentially the
+same path through the progress space, just at different speeds. This is the strongest
+evidence for a shared solution structure on tasks both agents handle well.
+
+**On "Only hard for AI" tasks, temporal alignment barely helps** (DTW/L2 = 0.91). Even
+after optimal temporal warping, 91% of the L2 gap remains. The two agents are not just
+operating at different paces — they are taking fundamentally different routes to the answer.
+This likely reflects that DSL synthesis must discover a radically different computational
+path from the human's intuitive visual approach.
+
+**Failure trajectories cannot be aligned** (DTW/L2 ≈ 1.0 for all failure pairs). Human
+failure and CodeIt failure are not merely offset in time; they move in incompatible
+directions. Similarly, human success and human failure diverge in direction, not just pace.
+Failure mode is not a slowed-down version of success — it is a qualitatively different
+trajectory.
+
+**CodeIt success vs failure shows the most temporal structure on hard tasks** (DTW/L2 ≈
+0.65–0.67 for "Hard for both" and "Only hard for AI"). On these tasks, successful and
+failed programs trace the same path but the failed program stalls partway — consistent
+with the Pearson r ≈ 0.97 finding from Q5. The combination of high Pearson r and low
+DTW/L2 confirms that CodeIt failure is structurally a truncated version of success, not a
+different strategy.
+
+**Note on baseline amplification**: task baseline (progress(input, target)) correlates
+strongly with DTW distance (Pearson r = 0.59, p < 0.001) and DTW/L2 ratio (r = 0.54).
+High-baseline tasks (input grid already close to target) inflate all distance metrics
+due to the v2 normalisation denominator (1 − baseline) approaching zero. The two extreme
+outliers in the scatter plots (human_success DTW > 70) correspond to high-baseline tasks.
+These tasks should be excluded from quantitative comparisons of distance magnitude.
+
+---
+
 ## Summary
 
 | Question | Key Finding |
@@ -248,3 +339,4 @@ Median L2 distance and Pearson r across tasks by difficulty category:
 | **Q3** | Almost complete overlap: CodeIt solves 58/59 tasks that humans also solve. 337 human-solved tasks remain unsolved by CodeIt. Only 1 task (`31d5ba1a`) is uniquely solved by CodeIt. |
 | **Q4** | Significant negative correlation between human and CodeIt convergence speed (ρ=−0.301, p=0.022): efficient human trajectories tend to coincide with inefficient CodeIt programs, and vice versa. Human success AUC varies strongly by category (−0.044 on "Only hard for AI" to +0.614 on "Only hard for humans"); CodeIt success AUC drops monotonically from 0.41 to 0.14. Human failed AUC is severely negative (−0.681) on "Only hard for AI" tasks due to blank-canvas starting point. |
 | **Q5** | Human and CodeIt success curves share similar trend shapes (Pearson r ≈ 0.68–0.89) but grow far apart in absolute terms on harder tasks (L2 up to 7.24 on "Only hard for AI"). Under v2 normalisation, human success vs failure show positive Pearson r (both groups start from the same blank-canvas baseline), differing in endpoint rather than direction. CodeIt success vs failure are nearly identical in shape (r ≈ 0.94) — they differ in endpoint, not strategy. |
+| **Q6** | DTW/L2 ratio reveals that human and CodeIt success share strategy (ratio ≈ 0.70) on easy tasks but diverge in route on "Only hard for AI" tasks (ratio ≈ 0.91). Failure pairs show DTW/L2 ≈ 1.0 — failure is not a slowed-down success. CodeIt success vs failure on hard tasks (ratio ≈ 0.66) is structurally a truncated success path, not a different strategy. Bootstrap CIs confirm instability for human n < 6; aggregate-level findings are reliable. |
