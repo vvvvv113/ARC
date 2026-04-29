@@ -1,0 +1,267 @@
+==========================================
+  SEED 17
+==========================================
+Loading human trajectory curves...
+Loaded curves for 58 tasks
+
+Evaluating baseline...
+
+==================================================
+  Baseline (λ=0)
+==================================================
+  Tasks evaluated:        42
+  Solve rate:             1.000
+  Mean DTW similarity:    0.5153
+  Median DTW similarity:  0.5269
+  Wasserstein distance:   0.2039  (lower = more human-like distribution)
+
+Evaluating biased...
+
+==================================================
+  Human-biased (λ>0)
+==================================================
+  Tasks evaluated:        37
+  Solve rate:             1.000
+  Mean DTW similarity:    0.5259
+  Median DTW similarity:  0.5341
+  Wasserstein distance:   0.2043  (lower = more human-like distribution)
+
+==================================================
+  Delta (biased - baseline)
+==================================================
+  Solve rate delta:       +0.000
+  Mean DTW sim delta:     +0.0107  (better)
+  Median DTW sim delta:   +0.0071  (better)
+  Wasserstein delta:      +0.0004  (worse)
+
+==================================================
+  Hypothesis Test (Mann-Whitney U)
+==================================================
+  H0: biased DTW sim <= baseline DTW sim
+  U statistic: 95780608.5
+  p-value:     0.0017
+  Result:      SIGNIFICANT (p < 0.05) — bias improved human-likeness
+
+==================================================
+  Per-task DTW sim (biased - baseline)
+==================================================
+  00576224  -0.0019  [Unknown]
+  070dd51e  +0.0000  [Unknown]
+  0c786b71  +0.0000  [Unknown]
+  0c9aba6e  +0.0000  [Unknown]
+  12eac192  +0.0000  [Unknown]
+  195ba7dc  +0.0000  [Unknown]
+  27f8ce4f  +0.0272  [Unknown]
+  3194b014  +0.0000  [Unknown]
+  34b99a2b  -0.0000  [Unknown]
+  48f8583b  +0.0000  [Unknown]
+  506d28a5  +0.0000  [Unknown]
+  59341089  -0.0050  [Unknown]
+  5d2a5c43  +0.0002  [Unknown]
+  60c09cac  +0.0010  [Unknown]
+  62ab2642  -0.0018  [Unknown]
+  66f2d22f  +0.0000  [Unknown]
+  68b67ca3  -0.0003  [Unknown]
+  7039b2d7  +0.0000  [Unknown]
+  7953d61e  +0.0000  [Unknown]
+  833dafe3  -0.0142  [Unknown]
+  84db8fc4  -0.0000  [Unknown]
+  84f2aca1  -0.0005  [Unknown]
+  929ab4e9  +0.0000  [Unknown]
+  bc4146bd  +0.0000  [Unknown]
+  be03b35f  +0.0000  [Unknown]
+  d19f7514  +0.0000  [Unknown]
+  e0fb7511  -0.0000  [Unknown]
+  e133d23d  +0.0000  [Unknown]
+  e345f17b  +0.0007  [Unknown]
+  e66aafb8  -0.1595  [Unknown]
+  e7639916  +0.0023  [Unknown]
+  ed98d772  +0.0000  [Unknown]
+  f0df5ff0  -0.0009  [Unknown]
+  f4081712  -0.0000  [Unknown]
+  f5aa3634  -0.0008  [Unknown]
+
+  Mean per-task delta: -0.0044
+  Tasks improved: 13/35
+
+Generating plots -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/dtw_distribution.png
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/per_task_delta.png
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/mean_progress_curves.png
+
+==========================================
+  SEED 42
+==========================================
+Loading human trajectory curves...
+Loaded curves for 58 tasks
+
+Evaluating baseline...
+
+==================================================
+  Baseline (λ=0)
+==================================================
+  Tasks evaluated:        34
+  Solve rate:             1.000
+  Mean DTW similarity:    0.4924
+  Median DTW similarity:  0.4271
+  Wasserstein distance:   0.2023  (lower = more human-like distribution)
+
+Evaluating biased...
+
+==================================================
+  Human-biased (λ>0)
+==================================================
+  Tasks evaluated:        33
+  Solve rate:             1.000
+  Mean DTW similarity:    0.4959
+  Median DTW similarity:  0.4271
+  Wasserstein distance:   0.2103  (lower = more human-like distribution)
+
+==================================================
+  Delta (biased - baseline)
+==================================================
+  Solve rate delta:       +0.000
+  Mean DTW sim delta:     +0.0035  (better)
+  Median DTW sim delta:   +0.0000  (worse)
+  Wasserstein delta:      +0.0080  (worse)
+
+==================================================
+  Hypothesis Test (Mann-Whitney U)
+==================================================
+  H0: biased DTW sim <= baseline DTW sim
+  U statistic: 75162813.5
+  p-value:     0.5043
+  Result:      NOT significant (p >= 0.05)
+
+==================================================
+  Per-task DTW sim (biased - baseline)
+==================================================
+  070dd51e  +0.0236  [Unknown]
+  0c786b71  +0.0000  [Unknown]
+  0c9aba6e  -0.0000  [Unknown]
+  195ba7dc  +0.0000  [Unknown]
+  27f8ce4f  +0.0000  [Unknown]
+  3194b014  -0.0082  [Unknown]
+  48f8583b  +0.0000  [Unknown]
+  506d28a5  -0.0000  [Unknown]
+  59341089  -0.0000  [Unknown]
+  5d2a5c43  +0.0000  [Unknown]
+  60c09cac  -0.0012  [Unknown]
+  66f2d22f  +0.0000  [Unknown]
+  67b4a34d  -0.0000  [Unknown]
+  68b67ca3  +0.0017  [Unknown]
+  7039b2d7  +0.0000  [Unknown]
+  7953d61e  -0.0000  [Unknown]
+  833dafe3  +0.0024  [Unknown]
+  9a4bb226  +0.3559  [Unknown]
+  bc4146bd  +0.0000  [Unknown]
+  be03b35f  +0.0018  [Unknown]
+  d19f7514  +0.0000  [Unknown]
+  d4b1c2b1  +0.0000  [Unknown]
+  e0fb7511  -0.0000  [Unknown]
+  e133d23d  -0.0001  [Unknown]
+  e345f17b  -0.0110  [Unknown]
+  e66aafb8  +0.0009  [Unknown]
+  e7639916  -0.0194  [Unknown]
+  ed98d772  +0.0000  [Unknown]
+  f0df5ff0  -0.0019  [Unknown]
+
+  Mean per-task delta: +0.0119
+  Tasks improved: 12/29
+
+Generating plots -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/dtw_distribution.png
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/per_task_delta.png
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/mean_progress_curves.png
+
+==========================================
+  SEED 123
+==========================================
+Loading human trajectory curves...
+Loaded curves for 58 tasks
+
+Evaluating baseline...
+
+==================================================
+  Baseline (λ=0)
+==================================================
+  Tasks evaluated:        40
+  Solve rate:             1.000
+  Mean DTW similarity:    0.5043
+  Median DTW similarity:  0.4306
+  Wasserstein distance:   0.2033  (lower = more human-like distribution)
+
+Evaluating biased...
+
+==================================================
+  Human-biased (λ>0)
+==================================================
+  Tasks evaluated:        36
+  Solve rate:             1.000
+  Mean DTW similarity:    0.4926
+  Median DTW similarity:  0.4271
+  Wasserstein distance:   0.1993  (lower = more human-like distribution)
+
+==================================================
+  Delta (biased - baseline)
+==================================================
+  Solve rate delta:       +0.000
+  Mean DTW sim delta:     -0.0117  (worse)
+  Median DTW sim delta:   -0.0036  (worse)
+  Wasserstein delta:      -0.0041  (better)
+
+==================================================
+  Hypothesis Test (Mann-Whitney U)
+==================================================
+  H0: biased DTW sim <= baseline DTW sim
+  U statistic: 87676244.0
+  p-value:     0.9999
+  Result:      NOT significant (p >= 0.05)
+
+==================================================
+  Per-task DTW sim (biased - baseline)
+==================================================
+  00576224  -0.0035  [Unknown]
+  070dd51e  -0.0000  [Unknown]
+  0c786b71  +0.0000  [Unknown]
+  0c9aba6e  +0.0000  [Unknown]
+  195ba7dc  +0.0000  [Unknown]
+  27f8ce4f  +0.0006  [Unknown]
+  3194b014  -0.0790  [Unknown]
+  32e9702f  -0.0280  [Unknown]
+  48f8583b  +0.0018  [Unknown]
+  506d28a5  +0.0000  [Unknown]
+  59341089  +0.0005  [Unknown]
+  5d2a5c43  -0.0000  [Unknown]
+  60c09cac  -0.0055  [Unknown]
+  62ab2642  +0.0000  [Unknown]
+  66f2d22f  +0.0000  [Unknown]
+  67b4a34d  -0.0043  [Unknown]
+  68b67ca3  -0.0024  [Unknown]
+  7039b2d7  +0.0000  [Unknown]
+  7953d61e  +0.0000  [Unknown]
+  833dafe3  +0.0002  [Unknown]
+  84db8fc4  -0.0000  [Unknown]
+  84f2aca1  -0.0000  [Unknown]
+  9a4bb226  -0.2480  [Unknown]
+  bc4146bd  +0.0000  [Unknown]
+  cd3c21df  +0.7075  [Unknown]
+  d19f7514  -0.0000  [Unknown]
+  e0fb7511  -0.0002  [Unknown]
+  e133d23d  +0.0000  [Unknown]
+  e345f17b  -0.0011  [Unknown]
+  e66aafb8  -0.0085  [Unknown]
+  e7639916  +0.0254  [Unknown]
+  ed98d772  +0.0000  [Unknown]
+  f0df5ff0  -0.0010  [Unknown]
+  f4081712  -0.0041  [Unknown]
+  f5aa3634  -0.0000  [Unknown]
+
+  Mean per-task delta: +0.0100
+  Tasks improved: 12/35
+
+Generating plots -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/dtw_distribution.png
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/per_task_delta.png
+  Saved -> /home/cy2941/codeit-3/codeit-1/analysis/processed/method2_eval/mean_progress_curves.png
+
