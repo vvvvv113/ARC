@@ -1,0 +1,1078 @@
+codeit env activated. python: /scratch/cy2941/codeit_env/bin/python
+Sun Apr 19 22:18:14 2026       
+|=========================================+========================+======================|
+|=========================================================================================|
+--- starting GPU keepalive ---
+keepalive PID=3380531
+--- starting codeit 99-iter run on H200 (seed=17) ---
+========== Configuration ==========
+loading tasks from file path: ./data/evaluation/
+loading tasks from file path: ./data/training/
+loaded tasks from file ./data/mutated_tasks_train_
+added 400 train tasks
+added 16763 mutated train tasks
+max train input length: 1024
+***/scratch/cy2941/codeit_outputs/h200_full_6686251_seed17/last.ckpt.dir does not exist so initialising base model ***
+initialising trainer
+first inference example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+6x6 background=6 8=4,4 4,0 0,4 2,1 0,0 4,2 2,3 0,2 2,5 4=5,5 3,4 1,5 1,1 5,1 3,0 5,3 3,2 1,3|6x6 background=9 3=5,5 3,4 1,5 1,1 5,1 3,0 5,3 3,2 1,3 4=1,2 3,1 5,4 1,4 3,3 5,0 1,0 3,5 5,2 7=4,4 4,0 0,4 2,1 0,0 4,2 2,3 0,2 2,5
+first inference example labels <s></s>
+******** iteration 0 ********
+first training example inputs <s>12x12 background=0 8=2,9 3,8 3,9 4,10 2=7,4 7,6 8,4 6,5 7,5 6,4 7,3 3=1,2 3,4 4,1 2,3 3,3 2,2 3,2 1,3|12x12 background=0 1=2,7 1,8 3,10 2,9 1,7 3,9 1,10 4,8 2,8 2=8,2 8,3 9,3 7,3 7=9,10 10,10 9,8 9,9 10,9 8,10|12x12 background=0 1=3,8 3,9 4,8 4,9 2,8 2=2,3 2,4 3,3 2,2 3,1 3,2 1,3 4=8,4 7,7 9,3 8,7 10,4 9,6 9,5 8,3 7,6 8,6 7,5 9,7 8,5 9,4
+3x1 background=8 2=1,0 3=0,0|3x1 background=1 2=2,0 7=1,0|3x1 background=1 2=1,0 4=0,0
+first training example labels <s>x1 = objects(I, F, T, T)
+x2 = order(x1, size)
+x3 = apply(color, x2)
+x4 = rbind(canvas, UNITY)
+x5 = apply(x4, x3)
+x6 = merge(x5)
+O = hmirror(x6)</s>
+loading model from hugging face Salesforce/codet5p-220m
+                                   
+Epoch 0: 100%|██████████| 625/625 [03:50<00:00,  2.71it/s, v_num=0, train/loss_step=1.150, train/loss_epoch=1.930]
+Training:   0%|          | 0/625 [00:00<?, ?it/s]
+******** iteration 1 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 1: 100%|██████████| 633/633 [03:51<00:00,  2.73it/s, v_num=0, train/loss_step=0.737, train/loss_epoch=0.896]
+Training:   0%|          | 0/633 [00:00<?, ?it/s]
+******** iteration 2 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 2: 100%|██████████| 710/710 [04:25<00:00,  2.67it/s, v_num=0, train/loss_step=0.645, train/loss_epoch=0.676]
+Training:   0%|          | 0/710 [00:00<?, ?it/s]
+******** iteration 3 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 3: 100%|██████████| 891/891 [05:33<00:00,  2.67it/s, v_num=0, train/loss_step=0.498, train/loss_epoch=0.545]
+Training:   0%|          | 0/891 [00:00<?, ?it/s]
+******** iteration 4 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 4: 100%|██████████| 1071/1071 [06:40<00:00,  2.67it/s, v_num=0, train/loss_step=0.413, train/loss_epoch=0.467]
+Training:   0%|          | 0/1071 [00:00<?, ?it/s]
+******** iteration 5 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 5: 100%|██████████| 1235/1235 [07:39<00:00,  2.69it/s, v_num=0, train/loss_step=0.390, train/loss_epoch=0.396]
+Training:   0%|          | 0/1235 [00:00<?, ?it/s]
+******** iteration 6 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 6: 100%|██████████| 1420/1420 [08:45<00:00,  2.70it/s, v_num=0, train/loss_step=0.402, train/loss_epoch=0.332]
+Training:   0%|          | 0/1420 [00:00<?, ?it/s]
+******** iteration 7 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 7: 100%|██████████| 1569/1569 [09:37<00:00,  2.72it/s, v_num=0, train/loss_step=0.321, train/loss_epoch=0.296]
+Training:   0%|          | 0/1569 [00:00<?, ?it/s]
+******** iteration 8 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 8: 100%|██████████| 1698/1698 [10:24<00:00,  2.72it/s, v_num=0, train/loss_step=0.148, train/loss_epoch=0.261]
+Training:   0%|          | 0/1698 [00:00<?, ?it/s]
+eval_code took longer than 0.25 seconds
+eval_code took longer than 0.25 seconds
+eval_code took longer than 0.25 seconds
+eval_code took longer than 0.25 seconds
+******** iteration 9 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 9: 100%|██████████| 1828/1828 [11:12<00:00,  2.72it/s, v_num=0, train/loss_step=0.285, train/loss_epoch=0.246]
+Training:   0%|          | 0/1828 [00:00<?, ?it/s]
+******** iteration 10 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 10: 100%|██████████| 1952/1952 [11:58<00:00,  2.72it/s, v_num=0, train/loss_step=0.246, train/loss_epoch=0.233]
+Training:   0%|          | 0/1952 [00:00<?, ?it/s]
+******** iteration 11 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 11: 100%|██████████| 2148/2148 [13:15<00:00,  2.70it/s, v_num=0, train/loss_step=0.428, train/loss_epoch=0.224]
+Training:   0%|          | 0/2148 [00:00<?, ?it/s]
+******** iteration 12 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 12: 100%|██████████| 2411/2411 [14:51<00:00,  2.70it/s, v_num=0, train/loss_step=0.196, train/loss_epoch=0.216]
+Training:   0%|          | 0/2411 [00:00<?, ?it/s]
+eval_code took longer than 0.25 seconds
+eval_code took longer than 0.25 seconds
+******** iteration 13 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 13: 100%|██████████| 2709/2709 [16:50<00:00,  2.68it/s, v_num=0, train/loss_step=0.243, train/loss_epoch=0.206]
+Training:   0%|          | 0/2709 [00:00<?, ?it/s]
+******** iteration 14 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 14: 100%|██████████| 3016/3016 [18:46<00:00,  2.68it/s, v_num=0, train/loss_step=0.156, train/loss_epoch=0.198]
+Training:   0%|          | 0/3016 [00:00<?, ?it/s]
+eval_code took longer than 0.25 seconds
+eval_code took longer than 0.25 seconds
+eval_code took longer than 0.25 seconds
+******** iteration 15 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 15: 100%|██████████| 3333/3333 [20:48<00:00,  2.67it/s, v_num=0, train/loss_step=0.252, train/loss_epoch=0.191]
+Training:   0%|          | 0/3333 [00:00<?, ?it/s]
+******** iteration 16 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 16: 100%|██████████| 3619/3619 [22:38<00:00,  2.66it/s, v_num=0, train/loss_step=0.168, train/loss_epoch=0.185]
+Training:   0%|          | 0/3619 [00:00<?, ?it/s]
+******** iteration 17 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 17: 100%|██████████| 3909/3909 [24:28<00:00,  2.66it/s, v_num=0, train/loss_step=0.140, train/loss_epoch=0.181]
+Training:   0%|          | 0/3909 [00:00<?, ?it/s]
+******** iteration 18 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 18: 100%|██████████| 4202/4202 [26:21<00:00,  2.66it/s, v_num=0, train/loss_step=0.128, train/loss_epoch=0.175]
+Training:   0%|          | 0/4202 [00:00<?, ?it/s]
+******** iteration 19 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 19: 100%|██████████| 4469/4469 [28:03<00:00,  2.66it/s, v_num=0, train/loss_step=0.215, train/loss_epoch=0.171]
+Training:   0%|          | 0/4469 [00:00<?, ?it/s]
+******** iteration 20 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 20: 100%|██████████| 4756/4756 [29:48<00:00,  2.66it/s, v_num=0, train/loss_step=0.272, train/loss_epoch=0.166]
+Training:   0%|          | 0/4756 [00:00<?, ?it/s]
+******** iteration 21 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 21: 100%|██████████| 5054/5054 [31:53<00:00,  2.64it/s, v_num=0, train/loss_step=0.217, train/loss_epoch=0.161]
+Training:   0%|          | 0/5054 [00:00<?, ?it/s]
+******** iteration 22 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 22: 100%|██████████| 5336/5336 [33:39<00:00,  2.64it/s, v_num=0, train/loss_step=0.191, train/loss_epoch=0.157]
+Training:   0%|          | 0/5336 [00:00<?, ?it/s]
+******** iteration 23 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 23: 100%|██████████| 5611/5611 [35:28<00:00,  2.64it/s, v_num=0, train/loss_step=0.142, train/loss_epoch=0.154]
+Training:   0%|          | 0/5611 [00:00<?, ?it/s]
+******** iteration 24 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 24: 100%|██████████| 5884/5884 [37:21<00:00,  2.62it/s, v_num=0, train/loss_step=0.172, train/loss_epoch=0.150]
+Training:   0%|          | 0/5884 [00:00<?, ?it/s]
+******** iteration 25 ********
+first training example inputs <s>2x2 background=6 8=0,0 4=1,1|2x2 background=9 3=1,1 4=1,0 7=0,0
+1x2 background=8 6=0,1|1x2 background=9 7=0,0
+first training example labels <s>O = tophalf(I)</s>
+                                   
+Epoch 25: 100%|██████████| 6169/6169 [39:05<00:00,  2.63it/s, v_num=0, train/loss_step=0.239, train/loss_epoch=0.146]
+Training:   0%|          | 0/6169 [00:00<?, ?it/s]
+******** iteration 26 ********
+first training example inputs <s>15x15 background=0 1=8,8 6,8 7,8 2=7,9 7,10 8,10 3=10,4 9,2 8,9 6,10 10,3 6,9 11,4 10,2 4=4,10 2,9 3,9 4,9 2,10 6=11,2 11,3 9,3 9,4 7=3,8 3,10 4,8 2,8 8=3,2 3,3 4,2 4,3 9=4,4 2,3 2,4 3,4 2,2|15x15 background=0 1=9,7 10,8 9,9 2=12,4 10,5 11,5 10,4 11,3 11,4 3=12,5 12,3 10,3 4=5,9 6,8 5,8 5=4,4 2,3 2,4 4,5 2,5 6=3,3 4,3 7=11,7 9,8 10,9 11,8 11,9 10,7 8=3,4 3,5 9=4,10 5,10 6,10 4,8 4,9 6,9|15x15 background=0 1=4,10 3,9 3,10 2,8 2=2,10 4,8 3=7,4 8,3 9,4 9,3 8,2 7,3 4=9,10 10,10 10,8 9,9 11,8 11,9 5=2,4 2,2 3,2 1,3 1,4 6=4,9 2,9 3,8 7=2,3 1,2 3,3 3,4 8=8,4 9,2 7,2 9=10,9 9,8 11,10
+3x2 background=9 8=1,0 2,0|3x2 background=7 1=0,1 1,0|3x3 background=1 2=0,2 2,0 6=0,1 1,0 2,1
+first training example labels <s>x1 = objects(I, F, F, T)
+x2 = first(x1)
+x3 = subgrid(x2, I)
+x4 = dedupe(x3)
+x5 = rot270(x3)
+x6 = dedupe(x5)
+O = rot90(x6)</s>
+                                   
+Epoch 26: 100%|██████████| 6250/6250 [39:35<00:00,  2.63it/s, v_num=0, train/loss_step=0.230, train/loss_epoch=0.143]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 27 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = cellwise(I, I, TEN)
+O = upscale(x1, TWO)</s>
+                                   
+Epoch 27: 100%|██████████| 6250/6250 [39:35<00:00,  2.63it/s, v_num=0, train/loss_step=0.105, train/loss_epoch=0.140]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+eval_code took longer than 0.25 seconds
+******** iteration 28 ********
+first training example inputs <s>4x9 background=0 1=1,0 2,1 3,1 3,2 0,3 2,0 3,0 2=0,7 3,8 2,7 1,8 0,6 1,7 0,5 1,6 2,8 5=2,4 0,4 3,4 1,4|4x9 background=0 1=1,0 2,1 3,1 3,2 0,3 2,0 3,0 2=2,7 1,5 3,7 0,6 2,6 0,5 3,6 1,6 5=2,4 0,4 3,4 1,4|4x9 background=0 1=0,1 0,0 3,1 2,0 3,0 2,3 1,0 1,3 3=0,7 3,8 2,7 3,7 1,7 2,6 1,6 0,8 5=2,4 0,4 3,4 1,4|4x9 background=0 1=0,1 0,0 3,1 0,3 2,0 3,0 2,3 0,2 3,3 1,0 3,2 1,3 5=2,4 0,4 3,4 1,4 6=1,6 1,7 2,6 2,7|4x9 background=0 1=0,1 0,0 3,1 0,3 2,0 3,0 2,3 0,2 3,3 1,0 3,2 1,3 2=1,6 1,5 0,5 0,6 5=2,4 0,4 3,4 1,4|4x9 background=0 1=0,1 0,0 0,3 2,0 3,0 2,3 0,2 3,3 1,0 1,3 3=0,5 1,5 1,6 2,5 0,6 5=2,4 0,4 3,4 1,4|4x9 background=0 1=0,1 0,0 0,3 2,0 3,0 2,3 0,2 2,2 1,0 3,2 5=2,4 0,4 3,4 1,4 7=3,8 1,7 2,6 3,6 1,6 1,8
+4x4 background=0 1=1,0 2,1 3,1 3,2 0,3 2,0 3,0|4x4 background=0 1=1,0 2,1 3,1 3,2 0,3 2,0 3,0|4x4 background=0 1=0,1 0,0 3,1 2,0 3,0 2,3 1,0 1,3|4x4 background=1 0=1,1 1,2 2,1 2,2|4x4 background=1 0=1,1 1,2 2,1 2,2|4x4 background=1 0=1,2 2,1 2,2 3,1 1,1 3,2|4x4 background=1 0=1,2 3,3 2,1 3,1 1,1 1,3
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, ZERO)
+x3 = colorfilter(x1, NINE)
+x4 = merge(x2)
+x5 = merge(x3)
+x6 = lefthalf(I)
+O = paint(x6, x4)</s>
+                                   
+Epoch 28: 100%|██████████| 6250/6250 [39:41<00:00,  2.62it/s, v_num=0, train/loss_step=0.118, train/loss_epoch=0.137]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 29 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = ofcolor(I, TWO)
+x2 = ofcolor(I, ZERO)
+x3 = combine(x1, x2)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 29: 100%|██████████| 6250/6250 [39:50<00:00,  2.61it/s, v_num=0, train/loss_step=0.139, train/loss_epoch=0.134]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 30 ********
+first training example inputs <s>12x18 background=0 1=9,2 3,16 5,16 10,6 2,2 10,3 1,6 10,9 1,3 1,9 10,12 10,15 1,12 6,2 1,15 7,16 4,2 8,2 10,2 9,16 10,5 1,2 10,11 10,8 1,5 1,11 10,14 1,8 1,14 2,16 6,16 3,2 5,2 4,16 10,4 8,16 1,4 10,7 10,13 10,10 1,7 1,13 10,16 1,10 1,16 7,2 2=8,8 3,4 3,7 5,4 3,10 6,4 8,9 8,6 3,5 3,11 4,4 7,4 3,8 5,11 8,4 6,11 8,7 8,10 3,9 3,6 4,11 7,11 8,5 8,11 3=3,13 3,14 4,13 4,14 8=6,6 6,7 5,6 5,7|22x28 background=0 1=12,7 6,21 7,26 12,13 4,21 8,9 8,12 8,21 13,11 9,26 11,23 10,21 13,8 11,26 1,21 2,26 1,24 6,26 9,7 3,21 8,11 4,26 8,8 5,21 11,7 9,13 13,7 11,13 8,26 13,10 11,22 13,13 10,26 1,23 11,25 1,26 7,21 8,7 3,26 8,10 10,7 10,13 8,13 5,26 9,21 13,9 11,21 13,12 11,24 2,21 1,25 1,22 2=12,1 18,17 3,7 5,1 3,16 12,19 3,13 5,19 18,4 7,1 18,1 18,10 7,19 18,19 3,9 3,6 3,18 9,1 3,15 9,19 13,1 18,3 13,19 18,12 3,2 6,19 4,1 3,11 3,8 4,19 3,17 8,1
+12x18 background=0 1=3,7 5,4 9,2 3,16 3,13 8,9 10,6 8,6 2,2 10,3 10,12 1,9 7,4 6,2 1,15 6,11 4,2 3,9 5,6 3,6 8,2 8,11 8,8 10,5 1,2 10,14 1,11 1,8 6,4 3,2 3,11 3,8 8,4 8,10 10,7 1,4 10,16 1,13 1,10 6,6 3,4 3,10 5,7 5,16 10,9 1,6 1,3 10,15 1,12 7,16 4,14 4,11 8,5 10,2 9,16 10,11 10,8 1,5 2,16 1,14 6,7 6,16 3,5 5,2 4,4 4,16 3,14 5,11 4,13 8,7 10,4 8,16 10,13 10,10 1,7 7,2 1,16 7,11|22x28 background=0 1=18,17 7,26 18,26 5,1 3,13 5,10 8,9 5,19 9,26 11,23 13,8 15,5 7,1 18,1 15,14 18,10 1,24 15,23 16,22 7,19 18,19 3,6 5,3 9,1 3,15 5,12 8,11 14,15 11,7 5,21 9,19 13,1 13,10 15,7 7,3 13,19 18,3 18,12 1,26 15,25 7,21 3,8 5,5 9,3 3,17 5,14 3,26 5,23 9,21 13,3 13,12 15,9 8,25 18,5 18,14 16,26 3,1 14,1 12,13 3,10 5,7 3,19 14,19 5,25 16,1 10,15 15,11 18,7 1,21 16,19 18,16 3,3 14,3 12,15 3,12 5,9 9,7 3,21 13,7 15,4 6,1 15,13 10,26 1,23 11,25 18,9 18,
+first training example labels <s>x1 = objects(I, F, F, T)
+x2 = matcher(size, SIX)
+x3 = compose(flip, x2)
+x4 = mfilter(x1, x2)
+x5 = mfilter(x1, x3)
+x6 = fill(I, THREE, x4)
+O = fill(x6, ONE, x5)</s>
+                                   
+Epoch 30: 100%|██████████| 6250/6250 [39:54<00:00,  2.61it/s, v_num=0, train/loss_step=0.179, train/loss_epoch=0.132]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 31 ********
+first training example inputs <s>10x13 background=0 2=4,10 6,2 3,11 4,11 5,4 6,3 7,3 3=7,10 1,1 8,10 2,3 8,9 7,2 2,2 1,3 7,8 5,2 5=7,9 0,2 1,2 5,3 6,9 7=2,10 3,9 3,10 8=0,4 6,10 6,11 0,3 1,4 7,11|15x13 background=0 1=1,2 5,6 4,8 1,3 4,7 2=6,7 2,1 2,2 3,2 5,7 3=3,1 4,1 4=13,9 13,10 14,9 5=13,3 8,3 13,4 8,4 13,2 8,2 6=11,9 12,8 12,9 8=12,4 7,4 11,10 12,10 11,3 12,3 7,3 2,3 10,10 3,3 12,2 7,2 6,3|15x15 background=0 2=0,2 1,3 3=6,7 10,3 6,6 6,8 10,1 4=11,2 9,2 10,2 5=11,12 12,12 1,11 2,10 13,11 0,11 6=5,7 4,8 5,8 7=1,10 13,12 12,10 12,11 2,11 1,9 8=1,2 0,3 2,1 2,2 9=0,12 1,12 12,13 11,13
+3x4 background=3 0=2,3 2,0 0,0 8=0,2 0,3 1,3 5=0,1 1,1|4x3 background=0 1=0,1 0,2 2=1,0 1,1 2,1 3=2,0 3,0 8=1,2 2,2|3x4 background=0 9=0,3 1,3 5=0,2 1,2 2,1 7=1,0 1,1 2,2
+first training example labels <s>x1 = objects(I, F, T, T)
+x2 = argmax(x1, numcolors)
+O = subgrid(x2, I)</s>
+                                   
+Epoch 31: 100%|██████████| 6250/6250 [39:59<00:00,  2.61it/s, v_num=0, train/loss_step=0.0985, train/loss_epoch=0.130]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 32 ********
+first training example inputs <s>7x7 background=0 8=2,4 2,1 1,1 1,4 4,2 2,3 3,3 2,2|8x12 background=0 8=2,4 3,4 2,7 1,5 4,9 3,7 7,9 5,10 0,5 2,5 3,5 4,10 6,11 5,8 6,8 1,4 2,6 4,8 3,6 5,9 6,9 7,8|8x12 background=0 8=0,1 2,4 1,2 0,4 3,4 2,1 3,1 4,9 7,9 6,10 2,2 2,5 3,5 6,11 6,8 1,1 1,4 3,0 2,3 1,7 2,6 3,6 5,9 6,9
+7x7 background=0 8=2,4 2,1 1,1 1,4 4,2 2,3 3,3 2,2 2=4,4 1,2 3,4 4,1 3,1 4,3 3,2 1,3|8x12 background=2 0=4,0 4,3 3,1 5,1 0,2 2,2 1,0 1,3 6,2 7,1 4,2 3,0 3,3 5,0 5,3 0,1 1,2 2,1 6,1 7,0 7,3 3,2 4,1 5,2 0,0 1,1 0,3 2,0 2,3 7,2 6,0 6,3 8=2,4 3,4 2,7 1,5 4,9 3,7 7,9 5,10 0,5 2,5 3,5 4,10 6,11 5,8 6,8 1,4 2,6 4,8 3,6 5,9 6,9 7,8|8x12 background=2 8=0,1 2,4 1,2 0,4 3,4 2,1 3,1 4,9 7,9 6,10 2,2 2,5 3,5 6,11 6,8 1,1 1,4 3,0 2,3 1,7 2,6 3,6 5,9 6,9
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, EIGHT)
+x3 = fgpartition(I)
+x4 = mapply(delta, x3)
+O = underfill(I, TWO, x4)</s>
+                                   
+Epoch 32: 100%|██████████| 6250/6250 [39:52<00:00,  2.61it/s, v_num=0, train/loss_step=0.121, train/loss_epoch=0.127]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 33 ********
+first training example inputs <s>8x8 background=0 1=1,2 0,4 2,1 1,5 3,1 5,4 5,1 0,5 2,5 4,1 1,3 3,5 5,2 5,5 1,1 0,3 4,5 5,3|9x10 background=0 1=1,2 2,1 1,5 3,1 4,6 5,1 1,6 4,1 1,3 5,2 5,5 1,1 1,4 2,6 5,6 3,6 5,3|16x14 background=0 1=12,7 14,4 4,3 12,10 14,7 5,4 5,7 0,5 0,8 1,3 2,11 10,12 2,8 7,7 6,11 7,10 12,3 14,6 12,6 3,3 12,12 5,6 14,3 5,3 4,11 0,7 10,11 0,4 11,10 13,7 2,10 1,8 7,9 6,7 12,5 12,11 14,5 3,11 5,5 5,11 0,3 0,6 2,3 2,9 10,10 11,12 13,3 7,11 7,8|19x22 background=0 1=6,15 4,9 14,7 5,4 9,2 14,16 4,15 5,19 8,15 2,8 15,5 15,14 7,19 3,9 5,3 17,5 4,17 9,1 2,4 8,17 15,16 6,19 12,14 14,8 5,5 17,7 4,19 2,3 8,19 16,8 7,5 15,15 7,14 4,3 12,16 17,6 10,0 4,18 2,5 16,4 13,14 7,7 6,5 15,8 6,14 14,6 3,3 12,15 5,9 17,8 10,2 5,15 8,14 2,7 15,4 7,9 7,6 14,5 17,4 4,16 9,0 14,14 2,9 2,6 6,9 7,8
+8x8 background=0 1=1,2 0,4 2,1 1,5 3,1 5,4 5,1 0,5 2,5 4,1 1,3 3,5 5,2 5,5 1,1 0,3 4,5 5,3|9x10 background=0 1=1,2 2,1 1,5 3,1 4,6 5,1 1,6 4,1 1,3 5,2 5,5 1,1 1,4 2,6 5,6 3,6 5,3|16x14 background=0 1=12,7 14,4 4,3 14,7 5,4 5,7 0,5 0,8 1,3 2,11 2,8 7,7 6,11 7,10 12,3 14,6 12,6 3,3 14,3 5,6 5,3 4,11 0,7 0,4 13,7 2,10 1,8 7,9 6,7 12,5 14,5 3,11 5,5 5,11 0,3 0,6 2,3 2,9 13,3 7,11 7,8 2=10,11 11,10 12,10 11,12 10,10 12,12 12,11 10,12|19x22 background=0 1=6,15 4,9 14,7 5,4 9,2 14,16 4,15 5,19 8,15 2,8 15,5 15,14 7,19 3,9 5,3 17,5 4,17 9,1 2,4 8,17 15,16 6,19 12,14 14,8 5,5 17,7 4,19 2,3 8,19 16,8 7,5 15,15 7,14 4,3 12,16 17,6 10,0 4,18 2,5 16,4 13,14 7,7 6,5 15,8 6,14 14,6 3,3 12,15 5,9 17,8 10,2 5,15 8,14 2,7 15,4 7,9 7,6 14,5 17,4 4,16 9,0 14,14 2,9 2,6 6,9 7,8 2=9,16 7,17 7,16 8,16 9,18 8,18 9,17 7
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = sizefilter(x1, ONE)
+x3 = mapply(outbox, x2)
+O = fill(I, TWO, x3)</s>
+                                   
+Epoch 33: 100%|██████████| 6250/6250 [39:53<00:00,  2.61it/s, v_num=0, train/loss_step=0.128, train/loss_epoch=0.126]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 34 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = colorfilter(x1, ZERO)
+x3 = sizefilter(x2, TWO)
+x4 = merge(x3)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 34: 100%|██████████| 6250/6250 [39:52<00:00,  2.61it/s, v_num=0, train/loss_step=0.182, train/loss_epoch=0.124]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 35 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = objects(I, T, T, T)
+x2 = colorfilter(x1, TWO)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 35: 100%|██████████| 6250/6250 [39:59<00:00,  2.61it/s, v_num=0, train/loss_step=0.106, train/loss_epoch=0.123]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 36 ********
+first training example inputs <s>3x3 background=0 1=0,1 2,1 3=1,0 1,1 1,2|8x12 background=0 2=0,1 6,2 1,2 7,1 2,1 3,1 6,1 1,1 4,2 0,2 7,2 2,2 3,2 4,1 3=2,4 3,4 2,10 3,10 2,5 2,11 3,5 3,11 2,8 3,8 2,0 3,0 2,3 2,9 3,3 2,6 3,9 3,6 6=5,5 5,11 5,8 5,4 5,1 5,7 5,10 5,0 5,6 5,3 5,9 5,2 8=0,7 6,7 1,7 7,7 2,7 3,7 4,7|9x11 background=0 3=2,1 2,7 2,10 2,0 2,9 2,6 2,2 2,5 4=4,4 7,4 2,4 0,4 3,4 8,4 4,3 0,3 1,4 7,3 2,3 8,3 3,3 1,3 6=6,1 5,4 6,6 5,1 5,7 6,4 6,7 5,10 6,10 5,2 6,2 5,5 6,5 5,0 5,6 6,0 5,3 5,9 6,3 6,9 8=8,8 3,8 5,8 6,8 1,8 4,8 0,8 7,8 2,8|11x11 background=0 1=1,5 2,10 3,10 1,0 1,6 2,5 1,3 1,9 3,5 2,0 3,0 2,3 2,9 3,3 2,6 3,9 1,10 3,6 2=0,1 1,2 2,1 3,1 5,1 9,2 0,2 2,2 3,2 4,1 5,2 8,1 1,1 10,1 4,2 8,2 9,1 10,2 4=6,1 7,0 7,3 7,9 6,7 7,6 6,10 6,2 7,1 7,
+1x1 background=1|1x1 background=8|1x1 background=8|1x1 background=8|1x1 background=2
+first training example labels <s>x1 = palette(I)
+x2 = fgpartition(I)
+x3 = argmax(x2, size)
+x4 = color(x3)
+x5 = remove(ZERO, x1)
+x6 = other(x5, x4)
+O = canvas(x6, UNITY)</s>
+                                   
+Epoch 36: 100%|██████████| 6250/6250 [40:02<00:00,  2.60it/s, v_num=0, train/loss_step=0.118, train/loss_epoch=0.121]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 37 ********
+first training example inputs <s>7x7 background=0 8=2,4 2,1 1,1 1,4 4,2 2,3 3,3 2,2|8x12 background=0 8=2,4 3,4 2,7 1,5 4,9 3,7 7,9 5,10 0,5 2,5 3,5 4,10 6,11 5,8 6,8 1,4 2,6 4,8 3,6 5,9 6,9 7,8|8x12 background=0 8=0,1 2,4 1,2 0,4 3,4 2,1 3,1 4,9 7,9 6,10 2,2 2,5 3,5 6,11 6,8 1,1 1,4 3,0 2,3 1,7 2,6 3,6 5,9 6,9
+7x7 background=0 8=2,4 2,1 1,1 1,4 4,2 2,3 3,3 2,2 2=4,4 1,2 3,4 4,1 3,1 4,3 3,2 1,3|8x12 background=2 0=4,0 4,3 3,1 5,1 0,2 2,2 1,0 1,3 6,2 7,1 4,2 3,0 3,3 5,0 5,3 0,1 1,2 2,1 6,1 7,0 7,3 3,2 4,1 5,2 0,0 1,1 0,3 2,0 2,3 7,2 6,0 6,3 8=2,4 3,4 2,7 1,5 4,9 3,7 7,9 5,10 0,5 2,5 3,5 4,10 6,11 5,8 6,8 1,4 2,6 4,8 3,6 5,9 6,9 7,8|8x12 background=0 8=0,1 2,4 1,2 0,4 3,4 2,1 3,1 4,9 7,9 6,10 2,2 2,5 3,5 6,11 6,8 1,1 1,4 3,0 2,3 1,7 2,6 3,6 5,9 6,9 2=0,7 2,7 1,5 3,7 0,2 5,10 0,5 1,0 1,6 3,2 1,3 4,10 5,11 0,0 5,8 7,10 0,3 2,0 0,6 3,3 4,8 4,11 7,11 7,8
+first training example labels <s>x1 = objects(I, F, T, T)
+x2 = mapply(delta, x1)
+O = fill(I, TWO, x2)</s>
+                                   
+Epoch 37: 100%|██████████| 6250/6250 [39:56<00:00,  2.61it/s, v_num=0, train/loss_step=0.0931, train/loss_epoch=0.120]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 38 ********
+first training example inputs <s>10x13 background=0 2=4,10 6,2 3,11 4,11 5,4 6,3 7,3 3=7,10 1,1 8,10 2,3 8,9 7,2 2,2 1,3 7,8 5,2 5=7,9 0,2 1,2 5,3 6,9 7=2,10 3,9 3,10 8=0,4 6,10 6,11 0,3 1,4 7,11|15x13 background=0 1=1,2 5,6 4,8 1,3 4,7 2=6,7 2,1 2,2 3,2 5,7 3=3,1 4,1 4=13,9 13,10 14,9 5=13,3 8,3 13,4 8,4 13,2 8,2 6=11,9 12,8 12,9 8=12,4 7,4 11,10 12,10 11,3 12,3 7,3 2,3 10,10 3,3 12,2 7,2 6,3|15x15 background=0 2=0,2 1,3 3=6,7 10,3 6,6 6,8 10,1 4=11,2 9,2 10,2 5=11,12 12,12 1,11 2,10 13,11 0,11 6=5,7 4,8 5,8 7=1,10 13,12 12,10 12,11 2,11 1,9 8=1,2 0,3 2,1 2,2 9=0,12 1,12 12,13 11,13
+3x4 background=3 0=2,3 2,0 0,0 8=0,2 0,3 1,3 5=0,1 1,1|4x3 background=0 1=0,1 0,2 2=1,0 1,1 2,1 3=2,0 3,0 8=1,2 2,2|3x4 background=0 1=0,3 1,3 5=0,2 1,2 2,1 7=1,0 1,1 2,2
+first training example labels <s>x1 = compress(I)
+x2 = objects(I, F, T, T)
+x3 = argmax(x2, size)
+x4 = subgrid(x3, I)
+O = replace(x4, NINE, ONE)</s>
+                                   
+Epoch 38: 100%|██████████| 6250/6250 [39:58<00:00,  2.61it/s, v_num=0, train/loss_step=0.148, train/loss_epoch=0.119]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 39 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = replace(I, EIGHT, FIVE)
+x2 = hmirror(x1)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 39: 100%|██████████| 6250/6250 [40:00<00:00,  2.60it/s, v_num=0, train/loss_step=0.0474, train/loss_epoch=0.118]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 40 ********
+first training example inputs <s>3x3 background=3 4=0,1 0,2 2,1 2,2|3x3 background=7 2=1,1 1,2 2,2|3x3 background=9 6=1,1 2,1 2,2 7=0,1 1,2 2,0|3x3 background=2 1=2,2 3=0,1 1,0 1,1|3x3 background=1 8=1,1 0,0 2=0,1 2,0 3=1,2 2,2
+9x9 background=3 4=3,4 3,1 3,7 5,4 5,1 5,7 0,2 0,5 2,2 0,8 2,5 2,8 6,2 6,5 6,8 8,2 8,5 0,1 0,7 2,4 8,8 0,4 2,1 2,7 6,1 6,4 6,7 3,2 3,5 5,2 3,8 5,5 8,4 5,8 8,1 8,7|9x9 background=7 2=8,8 1,2 1,5 1,8 2,2 2,5 4,1 4,7 2,8 5,2 7,4 4,4 5,5 7,1 7,7 5,8 1,1 4,2 1,4 4,5 1,7 4,8 7,2 8,2 7,5 8,5 7,8|9x9 background=9 6=8,8 2,4 2,1 2,7 5,4 5,1 5,7 2,2 2,5 4,1 4,7 2,8 5,2 7,4 4,4 5,5 7,1 7,7 8,4 5,8 8,1 8,7 1,1 1,4 1,7 8,2 8,5 7=0,1 0,7 1,2 0,4 3,4 1,5 3,1 3,7 6,1 1,8 6,4 8,0 6,7 8,3 8,6 2,0 4,2 2,3 4,5 5,0 5,6 4,8 2,6 5,3 7,2 7,5 7,8|9x9 background=2 1=8,8 5,5 2,8 5,8 2,2 8,2 2,5 8,5 5,2 3=0,1 0,7 4,0 0,4 3,4 4,3 3,1 3,7 6,1 4,6 7,0 6,4 7,3 6,7 7,6 1,0 1,6 1,3 4,1 4,7 4,4 7,4 7,1 7,7 1,1 1,4 1,7|9x9 background=1 8=3,6 4
+first training example labels <s>x1 = numcolors(I)
+x2 = decrement(x1)
+x3 = hconcat(I, I)
+x4 = hconcat(x3, I)
+x5 = vconcat(x4, x4)
+x6 = vconcat(x5, x4)
+O = cellwise(x6, x6, ZERO)</s>
+                                   
+Epoch 40: 100%|██████████| 6250/6250 [40:04<00:00,  2.60it/s, v_num=0, train/loss_step=0.0826, train/loss_epoch=0.117]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 41 ********
+first training example inputs <s>20x22 background=5 0=6,18 4,0 12,1 1,16 12,19 14,16 3,13 10,6 9,8 1,0 13,2 10,12 2,8 10,21 1,18 18,1 16,16 16,13 18,10 6,20 18,19 12,12 14,9 3,6 12,21 12,18 0,16 13,1 16,0 0,13 16,6 6,13 7,12 18,12 6,10 7,21 18,21 6,0 0,0 19,1 0,6 15,0 10,16 1,13 1,10 13,12 6,6 13,21 6,12 6,21 3,1 12,16 12,13 3,10 10,0 9,14 1,6 0,8 1,3 15,2 10,18 16,1 1,12 16,10 7,7 1,21 2,20 18,16 12,0 18,13 12,6 9,7 0,1 0,10 6,1 16,3 18,0 13,16 15,1 16,12 13,13 6,7 7,6 16,21 18,18 18,6 6,16 16,18 4,13 19,7 1,1 9,6 10,1 13,0 19,16 10,13 0,12 10,10 1,7 0,21 7,2 13,18 0,18 13,6 3=4,15 2,15 3,14 3,16 4=13,10 3,15 6,4 8=7,4 6,5 12,10 5,4 14,10 13,9 6,3 13,11|22x22 background=2 0=16,20 21,16 17,3 17,12 19,9 10,6 0,5 2,2 8,18 6,2 18,1 21,0 16,13 18,10 21,9 6,20 17,5 8,2 12,18 0,16 13,1 1,8 21,2 6,13 18,12 7,21 18,21 5,5 12,20 0,0 5,14 17,16 13,12 6,6 16,8 7,5 20,8 0,2 3,19 16,1 1,12 16,10 1,21 18,
+1x1 background=8|1x1 background=8|1x1 background=3
+first training example labels <s>x1 = objects(I, T, T, T)
+x2 = first(x1)
+x3 = subgrid(x2, I)
+x4 = downscale(x3, THREE)
+O = switch(x4, ZERO, EIGHT)</s>
+                                   
+Epoch 41: 100%|██████████| 6250/6250 [40:09<00:00,  2.59it/s, v_num=0, train/loss_step=0.112, train/loss_epoch=0.116]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 42 ********
+first training example inputs <s>13x13 background=0 3=2,11 5=4,2 7=11,7|14x14 background=0 3=5,9 4=10,3|16x16 background=0 8=2,4 5=9,10
+13x13 background=0 2=11,2 4,7 3=2,4 10,11 2,1 1,11 2,10 9,11 12,11 2,5 2,11 0,11 2,8 3,11 5,11 6,11 2,0 2,3 2,9 2,6 2,12 4,11 7,11 8,11 5=4,0 1,2 4,3 4,9 4,6 4,12 9,2 0,2 12,2 2,2 3,2 4,1 5,2 4,4 4,10 6,2 4,2 4,5 4,8 7,2 8,2 10,2 7=11,1 0,7 11,7 12,7 11,10 2,7 3,7 5,7 6,7 11,5 11,8 11,11 7,7 11,0 8,7 11,3 11,9 10,7 11,6 11,12 1,7 9,7 11,4|14x14 background=0 2=5,3 10,9 3=4,9 5,4 5,1 5,7 5,13 7,9 5,10 8,9 1,9 5,2 5,5 5,11 5,8 9,9 0,9 11,9 12,9 2,9 13,9 3,9 5,0 5,6 5,9 6,9 5,12 4=10,5 10,11 10,8 4,3 7,3 8,3 10,0 10,6 10,3 1,3 10,12 9,3 10,4 0,3 10,1 10,7 12,3 10,13 11,3 2,3 10,10 3,3 13,3 6,3 10,2|16x16 background=0 8=12,4 2,4 13,4 0,4 3,4 14,4 2,1 2,7 15,4 5,4 6,4 2,13 2,2 2,5 2,11 2,8 2,14 7,4 4,4 8,4 10,4 2,0 1,4 2,3 2,9 2,6 2,12 2,15 11,4 2=2,10 9,4 5=9,10 9,13 0,10 11,10 12,10
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = fork(combine, vfrontier, hfrontier)
+x3 = compose(x2, center)
+x4 = fork(recolor, color, x3)
+x5 = mapply(x4, x1)
+x6 = underpaint(I, x5)
+x7 = fork(intersection, first, last)
+x8 = apply(x3, x1)
+x9 = x7(x8)
+O = fill(x6, TWO, x9)</s>
+                                   
+Epoch 42: 100%|██████████| 6250/6250 [40:02<00:00,  2.60it/s, v_num=0, train/loss_step=0.204, train/loss_epoch=0.115]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 43 ********
+first training example inputs <s>3x3 background=3 4=0,1 0,2 2,1 2,2|3x3 background=7 2=1,1 1,2 2,2|3x3 background=9 6=1,1 2,1 2,2 7=0,1 1,2 2,0|3x3 background=2 1=2,2 3=0,1 1,0 1,1|3x3 background=1 8=1,1 0,0 2=0,1 2,0 3=1,2 2,2
+9x9 background=3 4=3,4 3,1 3,7 5,4 5,1 5,7 0,2 0,5 2,2 0,8 2,5 2,8 6,2 6,5 6,8 8,2 8,5 0,1 0,7 2,4 8,8 0,4 2,1 2,7 6,1 6,4 6,7 3,2 3,5 5,2 3,8 5,5 8,4 5,8 8,1 8,7|9x9 background=7 2=8,8 1,2 1,5 1,8 2,2 2,5 4,1 4,7 2,8 5,2 7,4 4,4 5,5 7,1 7,7 5,8 1,1 4,2 1,4 4,5 1,7 4,8 7,2 8,2 7,5 8,5 7,8|9x9 background=9 6=8,8 2,4 2,1 2,7 5,4 5,1 5,7 2,2 2,5 4,1 4,7 2,8 5,2 7,4 4,4 5,5 7,1 7,7 8,4 5,8 8,1 8,7 1,1 1,4 1,7 8,2 8,5 7=0,1 0,7 1,2 0,4 3,4 1,5 3,1 3,7 6,1 1,8 6,4 8,0 6,7 8,3 8,6 2,0 4,2 2,3 4,5 5,0 5,6 4,8 2,6 5,3 7,2 7,5 7,8|9x9 background=2 1=8,8 5,5 2,8 5,8 2,2 8,2 2,5 8,5 5,2 3=0,1 0,7 4,0 0,4 3,4 4,3 3,1 3,7 6,1 4,6 7,0 6,4 7,3 6,7 7,6 1,0 1,6 1,3 4,1 4,7 4,4 7,4 7,1 7,7 1,1 1,4 1,7|9x9 background=1 8=3,6 4
+first training example labels <s>x1 = upscale(I, TWO)
+x2 = hconcat(I, I)
+x3 = hconcat(x2, I)
+x4 = vconcat(x3, x3)
+x5 = vconcat(x4, x3)
+O = cellwise(x5, x5, SIX)</s>
+                                   
+Epoch 43: 100%|██████████| 6250/6250 [40:05<00:00,  2.60it/s, v_num=0, train/loss_step=0.122, train/loss_epoch=0.114]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 44 ********
+first training example inputs <s>20x20 background=0 2=3,4 4,3 5,4 4,6 6,4 3,5 4,4 5,5 6,5 5,3 4,5 3,3 5,6 3,6 6,6 6,3 4=14,7 16,9 15,7 14,10 17,9 16,6 15,10 17,6 18,9 18,6 16,7 14,8 17,7 16,10 15,8 18,7 17,10 18,10 14,6 15,6 14,9 15,9 16,8 17,8 18,8 6=17,3 3,16 14,16 8,9 19,9 9,8 10,3 13,2 0,14 10,12 13,11 0,11 11,11 18,4 6,2 2,17 15,14 7,10 14,0 0,18 4,8 5,12 17,14 9,10 2,4 13,4 13,1 16,0 11,13 2,19 13,19 12,5 6,0 8,4 19,4 0,0 8,1 19,10 1,4 0,15 2,12 18,5 16,17 12,7 17,0 12,13 4,12 0,2 3,19 4,18 8,3 19,12 0,8 16,1 13,14 7,16 12,0 18,13 14,3 17,2 4,14 17,11 9,7 9,4 0,1 11,1 8,14 19,14 13,7 6,1 0,19 11,19 1,14 2,13 18,18 17,4 14,14 8,7 19,7 2,0 17,19 11,12 10,10 13,9 1,16 11,18 18,11 7,8 7=12,4 6,18 12,1 6,15 4,9 9,2 8,0 12,19 5,13 3,13 14,13 17,12 0,5 11,5 7,4 1,18 1,15 6,8 18,19 3,0 6,17 19,2 11,7 19,8 0,4 19,17 1,11 1,8 13,10 3,2 4,1 3,11 3,8 9,3 3,17 17,13 8,
+3x3 background=4|3x3 background=3|3x3 background=8
+first training example labels <s>x1 = rot270(I)
+x2 = objects(I, T, F, T)
+x3 = argmax(x2, size)
+x4 = color(x3)
+x5 = canvas(x4, THREE_BY_THREE)
+O = paint(x5, x3)</s>
+                                   
+Epoch 44: 100%|██████████| 6250/6250 [40:09<00:00,  2.59it/s, v_num=0, train/loss_step=0.134, train/loss_epoch=0.113]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 45 ********
+first training example inputs <s>13x13 background=0 3=2,11 5=4,2 7=11,7|14x14 background=0 3=5,9 4=10,3|16x16 background=0 8=2,4 5=9,10
+13x13 background=0 2=11,2 4,7 3=2,4 10,11 2,1 1,11 2,10 9,11 12,11 2,5 2,11 0,11 2,8 3,11 5,11 6,11 2,0 2,3 2,9 2,6 2,12 4,11 7,11 8,11 5=4,0 1,2 4,3 4,9 4,6 4,12 9,2 0,2 12,2 2,2 3,2 4,1 5,2 4,4 4,10 6,2 4,2 4,5 4,8 7,2 8,2 10,2 7=11,1 0,7 11,7 12,7 11,10 2,7 3,7 5,7 6,7 11,5 11,8 11,11 7,7 11,0 8,7 11,3 11,9 10,7 11,6 11,12 1,7 9,7 11,4|14x14 background=0 2=5,3 10,9 3=4,9 5,4 5,1 5,7 5,13 7,9 5,10 8,9 1,9 5,2 5,5 5,11 5,8 9,9 0,9 11,9 12,9 2,9 13,9 3,9 5,0 5,6 5,9 6,9 5,12 4=10,5 10,11 10,8 4,3 7,3 8,3 10,0 10,6 10,3 1,3 10,12 9,3 10,4 0,3 10,1 10,7 12,3 10,13 11,3 2,3 10,10 3,3 13,3 6,3 10,2|16x16 background=0 8=12,4 2,4 13,4 0,4 3,4 14,4 2,1 2,7 15,4 5,4 6,4 2,13 2,2 2,5 2,11 2,8 2,14 7,4 4,4 8,4 10,4 2,0 1,4 2,3 2,9 2,6 2,12 2,15 11,4 2=2,10 9,4 5=9,10 9,13 0,10 11,10 12,10
+first training example labels <s>x1 = objects(I, F, F, T)
+x2 = objects(I, F, T, T)
+x3 = fork(combine, vfrontier, hfrontier)
+x4 = compose(x3, center)
+x5 = fork(recolor, color, x4)
+x6 = mapply(x5, x2)
+x7 = underpaint(I, x6)
+x8 = fork(intersection, first, last)
+x9 = apply(x4, x2)
+x10 = x8(x9)
+O = fill(x7, TWO, x10)</s>
+                                   
+Epoch 45: 100%|██████████| 6250/6250 [40:05<00:00,  2.60it/s, v_num=0, train/loss_step=0.0972, train/loss_epoch=0.112]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 46 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>X1 = objects(I, T, F, T)
+X2 = colorfilter(X1, ZERO)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 46: 100%|██████████| 6250/6250 [40:03<00:00,  2.60it/s, v_num=0, train/loss_step=0.112, train/loss_epoch=0.112]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 47 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = last(x1)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 47: 100%|██████████| 6250/6250 [40:07<00:00,  2.60it/s, v_num=0, train/loss_step=0.141, train/loss_epoch=0.111]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 48 ********
+first training example inputs <s>6x6 background=0 1=0,4 2,2 2=0,2 2,0 0,0 3=4,0|6x6 background=0 1=4,2 2=0,4 3=0,0 8=2,4 2,0|6x6 background=0 1=0,0 2=2,2 6=4,4 4,0
+3x3 background=0 1=1,1 0,2 2=0,1 1,0 0,0 3=2,0|3x3 background=0 1=2,1 2=0,2 3=0,0 8=1,0 1,2|3x3 background=0 1=0,0 2=1,1 6=2,0 2,2
+first training example labels <s>x1 = hupscale(I, TWO)
+O = downscale(I, NEG_TWO)</s>
+                                   
+Epoch 48: 100%|██████████| 6250/6250 [40:11<00:00,  2.59it/s, v_num=0, train/loss_step=0.0735, train/loss_epoch=0.111]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 49 ********
+first training example inputs <s>15x15 background=0 1=8,8 6,8 7,8 2=7,9 7,10 8,10 3=10,4 9,2 8,9 6,10 10,3 6,9 11,4 10,2 4=4,10 2,9 3,9 4,9 2,10 6=11,2 11,3 9,3 9,4 7=3,8 3,10 4,8 2,8 8=3,2 3,3 4,2 4,3 9=4,4 2,3 2,4 3,4 2,2|15x15 background=0 1=9,7 10,8 9,9 2=12,4 10,5 11,5 10,4 11,3 11,4 3=12,5 12,3 10,3 4=5,9 6,8 5,8 5=4,4 2,3 2,4 4,5 2,5 6=3,3 4,3 7=11,7 9,8 10,9 11,8 11,9 10,7 8=3,4 3,5 9=4,10 5,10 6,10 4,8 4,9 6,9|15x15 background=0 1=4,10 3,9 3,10 2,8 2=2,10 4,8 3=7,4 8,3 9,4 9,3 8,2 7,3 4=9,10 10,10 10,8 9,9 11,8 11,9 5=2,4 2,2 3,2 1,3 1,4 6=4,9 2,9 3,8 7=2,3 1,2 3,3 3,4 8=8,4 9,2 7,2 9=10,9 9,8 11,10
+3x3 background=1 2=1,1 1,2 2,2 3=0,1 0,2 2,1|3x3 background=5 8=1,1 1,2 6=1,0 2,0|3x3 background=1 2=0,2 2,0 6=0,1 1,0 2,1
+first training example labels <s>x1 = objects(I, F, T, T)
+x2 = argmax(x1, numcolors)
+x3 = subgrid(x2, I)
+x4 = argmin(x1, size)
+O = replace(x3, NINE, TWO)</s>
+                                   
+Epoch 49: 100%|██████████| 6250/6250 [40:09<00:00,  2.59it/s, v_num=0, train/loss_step=0.105, train/loss_epoch=0.110]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 50 ********
+first training example inputs <s>6x6 background=0 1=0,4 2,2 2=0,2 2,0 0,0 3=4,0|6x6 background=0 1=4,2 2=0,4 3=0,0 8=2,4 2,0|6x6 background=0 1=0,0 2=2,2 6=4,4 4,0
+3x3 background=0 1=1,1 0,2 2=0,1 1,0 0,0 3=2,0|3x3 background=0 1=2,1 2=0,2 3=0,0 8=1,0 1,2|3x3 background=0 1=0,0 2=1,1 6=2,0 2,2
+first training example labels <s>x1 = upscale(I, ONE)
+x2 = asindices(I)
+O = downscale(I, TWO)</s>
+                                   
+Epoch 50: 100%|██████████| 6250/6250 [40:10<00:00,  2.59it/s, v_num=0, train/loss_step=0.0932, train/loss_epoch=0.109]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 51 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = compose(backdrop, inbox)
+x3 = mapply(x2, x1)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 51: 100%|██████████| 6250/6250 [40:16<00:00,  2.59it/s, v_num=0, train/loss_step=0.104, train/loss_epoch=0.108]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 52 ********
+first training example inputs <s>9x9 background=0 2=0,2 6,2 5,2 4=7,6 5,6 8,6 6,6 1,6 0,6 5=4,4 4,0 4,3 4,6 4,2 4,5 4,8 4,1 4,7|9x9 background=0 2=6,2 0,2 7,2 8,2 5,2 4=7,6 5,6 8,6 6,6 1,6 0,6 5=4,4 4,0 4,3 4,6 4,2 4,5 4,8 4,1 4,7|11x9 background=0 2=6,2 0,2 7,2 8,2 9,2 4=9,6 0,6 7,6 2,6 10,6 8,6 6,6 1,6 5=5,5 5,8 5,4 5,1 5,7 5,0 5,6 5,3 5,2|11x9 background=0 2=6,2 1,2 0,2 7,2 8,2 9,2 4=7,6 8,6 6,6 1,6 0,6 5=5,5 5,8 5,4 5,1 5,7 5,0 5,6 5,3 5,2
+2x2 background=2|2x2 background=2|2x2 background=2|2x2 background=2
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = sfilter(x1, square)
+x3 = sizefilter(x2, ONE)
+x4 = difference(x3, x2)
+x5 = merge(x4)
+O = canvas(TWO, TWO_BY_TWO)</s>
+                                   
+Epoch 52: 100%|██████████| 6250/6250 [40:16<00:00,  2.59it/s, v_num=0, train/loss_step=0.087, train/loss_epoch=0.108]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 53 ********
+first training example inputs <s>14x18 background=0 7=12,4 4,9 5,4 4,6 5,13 3,13 5,10 10,6 11,5 2,2 8,6 10,3 11,14 2,11 8,15 10,12 6,11 4,2 12,3 12,12 3,9 5,6 3,6 5,3 11,7 2,4 10,5 1,2 11,16 10,14 2,10 6,13 6,10 12,5 3,2 12,14 3,11 5,5 8,4 9,3 9,12 10,7 1,4 11,6 2,3 10,16 11,15 2,12 6,12 12,7 3,4 4,3 12,16 12,13 3,10 4,12 9,5 8,3 9,14 8,12 1,6 1,3 12,6 4,5 12,15 3,12 5,9 4,11 9,7 11,4 8,5 9,4 9,16 8,14 1,5 2,13 3,5 5,2 4,4 5,11 4,13 8,7 11,3 8,16 10,13 9,15 8,13 11,12 2,9 2,6 6,9|15x19 background=0 8=4,9 5,4 5,1 3,16 4,15 5,10 11,5 10,3 0,14 2,11 11,14 8,15 10,12 2,8 1,18 6,11 6,8 12,3 12,12 4,8 5,3 3,18 4,17 5,12 11,7 10,5 1,2 13,4 2,1 0,16 11,16 10,14 11,13 2,10 1,17 6,10 12,5 3,2 4,1 12,14 4,10 3,8 5,5 9,3 3,17 9,12 10,7 1,4 11,6 2,3 13,3 10,16 0,15 2,12 6,12 12,7 3,4 4,3 3,1 12,16 12,13 3,10 4,12 9,5 4,18 9,14 8,12 2,5 1,3 13,5 0,17 10,15 2,14 4,
+5x5 background=7 0=1,3 2,1|5x5 background=8 0=3,1 1,1 1,3|5x5 background=6 0=2,3 2,1|5x5 background=2 0=2,1
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = argmax(x1, size)
+x3 = lrcorner(x2)
+x4 = subgrid(x2, I)
+O = replace(x4, THREE, SIX)</s>
+                                   
+Epoch 53: 100%|██████████| 6250/6250 [40:22<00:00,  2.58it/s, v_num=0, train/loss_step=0.197, train/loss_epoch=0.108]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 54 ********
+first training example inputs <s>10x9 background=0 5=3,1 5,4 4,6 5,1 8,0 9,5 0,2 8,3 0,5 2,2 1,3 6,5 6,8 4,5 4,8 5,3 8,2 8,5 1,2 2,1 1,5 6,1 6,7 4,1 4,7 5,2 5,5 8,4 8,1 2,0 1,4 6,0 6,6 7,5|10x12 background=0 5=4,0 4,9 3,7 4,6 8,3 9,8 8,6 2,2 1,6 1,9 7,1 6,5 4,2 3,9 5,6 3,6 4,11 0,1 8,8 2,4 0,4 2,1 1,5 7,0 6,4 7,3 7,6 3,2 4,1 4,10 3,8 9,3 8,7 1,1 0,9 1,4 2,3 2,9 2,6 7,2 6,6 6,3|15x5 background=0 5=12,4 12,1 3,1 14,1 5,4 2,2 1,0 10,3 1,3 7,1 4,2 3,0 12,3 5,3 9,1 10,2 2,4 13,1 7,0 7,3 12,2 3,2 5,2 0,0 8,1 0,3 2,0 10,1 11,3 13,0 2,3 7,2 6,3
+10x9 background=5 0=4,0 9,2 5,7 9,8 8,6 1,0 7,4 6,2 7,1 7,7 3,0 5,0 5,6 9,1 9,7 9,4 0,1 8,8 7,0 6,4 7,3 7,6 9,0 9,3 0,0 5,8 8,7 1,1 9,6 7,2 6,3 7,8 8=0,7 2,4 3,4 2,7 4,3 3,7 1,8 1,6 0,8 2,5 3,2 3,5 2,8 4,4 3,8 4,2 0,6 2,3 1,7 3,3 2,6 3,6 7=0,3 0,4|10x12 background=0 8=9,10 5,7 7,9 6,7 5,10 8,9 6,10 9,11 4,7 5,11 7,7 6,11 5,8 7,10 6,8 9,9 8,10 4,8 7,8 5,9 7,11 6,9 8,11 5=4,0 4,9 3,7 4,6 8,3 9,8 8,6 2,2 1,6 1,9 7,1 6,5 4,2 3,9 5,6 3,6 4,11 0,1 8,8 2,4 0,4 2,1 1,5 7,0 6,4 7,3 7,6 3,2 4,1 4,10 3,8 9,3 8,7 1,1 0,9 1,4 2,3 2,9 2,6 7,2 6,6 6,3 7=1,2 0,2 0,3 1,3|15x5 background=5 0=0,1 11,1 4,0 1,2 3,4 14,4 4,3 0,4 2,1 13,4 6,1 5,1 8,0 0,2 10,0 11,2 13,2 14,2 4,1 4,4 6,2 9,0 11,0 12,0 1,1 1,4 13,3 3,3 5,0 14,3 6,0 8=7,4 8,4 9
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, ZERO)
+x3 = argmin(x2, size)
+x4 = argmax(x2, size)
+x5 = underfill(I, EIGHT, x4)
+x6 = fill(x5, SEVEN, x3)
+O = cellwise(x6, x6, SIX)</s>
+                                   
+Epoch 54: 100%|██████████| 6250/6250 [40:17<00:00,  2.59it/s, v_num=0, train/loss_step=0.101, train/loss_epoch=0.107]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 55 ********
+first training example inputs <s>12x14 background=2 1=4,0 4,3 5,4 5,1 8,0 9,2 8,3 10,0 11,2 10,3 7,4 6,2 7,1 4,2 5,0 5,3 8,2 9,1 11,4 10,2 9,4 11,1 6,1 7,0 6,4 7,3 4,1 5,2 4,4 9,0 8,4 9,3 8,1 11,0 10,4 11,3 10,1 7,2 6,0 6,3 3=11,7 10,5 4,6 5,7 9,5 6,7 7,6 10,6 8,6 11,5 4,7 5,5 7,7 6,5 8,7 9,6 10,7 11,6 4,5 5,6 6,6 7,5 9,7 8,5 4=0,1 2,4 1,2 0,4 3,4 2,1 3,1 0,2 2,2 1,0 3,2 1,3 0,0 1,1 0,3 2,0 1,4 3,0 2,3 3,3 5=0,7 2,7 1,5 3,7 0,6 1,7 2,6 0,5 3,6 1,6 2,5 3,5|13x15 background=8 2=4,0 4,3 3,1 5,1 8,0 0,2 8,3 2,2 1,0 1,3 6,2 7,1 4,2 3,0 3,3 5,0 5,3 8,2 0,1 1,2 2,1 6,1 7,0 7,3 3,2 4,1 5,2 0,0 8,1 1,1 0,3 2,0 2,3 7,2 6,0 6,3 3=11,1 12,1 9,2 11,2 10,0 12,2 10,3 9,0 9,3 11,0 12,0 11,3 10,1 12,3 9,1 10,2 5=12,4 12,7 12,10 12,13 9,5 10,6 9,8 9,14 11,5 10,9 9,11 11,8 11,14 10
+2x3 background=2 1=1,0 3=1,1 4=0,0 5=0,1|3x3 background=8 2=1,0 0,0 3=2,0 5=2,1 2,2|3x3 background=3 1=0,0 2=0,1 5=1,0 2,0 6=1,1 2,1 8=0,2|3x3 background=4 1=1,1 2=2,0 3=1,0 5=2,2 7=0,1 8=0,2 0,0
+first training example labels <s>x1 = ofcolor(I, EIGHT)
+O = downscale(I, SIX)</s>
+                                   
+Epoch 55: 100%|██████████| 6250/6250 [40:23<00:00,  2.58it/s, v_num=0, train/loss_step=0.0841, train/loss_epoch=0.106]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+eval_code took longer than 0.25 seconds
+******** iteration 56 ********
+first training example inputs <s>3x3 background=8|3x3 background=3|3x3 background=6 1=0,1 0,2 2,1 0,0|3x3 background=3 6=0,1 0,2 1,2 1,1|3x3 background=4 2=0,1 2,2 2,0 0,0|3x3 background=8 4=0,1 2,2 0,0 7=1,1 0,2 1,2|3x3 background=2 8=0,2 2,0 4=2,2 0,0 5=1,2 2,1
+3x3 background=8|3x3 background=3|6x6 background=6 1=0,1 1,2 0,4 1,5 4,3 0,2 0,5 1,0 1,3 5,2 0,0 1,1 0,3 1,4 4,2 5,3|6x6 background=3 6=2,4 1,2 0,4 3,4 1,5 0,2 0,5 2,2 3,2 2,5 1,3 3,5 0,3 1,4 2,3 3,3|6x6 background=4 2=0,1 1,2 4,0 5,4 5,1 0,2 1,0 4,1 1,3 4,4 5,5 0,0 1,1 0,3 4,5 5,0|9x9 background=8 4=0,1 8,8 2,4 1,2 0,4 2,1 1,5 6,7 0,2 7,6 0,5 2,2 1,0 8,6 2,5 1,3 7,7 0,0 8,7 6,8 1,1 0,3 2,0 1,4 2,3 6,6 7,8 7=0,7 3,4 2,7 4,3 3,7 5,4 4,6 1,8 5,7 1,6 0,8 4,7 3,5 2,8 4,4 3,8 5,5 5,8 0,6 4,5 3,3 1,7 5,6 4,8 3,6 5,3 2,6|12x12 background=2 8=3,10 8,0 9,2 8,3 10,0 11,2 10,3 0,8 2,11 1,9 0,11 2,8 3,9 8,2 9,1 10,2 11,1 0,10 1,11 2,10 1,8 3,11 3,8 9,0 9,3 8,1 11,0 11,3 0,9 10,1 2,9 1,10 4=3,1 0,2 8,9 9,8 2,2 1,0 9,11 10,9 11,8 1,3 11,11 3,0 3,3 8,11 0,1 8,
+first training example labels <s>x1 = cellwise(I, I, NEG_TWO)
+x2 = numcolors(x1)
+O = upscale(I, x2)</s>
+                                   
+Epoch 56: 100%|██████████| 6250/6250 [39:59<00:00,  2.61it/s, v_num=0, train/loss_step=0.134, train/loss_epoch=0.106]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 57 ********
+first training example inputs <s>4x8 background=0 5=0,4 2,7 1,5 1,4 0,6 2,6 3,6 3,5 6=0,1 0,0 0,3 2,0 2,3 0,2 2,2 1,0 3,2|4x8 background=0 5=2,4 0,4 2,7 3,7 1,4 0,6 1,7 2,6 0,5 2,5 3,5 6=0,1 2,1 1,1 3,0 2,3 0,2 2,2 1,3|4x8 background=0 5=0,7 0,4 3,4 1,5 0,6 1,7 1,6 3,5 6=0,1 0,0 3,1 2,0 0,2 3,3 1,0 3,2|4x8 background=0 5=0,7 2,4 3,4 2,7 1,4 0,6 1,7 2,6 1,6 6=1,2 2,1 0,0 3,1 1,1 2,0 3,0 2,3 0,2 1,3
+4x4 background=0 4=1,2 3,3 2,1 1,3 3,0|4x4 background=0 4=1,2 0,3 3,2|4x4 background=0 4=2,3 2,1 2,2|4x4 background=0 4=0,1 3,2 3,3
+first training example labels <s>x1 = righthalf(I)
+x2 = cellwise(x1, I, SIX)
+x3 = ofcolor(x1, ZERO)
+x4 = ofcolor(I, ZERO)
+x5 = intersection(x3, x4)
+x6 = shape(x1)
+x7 = canvas(ZERO, x6)
+O = underfill(x7, FOUR, x5)</s>
+                                   
+Epoch 57: 100%|██████████| 6250/6250 [39:59<00:00,  2.61it/s, v_num=0, train/loss_step=0.0641, train/loss_epoch=0.106]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 58 ********
+first training example inputs <s>3x3 background=0 2=1,1|5x3 background=0 3=2,1|5x5 background=0 6=2,2|5x7 background=0 1=2,3
+3x3 background=2 0=1,1|5x3 background=3 0=2,1|5x5 background=6 0=2,2|5x7 background=1 0=2,3
+first training example labels <s>x1 = leastcolor(I)
+x2 = cellwise(I, I, NINE)
+x3 = leastcolor(x2)
+x4 = switch(x2, x3, ZERO)
+x5 = leastcolor(x4)
+x6 = hconcat(x4, x4)
+x7 = vconcat(x6, x6)
+x8 = vconcat(x7, x6)
+O = cellwise(x4, x8, x1)</s>
+                                   
+Epoch 58: 100%|██████████| 6250/6250 [40:01<00:00,  2.60it/s, v_num=0, train/loss_step=0.109, train/loss_epoch=0.105]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 59 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = colorfilter(x1, SIX)
+x3 = fill(I, THREE, x2)
+O = upscale(x3, TWO)</s>
+                                   
+Epoch 59: 100%|██████████| 6250/6250 [40:03<00:00,  2.60it/s, v_num=0, train/loss_step=0.0826, train/loss_epoch=0.105]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 60 ********
+first training example inputs <s>10x10 background=0 1=0,1 4,0 2,1 4,3 3,1 1,8 5,1 5,7 9,5 8,9 9,8 8,6 2,2 1,0 1,6 1,9 5,2 6,2 5,8 9,6 4,2 2,3 4,5 3,6 8,2 7,5 9,1 9,7 8,5 7,8 9,4 3=0,7 0,4 3,7 4,6 9,2 8,0 7,3 7,9 0,5 3,2 2,5 1,3 4,1 3,5 7,4 0,0 8,1 9,9 6,8 0,3 0,9 1,4 0,6 2,9 1,7 3,3 5,6 6,0 5,3 5,9|10x10 background=3 0=4,0 3,1 4,6 5,7 8,0 8,6 1,3 1,9 6,5 3,0 4,5 5,6 5,3 5,9 8,5 2,4 1,2 2,1 2,7 6,1 1,8 6,7 4,1 4,7 5,2 4,4 3,8 5,5 9,0 9,3 0,0 8,1 0,3 0,6 2,3 6,0 7,5 1=0,7 3,4 1,5 4,9 7,3 7,6 9,8 0,5 2,2 1,0 0,8 2,5 7,1 7,7 8,4 9,9 9,6 2,0 1,4 1,7 3,9 7,2 8,2 7,8|10x10 background=0 1=8,8 2,4 4,0 1,2 4,3 1,8 9,2 8,0 6,4 9,5 2,2 1,3 1,9 4,1 5,2 8,4 6,5 9,3 8,1 8,7 6,8 1,1 0,9 1,4 0,6 5,0 4,8 7,2 7,5 3=0,1 0,7 2,1 1,5 3,1 3,7 5,4 7,0 5,
+10x10 background=1 2=1,2 2,7 4,9 6,1 7,0 0,2 8,3 0,8 4,7 2,8 3,8 9,0 7,1 8,4 9,3 1,1 2,0 3,0 3,9 5,0 4,8 2,6 7,2 6,9 3=0,7 0,4 3,7 4,6 9,2 8,0 7,3 7,9 0,5 3,2 2,5 1,3 4,1 3,5 7,4 0,0 8,1 9,9 6,8 0,3 0,9 1,4 0,6 2,9 1,7 3,3 5,6 6,0 5,3 5,9 5=4,4 8,8 2,4 5,5 3,4 6,5 1,5 7,7 8,7 5,4 6,4 6,7 7,6 6,6 6,3|10x10 background=3 1=0,7 3,4 1,5 4,9 7,3 7,6 9,8 0,5 2,2 1,0 0,8 2,5 7,1 7,7 8,4 9,9 9,6 2,0 1,4 1,7 3,9 7,2 8,2 7,8 2=2,4 4,0 1,2 2,1 3,1 6,1 1,8 8,0 1,3 1,9 4,1 9,0 9,3 0,0 8,1 0,3 3,0 0,6 2,3 6,0 5,9 5=2,7 4,6 5,7 6,7 8,6 4,7 5,2 4,4 3,8 5,5 6,5 4,5 5,6 5,3 7,5 8,5|10x10 background=1 2=0,4 4,9 6,1 5,1 7,9 0,2 6,3 9,8 0,5 1,0 6,2 3,8 7,1 9,0 0,0 9,9 6,9 9,6 2,0 2,9 3,9 6,0 5,3 9,1 9,7 7,8 9,4 3=0,1 0
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, ZERO)
+x3 = replace(I, ZERO, TWO)
+x4 = colorfilter(x1, THREE)
+x5 = rbind(bordering, x3)
+x6 = compose(flip, x5)
+x7 = mfilter(x2, x6)
+x8 = fill(x3, FIVE, x7)
+O = replace(x8, ZERO, SIX)</s>
+                                   
+Epoch 60: 100%|██████████| 6250/6250 [40:11<00:00,  2.59it/s, v_num=0, train/loss_step=0.167, train/loss_epoch=0.105]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 61 ********
+first training example inputs <s>14x18 background=0 7=12,4 4,9 5,4 4,6 5,13 3,13 5,10 10,6 11,5 2,2 8,6 10,3 11,14 2,11 8,15 10,12 6,11 4,2 12,3 12,12 3,9 5,6 3,6 5,3 11,7 2,4 10,5 1,2 11,16 10,14 2,10 6,13 6,10 12,5 3,2 12,14 3,11 5,5 8,4 9,3 9,12 10,7 1,4 11,6 2,3 10,16 11,15 2,12 6,12 12,7 3,4 4,3 12,16 12,13 3,10 4,12 9,5 8,3 9,14 8,12 1,6 1,3 12,6 4,5 12,15 3,12 5,9 4,11 9,7 11,4 8,5 9,4 9,16 8,14 1,5 2,13 3,5 5,2 4,4 5,11 4,13 8,7 11,3 8,16 10,13 9,15 8,13 11,12 2,9 2,6 6,9|15x19 background=0 8=4,9 5,4 5,1 3,16 4,15 5,10 11,5 10,3 0,14 2,11 11,14 8,15 10,12 2,8 1,18 6,11 6,8 12,3 12,12 4,8 5,3 3,18 4,17 5,12 11,7 10,5 1,2 13,4 2,1 0,16 11,16 10,14 11,13 2,10 1,17 6,10 12,5 3,2 4,1 12,14 4,10 3,8 5,5 9,3 3,17 9,12 10,7 1,4 11,6 2,3 13,3 10,16 0,15 2,12 6,12 12,7 3,4 4,3 3,1 12,16 12,13 3,10 4,12 9,5 4,18 9,14 8,12 2,5 1,3 13,5 0,17 10,15 2,14 4,
+5x5 background=7 0=2,3 1,1 3,1|5x5 background=8 0=3,1 1,1 3,3 1,3|5x5 background=6 0=3,1 1,1 1,3|5x5 background=2 0=1,1 1,3
+first training example labels <s>x1 = both(T, T)
+x2 = objects(I, T, x1, T)
+x3 = argmin(x2, size)
+O = subgrid(x3, I)</s>
+                                   
+Epoch 61: 100%|██████████| 6250/6250 [40:23<00:00,  2.58it/s, v_num=0, train/loss_step=0.115, train/loss_epoch=0.104]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 62 ********
+first training example inputs <s>20x20 background=0 2=3,4 4,3 5,4 4,6 6,4 3,5 4,4 5,5 6,5 5,3 4,5 3,3 5,6 3,6 6,6 6,3 4=14,7 16,9 15,7 14,10 17,9 16,6 15,10 17,6 18,9 18,6 16,7 14,8 17,7 16,10 15,8 18,7 17,10 18,10 14,6 15,6 14,9 15,9 16,8 17,8 18,8 6=17,3 3,16 14,16 8,9 19,9 9,8 10,3 13,2 0,14 10,12 13,11 0,11 11,11 18,4 6,2 2,17 15,14 7,10 14,0 0,18 4,8 5,12 17,14 9,10 2,4 13,4 13,1 16,0 11,13 2,19 13,19 12,5 6,0 8,4 19,4 0,0 8,1 19,10 1,4 0,15 2,12 18,5 16,17 12,7 17,0 12,13 4,12 0,2 3,19 4,18 8,3 19,12 0,8 16,1 13,14 7,16 12,0 18,13 14,3 17,2 4,14 17,11 9,7 9,4 0,1 11,1 8,14 19,14 13,7 6,1 0,19 11,19 1,14 2,13 18,18 17,4 14,14 8,7 19,7 2,0 17,19 11,12 10,10 13,9 1,16 11,18 18,11 7,8 7=12,4 6,18 12,1 6,15 4,9 9,2 8,0 12,19 5,13 3,13 14,13 17,12 0,5 11,5 7,4 1,18 1,15 6,8 18,19 3,0 6,17 19,2 11,7 19,8 0,4 19,17 1,11 1,8 13,10 3,2 4,1 3,11 3,8 9,3 3,17 17,13 8,
+3x3 background=4|3x3 background=3|3x3 background=8
+first training example labels <s>x1 = rot90(I)
+x2 = objects(I, T, T, T)
+x3 = argmax(x2, size)
+x4 = color(x3)
+x5 = canvas(x4, THREE_BY_THREE)
+O = paint(x5, x3)</s>
+                                   
+Epoch 62: 100%|██████████| 6250/6250 [40:08<00:00,  2.60it/s, v_num=0, train/loss_step=0.0918, train/loss_epoch=0.104]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 63 ********
+first training example inputs <s>13x15 background=0 8=4,3 4,9 3,7 5,4 4,6 5,7 8,3 8,9 8,6 2,2 1,6 2,5 1,3 1,9 2,8 7,4 6,2 6,5 4,2 4,5 3,9 5,6 4,8 3,6 5,3 5,9 8,2 8,5 8,8 1,2 2,7 1,5 1,8 6,4 7,3 7,9 7,6 3,2 4,7 3,5 5,2 4,4 3,8 5,5 8,4 5,8 8,7 1,4 2,9 1,7 2,6 7,2 6,6 7,5 6,3 6,9 2=2,3 2,4 3,3 3,4 3=6,7 6,8 7,7 7,8|14x16 background=0 3=8,2 8,3 9,2 9,3 4=3,7 4,6 4,7 3,6 5=3,2 3,3 4,2 4,3 8=12,4 12,1 4,9 5,4 5,1 8,9 10,6 9,8 11,5 2,2 8,6 10,3 1,9 2,8 7,4 6,2 7,1 6,8 12,3 3,9 5,6 4,8 5,3 9,1 11,7 2,4 8,8 10,5 1,2 2,1 1,8 6,4 7,3 12,5 4,1 3,8 5,5 8,4 8,1 11,9 10,7 1,4 11,6 2,3 6,6 7,5 6,3 12,7 3,4 3,1 5,7 9,5 11,2 10,9 1,6 11,8 2,5 1,3 7,7 6,5 12,9 12,6 4,5 5,9 9,7 11,4 8,5 10,2 9,4 11,1 10,8 1,5 2,7 6,1 7,9 6,7 7,6 12,2 12,8 3,5 5,2 4,4 9,9 5,8 8,7 10
+2x2 background=0 2=0,0 3=1,1|2x2 background=0 3=1,0 4=0,1 5=0,0|2x2 background=0 1=0,0 2=1,1 3=0,1
+first training example labels <s>x1 = compress(I)
+x2 = downscale(x1, TWO)
+x3 = compress(x2)
+x4 = compress(x3)
+x5 = compress(x4)
+x6 = replace(x5, EIGHT, ZERO)
+O = compress(x6)</s>
+                                   
+Epoch 63: 100%|██████████| 6250/6250 [40:10<00:00,  2.59it/s, v_num=0, train/loss_step=0.0747, train/loss_epoch=0.104]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 64 ********
+first training example inputs <s>12x4 background=0 3=0,1 4,0 1,1 0,3 5,1 3,0 0,2 3,3 5,3 3,2 1,3 5=11,1 9,0 11,0 6,1 11,3 9,2 10,0 6,3|12x4 background=0 3=0,1 1,2 4,0 2,1 0,0 5,3 0,3 4,2 1,0 3,2 1,3 5=7,1 9,3 11,0 10,1 9,2 8,0 7,3 8,3 10,0 7,2 6,0 9,1 10,2|12x4 background=0 3=0,1 4,0 0,0 5,3 5,1 2,3 3,3 5,0 1,0 3,2 5,2 5=9,0 7,1 9,3 11,0 6,1 7,0 10,1 9,2 8,0 11,2 10,0 8,2 9,1 10,2|12x4 background=0 3=0,1 1,2 4,0 2,1 0,0 3,1 1,1 2,0 4,2 2,3 5,0 3,2 1,3 5=11,1 6,1 7,0 9,2 8,0 7,3 11,2 10,0 6,3 6,2 9,0 7,1 9,3 8,1 7,2 8,2 9,1
+6x4 background=0 4=0,1 4,0 1,1 0,3 5,1 3,0 0,2 3,3 5,0 5,3 3,2 1,3|6x4 background=4 0=0,2 5,2 2,2 4,3 5,1 3,0|6x4 background=4 0=0,2 1,2 2,1 4,3 0,3 1,3|6x4 background=4 0=5,3 4,1 4,3
+first training example labels <s>x1 = tophalf(I)
+x2 = bottomhalf(I)
+x3 = astuple(SIX, FOUR)
+x4 = ofcolor(I, ZERO)
+x5 = ofcolor(x2, ZERO)
+x6 = intersection(x4, x5)
+x7 = canvas(FOUR, x3)
+O = fill(x7, ZERO, x6)</s>
+                                   
+Epoch 64: 100%|██████████| 6250/6250 [40:16<00:00,  2.59it/s, v_num=0, train/loss_step=0.121, train/loss_epoch=0.103]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 65 ********
+first training example inputs <s>9x9 background=0 2=0,2 6,2 5,2 4=7,6 5,6 8,6 6,6 1,6 0,6 5=4,4 4,0 4,3 4,6 4,2 4,5 4,8 4,1 4,7|9x9 background=0 2=6,2 0,2 7,2 8,2 5,2 4=7,6 5,6 8,6 6,6 1,6 0,6 5=4,4 4,0 4,3 4,6 4,2 4,5 4,8 4,1 4,7|11x9 background=0 2=6,2 0,2 7,2 8,2 9,2 4=9,6 0,6 7,6 2,6 10,6 8,6 6,6 1,6 5=5,5 5,8 5,4 5,1 5,7 5,0 5,6 5,3 5,2|11x9 background=0 2=6,2 1,2 0,2 7,2 8,2 9,2 4=7,6 8,6 6,6 1,6 0,6 5=5,5 5,8 5,4 5,1 5,7 5,0 5,6 5,3 5,2
+2x2 background=2|2x2 background=2|2x2 background=2|2x2 background=4
+first training example labels <s>x1 = ofcolor(I, THREE)
+x2 = replace(I, FIVE, EIGHT)
+x3 = leastcolor(x2)
+O = canvas(x3, TWO_BY_TWO)</s>
+                                   
+Epoch 65: 100%|██████████| 6250/6250 [40:13<00:00,  2.59it/s, v_num=0, train/loss_step=0.103, train/loss_epoch=0.103]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 66 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = colorfilter(x1, ZERO)
+x3 = sizefilter(x2, TWO)
+x4 = lbind(contained, TWO)
+x5 = compose(x4, palette)
+x6 = mfilter(x3, x5)
+x7 = cover(I, x6)
+x8 = matcher(first, THREE)
+x9 = sfilter(x6, x8)
+O = upscale(x7, TWO)</s>
+                                   
+Epoch 66: 100%|██████████| 6250/6250 [40:13<00:00,  2.59it/s, v_num=0, train/loss_step=0.130, train/loss_epoch=0.103]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 67 ********
+first training example inputs <s>13x15 background=0 8=4,3 4,9 3,7 5,4 4,6 5,7 8,3 8,9 8,6 2,2 1,6 2,5 1,3 1,9 2,8 7,4 6,2 6,5 4,2 4,5 3,9 5,6 4,8 3,6 5,3 5,9 8,2 8,5 8,8 1,2 2,7 1,5 1,8 6,4 7,3 7,9 7,6 3,2 4,7 3,5 5,2 4,4 3,8 5,5 8,4 5,8 8,7 1,4 2,9 1,7 2,6 7,2 6,6 7,5 6,3 6,9 2=2,3 2,4 3,3 3,4 3=6,7 6,8 7,7 7,8|14x16 background=0 3=8,2 8,3 9,2 9,3 4=3,7 4,6 4,7 3,6 5=3,2 3,3 4,2 4,3 8=12,4 12,1 4,9 5,4 5,1 8,9 10,6 9,8 11,5 2,2 8,6 10,3 1,9 2,8 7,4 6,2 7,1 6,8 12,3 3,9 5,6 4,8 5,3 9,1 11,7 2,4 8,8 10,5 1,2 2,1 1,8 6,4 7,3 12,5 4,1 3,8 5,5 8,4 8,1 11,9 10,7 1,4 11,6 2,3 6,6 7,5 6,3 12,7 3,4 3,1 5,7 9,5 11,2 10,9 1,6 11,8 2,5 1,3 7,7 6,5 12,9 12,6 4,5 5,9 9,7 11,4 8,5 10,2 9,4 11,1 10,8 1,5 2,7 6,1 7,9 6,7 7,6 12,2 12,8 3,5 5,2 4,4 9,9 5,8 8,7 10
+2x2 background=0 2=0,0 3=1,1|2x2 background=0 3=1,0 4=0,1 5=0,0|2x2 background=0 1=0,0 2=1,1 3=0,1
+first training example labels <s>x1 = compress(I)
+x2 = replace(x1, EIGHT, ZERO)
+x3 = compress(x2)
+x4 = trim(x3)
+x5 = replace(x4, NINE, ZERO)
+O = replace(x5, EIGHT, TWO)</s>
+                                   
+Epoch 67: 100%|██████████| 6250/6250 [40:06<00:00,  2.60it/s, v_num=0, train/loss_step=0.0991, train/loss_epoch=0.102]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 68 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = vmirror(I)
+X2 = objects(I, T, F, T)
+X3 = first(X2)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 68: 100%|██████████| 6250/6250 [40:11<00:00,  2.59it/s, v_num=0, train/loss_step=0.0783, train/loss_epoch=0.102]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 69 ********
+first training example inputs <s>20x20 background=0 3=6,12 12,4 4,3 12,10 14,7 4,6 4,12 5,13 4,15 3,13 11,14 13,5 11,17 15,5 13,17 15,8 6,14 4,2 14,6 4,5 4,14 5,3 3,6 4,11 12,15 3,15 12,18 5,15 11,16 13,7 11,19 10,17 13,16 15,7 2,13 3,2 3,11 4,4 14,8 5,5 5,11 4,13 9,15 10,16 9,18 11,15 13,9 15,6 15,9 11,18 16,8|21x21 background=0 2=6,12 4,0 6,15 3,4 4,3 5,4 4,6 17,3 5,13 17,6 2,2 8,12 9,11 13,2 2,5 8,15 15,2 15,5 16,16 15,14 6,11 6,14 4,2 4,5 3,3 14,3 5,6 4,8 17,2 5,3 17,5 14,15 17,14 8,11 8,14 15,4 16,3 15,13 16,12 6,13 7,12 15,15 4,1 4,7 3,5 5,2 14,5 17,4 5,5 17,13 8,10 8,16 9,15 2,3 15,6 2,6 13,6 15,3 16,5 16,14 7,14|23x23 background=0 1=6,12 3,4 3,1 12,16 17,6 5,10 8,9 8,12 2,5 1,3 11,14 11,17 16,7 6,11 7,10 6,8 4,2 12,15 17,5 8,11 8,8 1,2 2,1 18,5 1,5 13,16 15,7 16,6 7,9 15,16 6,10 3,2 3,5 17,4 4,4 14,14 14,17 8,7 1,1 0,3 1,4 8,13 15,6 16,5 13,15 7,11 6,9 15,15
+3x5 background=3 0=0,1 2,4 0,2 2,2 0,3 2,0|4x5 background=0 2=2,4 1,2 3,1 1,1 0,3 2,0 2,2 3,2 1,3|4x4 background=1 0=0,1 2,3 3,3 0,0 1,0 3,2 3,0
+first training example labels <s>x1 = tophalf(I)
+x2 = bottomhalf(I)
+x3 = compress(x1)
+x4 = objects(I, F, T, T)
+x5 = argmin(x4, size)
+x6 = rot90(x1)
+O = subgrid(x5, I)</s>
+                                   
+Epoch 69: 100%|██████████| 6250/6250 [40:06<00:00,  2.60it/s, v_num=0, train/loss_step=0.0795, train/loss_epoch=0.102]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 70 ********
+first training example inputs <s>10x10 background=0 1=0,1 4,0 2,1 4,3 3,1 1,8 5,1 5,7 9,5 8,9 9,8 8,6 2,2 1,0 1,6 1,9 5,2 6,2 5,8 9,6 4,2 2,3 4,5 3,6 8,2 7,5 9,1 9,7 8,5 7,8 9,4 3=0,7 0,4 3,7 4,6 9,2 8,0 7,3 7,9 0,5 3,2 2,5 1,3 4,1 3,5 7,4 0,0 8,1 9,9 6,8 0,3 0,9 1,4 0,6 2,9 1,7 3,3 5,6 6,0 5,3 5,9|10x10 background=3 0=4,0 3,1 4,6 5,7 8,0 8,6 1,3 1,9 6,5 3,0 4,5 5,6 5,3 5,9 8,5 2,4 1,2 2,1 2,7 6,1 1,8 6,7 4,1 4,7 5,2 4,4 3,8 5,5 9,0 9,3 0,0 8,1 0,3 0,6 2,3 6,0 7,5 1=0,7 3,4 1,5 4,9 7,3 7,6 9,8 0,5 2,2 1,0 0,8 2,5 7,1 7,7 8,4 9,9 9,6 2,0 1,4 1,7 3,9 7,2 8,2 7,8|10x10 background=0 1=8,8 2,4 4,0 1,2 4,3 1,8 9,2 8,0 6,4 9,5 2,2 1,3 1,9 4,1 5,2 8,4 6,5 9,3 8,1 8,7 6,8 1,1 0,9 1,4 0,6 5,0 4,8 7,2 7,5 3=0,1 0,7 2,1 1,5 3,1 3,7 5,4 7,0 5,
+10x10 background=1 2=1,2 2,7 4,9 6,1 7,0 0,2 8,3 0,8 4,7 2,8 3,8 9,0 7,1 8,4 9,3 1,1 2,0 3,0 3,9 5,0 4,8 2,6 7,2 6,9 3=0,7 0,4 3,7 4,6 9,2 8,0 7,3 7,9 0,5 3,2 2,5 1,3 4,1 3,5 7,4 0,0 8,1 9,9 6,8 0,3 0,9 1,4 0,6 2,9 1,7 3,3 5,6 6,0 5,3 5,9 5=4,4 8,8 2,4 5,5 3,4 6,5 1,5 7,7 8,7 5,4 6,4 6,7 7,6 6,6 6,3|10x10 background=3 1=0,7 3,4 1,5 4,9 7,3 7,6 9,8 0,5 2,2 1,0 0,8 2,5 7,1 7,7 8,4 9,9 9,6 2,0 1,4 1,7 3,9 7,2 8,2 7,8 2=2,4 4,0 1,2 2,1 3,1 6,1 1,8 8,0 1,3 1,9 4,1 9,0 9,3 0,0 8,1 0,3 3,0 0,6 2,3 6,0 5,9 5=2,7 4,6 5,7 6,7 8,6 4,7 5,2 4,4 3,8 5,5 6,5 4,5 5,6 5,3 7,5 8,5|10x10 background=1 2=0,4 4,9 6,1 5,1 7,9 0,2 6,3 9,8 0,5 1,0 6,2 3,8 7,1 9,0 0,0 9,9 6,9 9,6 2,0 2,9 3,9 6,0 5,3 9,1 9,7 7,8 9,4 3=0,1 0
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, ZERO)
+x3 = replace(I, ZERO, TWO)
+x4 = rbind(bordering, x3)
+x5 = compose(flip, x4)
+x6 = mfilter(x2, x5)
+x7 = fill(x3, FIVE, x6)
+O = replace(x7, ZERO, TEN)</s>
+                                   
+Epoch 70: 100%|██████████| 6250/6250 [40:09<00:00,  2.59it/s, v_num=0, train/loss_step=0.0975, train/loss_epoch=0.102]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 71 ********
+first training example inputs <s>6x6 background=0 1=0,4 2,2 2=0,2 2,0 0,0 3=4,0|6x6 background=0 1=4,2 2=0,4 3=0,0 8=2,4 2,0|6x6 background=0 1=0,0 2=2,2 6=4,4 4,0
+3x3 background=0 1=1,1 0,2 2=0,1 1,0 0,0 3=2,0|3x3 background=0 1=2,1 2=0,2 3=0,0 8=1,0 1,2|3x3 background=0 1=0,0 2=1,1 6=2,0 2,2
+first training example labels <s>x1 = mostcolor(I)
+O = compress(I)</s>
+                                   
+Epoch 71: 100%|██████████| 6250/6250 [40:04<00:00,  2.60it/s, v_num=0, train/loss_step=0.143, train/loss_epoch=0.101]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 72 ********
+first training example inputs <s>4x14 background=0 2=0,7 2,10 0,9 3,10 2,9 1,7 3,13 2,12 0,8 2,11 3,11 3=2,4 0,4 1,5 0,3 2,0 0,6 2,3 0,2 0,5 3,6 1,0 3,5|4x14 background=0 2=0,7 0,13 2,10 2,13 0,12 2,9 1,7 1,13 3,9 2,12 3,13 3,12 0,11 3,11 3=0,1 2,4 1,2 0,0 1,1 1,4 0,2 3,3 2,6 0,5 2,2 1,6 2,5 1,3|4x14 background=0 2=0,7 3,8 0,10 2,7 1,11 3,7 1,8 0,9 2,13 2,9 1,13 1,10 0,8 2,11 1,9 3=0,4 2,1 1,5 3,1 2,0 1,4 3,0 2,3 0,2 0,5 3,6 1,0 3,2|4x14 background=0 2=0,7 1,12 3,8 1,11 0,13 0,9 3,10 2,13 3,9 3,12 2,11 3=0,1 1,2 0,4 2,1 3,4 3,1 0,6 0,2 2,6 3,6 2,2 1,0 3,2 2,5
+4x7 background=0 5=1,2 2,1 3,1 1,1 1,4 3,0 2,6 1,6 3,2 1,3|4x7 background=0 5=2,1 1,5 3,1 0,3 2,0 3,0|4x7 background=0 5=3,3 3,4 2,5 3,5 0,6|4x7 background=0 5=1,1 0,3 2,0 3,0 2,3 0,5 1,6 1,3
+first training example labels <s>x1 = righthalf(I)
+x2 = shape(x1)
+x3 = ofcolor(x1, ZERO)
+x4 = ofcolor(I, ZERO)
+x5 = intersection(x3, x4)
+x6 = canvas(ZERO, x2)
+O = underfill(x6, FIVE, x5)</s>
+                                   
+Epoch 72: 100%|██████████| 6250/6250 [40:11<00:00,  2.59it/s, v_num=0, train/loss_step=0.105, train/loss_epoch=0.101]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 73 ********
+first training example inputs <s>6x6 background=0 1=0,4 2,2 2=0,2 2,0 0,0 3=4,0|6x6 background=0 1=4,2 2=0,4 3=0,0 8=2,4 2,0|6x6 background=0 1=0,0 2=2,2 6=4,4 4,0
+3x3 background=0 1=1,1 0,2 2=0,1 1,0 0,0 3=2,0|3x3 background=0 1=2,1 2=0,2 3=0,0 8=1,0 1,2|3x3 background=0 1=0,0 2=1,1 6=2,0 2,2
+first training example labels <s>x1 = vmirror(I)
+O = downscale(I, NEG_TWO)</s>
+                                   
+Epoch 73: 100%|██████████| 6250/6250 [40:28<00:00,  2.57it/s, v_num=0, train/loss_step=0.147, train/loss_epoch=0.101]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 74 ********
+first training example inputs <s>20x20 background=0 2=3,4 4,3 5,4 4,6 6,4 3,5 4,4 5,5 6,5 5,3 4,5 3,3 5,6 3,6 6,6 6,3 4=14,7 16,9 15,7 14,10 17,9 16,6 15,10 17,6 18,9 18,6 16,7 14,8 17,7 16,10 15,8 18,7 17,10 18,10 14,6 15,6 14,9 15,9 16,8 17,8 18,8 6=17,3 3,16 14,16 8,9 19,9 9,8 10,3 13,2 0,14 10,12 13,11 0,11 11,11 18,4 6,2 2,17 15,14 7,10 14,0 0,18 4,8 5,12 17,14 9,10 2,4 13,4 13,1 16,0 11,13 2,19 13,19 12,5 6,0 8,4 19,4 0,0 8,1 19,10 1,4 0,15 2,12 18,5 16,17 12,7 17,0 12,13 4,12 0,2 3,19 4,18 8,3 19,12 0,8 16,1 13,14 7,16 12,0 18,13 14,3 17,2 4,14 17,11 9,7 9,4 0,1 11,1 8,14 19,14 13,7 6,1 0,19 11,19 1,14 2,13 18,18 17,4 14,14 8,7 19,7 2,0 17,19 11,12 10,10 13,9 1,16 11,18 18,11 7,8 7=12,4 6,18 12,1 6,15 4,9 9,2 8,0 12,19 5,13 3,13 14,13 17,12 0,5 11,5 7,4 1,18 1,15 6,8 18,19 3,0 6,17 19,2 11,7 19,8 0,4 19,17 1,11 1,8 13,10 3,2 4,1 3,11 3,8 9,3 3,17 17,13 8,
+3x3 background=4|3x3 background=3|3x3 background=8
+first training example labels <s>x1 = equality(I, I)
+x2 = objects(I, FIVE, TEN, x1)
+x3 = argmax(x2, size)
+x4 = color(x3)
+x5 = canvas(x4, THREE_BY_THREE)
+O = underpaint(x5, x3)</s>
+                                   
+Epoch 74: 100%|██████████| 6250/6250 [40:22<00:00,  2.58it/s, v_num=0, train/loss_step=0.103, train/loss_epoch=0.100]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 75 ********
+first training example inputs <s>13x15 background=0 8=4,3 4,9 3,7 5,4 4,6 5,7 8,3 8,9 8,6 2,2 1,6 2,5 1,3 1,9 2,8 7,4 6,2 6,5 4,2 4,5 3,9 5,6 4,8 3,6 5,3 5,9 8,2 8,5 8,8 1,2 2,7 1,5 1,8 6,4 7,3 7,9 7,6 3,2 4,7 3,5 5,2 4,4 3,8 5,5 8,4 5,8 8,7 1,4 2,9 1,7 2,6 7,2 6,6 7,5 6,3 6,9 2=2,3 2,4 3,3 3,4 3=6,7 6,8 7,7 7,8|14x16 background=0 3=8,2 8,3 9,2 9,3 4=3,7 4,6 4,7 3,6 5=3,2 3,3 4,2 4,3 8=12,4 12,1 4,9 5,4 5,1 8,9 10,6 9,8 11,5 2,2 8,6 10,3 1,9 2,8 7,4 6,2 7,1 6,8 12,3 3,9 5,6 4,8 5,3 9,1 11,7 2,4 8,8 10,5 1,2 2,1 1,8 6,4 7,3 12,5 4,1 3,8 5,5 8,4 8,1 11,9 10,7 1,4 11,6 2,3 6,6 7,5 6,3 12,7 3,4 3,1 5,7 9,5 11,2 10,9 1,6 11,8 2,5 1,3 7,7 6,5 12,9 12,6 4,5 5,9 9,7 11,4 8,5 10,2 9,4 11,1 10,8 1,5 2,7 6,1 7,9 6,7 7,6 12,2 12,8 3,5 5,2 4,4 9,9 5,8 8,7 10
+2x2 background=0 2=0,0 3=1,1|2x2 background=0 3=1,0 4=0,1 5=0,0|2x2 background=0 1=0,0 2=1,1 3=0,1
+first training example labels <s>x1 = replace(I, EIGHT, ZERO)
+x2 = compress(x1)
+x3 = compress(x2)
+x4 = downscale(x3, TWO)
+x5 = replace(x4, NINE, ZERO)
+O = compress(x5)</s>
+                                   
+Epoch 75: 100%|██████████| 6250/6250 [40:28<00:00,  2.57it/s, v_num=0, train/loss_step=0.0932, train/loss_epoch=0.100]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 76 ********
+first training example inputs <s>9x5 background=0 1=7,4 6,2 8,1 6,1 6,4 8,0 7,3 5,0 7,2 6,0 5,3 8,2 2=0,1 1,2 1,1 2,3 0,2 3,3 2,2 1,0 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,1 8,4 6,1 7,0 5,1 8,3 6,0 8,2 6,3 5,2 2=0,1 2,4 0,4 2,1 3,4 0,0 3,1 0,3 3,0 2,3 0,2 3,3 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,4 8,4 8,1 6,1 5,4 7,0 5,1 6,4 8,3 5,0 7,2 6,0 6,3 2=1,2 2,1 3,4 3,1 1,1 3,0 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,4 8,1 8,3 5,0 6,0 8,2 6,3 5,2 2=0,1 2,4 1,2 0,4 1,1 1,4 2,3 3,3 3,2 4=4,4 4,0 4,3 4,1 4,2
+4x5 background=3 0=2,0 0,4 2,1 3,4|4x5 background=3 0=1,2 1,4 2,2|4x5 background=3 0=2,3 0,2 0,3|4x5 background=3 0=2,1 3,4 2,2 0,3 2,0 3,0
+first training example labels <s>x1 = bottomhalf(I)
+x2 = tophalf(I)
+x3 = ofcolor(x1, ZERO)
+x4 = ofcolor(x2, ZERO)
+x5 = ofcolor(x3, ZERO)
+x6 = ofcolor(x1, TWO)
+x7 = intersection(x3, x4)
+x8 = shape(x1)
+x9 = canvas(THREE, x8)
+O = fill(x9, ZERO, x7)</s>
+                                   
+Epoch 76: 100%|██████████| 6250/6250 [40:32<00:00,  2.57it/s, v_num=0, train/loss_step=0.106, train/loss_epoch=0.0998]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 77 ********
+first training example inputs <s>3x7 background=0 8=1,6 2,4 2,5 0,6 4=2,3 0,3 1,3 6=1,1 2,1 0,0|3x7 background=0 8=2,4 0,4 0,5 1,5 1,6 4=2,3 0,3 1,3 6=1,1 0,2 2,1 2,2|3x7 background=0 8=2,4 0,4 2,6 0,6 4=2,3 0,3 1,3 6=0,2 1,2 2,1 2,2 1,0|3x7 background=0 8=1,6 2,5 1,4 4=2,3 0,3 1,3 6=0,2 2,2 2,1 0,0 1,0 1,1 2,0|3x7 background=0 8=1,5 0,4 2,4 0,6 4=2,3 0,3 1,3 6=1,1 0,2
+3x3 background=2 0=0,1 1,0 2,2|3x3 background=2 0=1,0|3x3 background=2 0=0,1 1,1|3x3 background=2 0=0,1|3x3 background=0 2=1,1 0,2 2,0 0,0
+first training example labels <s>x1 = righthalf(I)
+x2 = ofcolor(I, ZERO)
+x3 = ofcolor(x1, ZERO)
+x4 = intersection(x2, x3)
+x5 = size(x2)
+x6 = canvas(TWO, THREE_BY_THREE)
+O = fill(x6, ZERO, x4)</s>
+                                   
+Epoch 77: 100%|██████████| 6250/6250 [40:30<00:00,  2.57it/s, v_num=0, train/loss_step=0.0977, train/loss_epoch=0.100]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 78 ********
+first training example inputs <s>24x24 background=5 0=2,15 2,16 4,12 3,16 2,13 4,15 3,13 3,19 2,19 4,18 2,14 4,16 3,14 2,17 4,13 4,19 3,17 2,12 2,18 4,14 3,12 3,18 4,17 3,15 1=12,1 22,5 22,11 5,1 5,7 12,22 5,16 2,2 5,22 16,1 1,12 1,18 7,1 18,1 18,7 22,1 18,16 16,22 2,21 22,7 7,22 18,22 21,21 22,16 22,22 11,1 13,4 1,5 1,11 11,22 13,19 21,2 16,18 7,18 22,12 4,4 4,10 22,18 19,4 10,4 1,1 19,10 19,13 19,19 1,7 16,5 10,19 1,16 7,5 1,22 2=15,21 14,4 4,9 3,10 14,19 19,9 9,14 10,3 8,12 11,8 8,21 15,2 2,8 16,7 15,11 7,7 16,16 13,20 7,16 20,13 20,10 21,15 14,9 12,15 8,2 8,11 9,4 19,14 9,19 10,20 21,8 12,8 14,14 9,9 13,3 11,15 15,12 3=8,8 9,16 14,7 16,9 14,16 7,9 12,11 8,15 11,11 7,14 15,8 11,12 12,12 16,14 9,7 15,15 4=23,1 3,4 4,3 3,1 21,19 20,23 22,20 20,20 22,23 4,21 19,3 23,22 3,22 1,0 1,3 19,21 0,20 20,4 2,20 21,3 20,1 4,2 3,0 23,3 3,3 20,19 20,22 19,2 3,21 4,20 0,1 2,4 19,20 1,20 0,22 1,23 20,0 20,3
+10x10 background=5 2=2,7 1,5 5,1 2,2 4,1 9,0 8,4 7,7 0,0 5,8 9,9 0,9 1,4 4,8 7,2 8,5 3=0,7 8,8 5,4 1,8 7,0 9,2 7,9 0,2 4,4 5,5 8,1 1,1 2,0 2,9 4,5 9,7 7=0,1 2,4 1,2 2,1 5,7 8,0 8,9 9,8 1,0 0,8 2,5 1,9 4,7 2,8 5,2 7,4 7,1 8,7 4,2 1,7 8,2 7,5 9,1 7,8 8=9,3 9,6 0,3 3,0 0,6 3,9 6,0 6,9|4x3 background=9 2=3,0 4=1,1 1,2 6=0,0 7=3,1 3,2 8=2,0|6x6 background=7 8=0,3 2,0 3,0 0,2 5,3 2,5 3,5 5,2 1=2,3 3,2 3,3 2,2 2=4,4 1,1 4,1 1,4|10x10 background=6 1=3,1 6,1 8,3 8,6 1,6 1,3 3,8 9,0 0,0 9,9 6,8 0,9 3,3 3,6 6,6 6,3 2=6,0 7,7 2,7 9,3 9,6 0,3 3,0 0,6 3,9 7,2 2,2 6,9 7=8,8 4,0 0,4 4,9 3,7 1,8 7,3 9,5 6,7 7,6 0,5 3,2 6,2 8,1 1,1 2,3 5,0 2,6 5,9 9,4 9=0,1 1,2 2,1 8,0 8,9 9,8 1,0 0,8 1,9 2,8 7,1 8,7 1,7 8,2 9,1 7,
+first training example labels <s>x1 = rot180(I)
+x2 = compress(x1)
+x3 = vmirror(x2)
+x4 = fgpartition(I)
+x5 = argmin(x4, size)
+x6 = compress(x3)
+x7 = compress(x6)
+O = subgrid(x5, x7)</s>
+                                   
+Epoch 78: 100%|██████████| 6250/6250 [40:11<00:00,  2.59it/s, v_num=0, train/loss_step=0.096, train/loss_epoch=0.0995]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 79 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = replace(I, EIGHT, FIVE)
+x2 = objects(x1, T, F, T)
+x3 = sizefilter(x2, TWO)
+x4 = merge(x3)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 79: 100%|██████████| 6250/6250 [40:20<00:00,  2.58it/s, v_num=0, train/loss_step=0.0666, train/loss_epoch=0.0994]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 80 ********
+first training example inputs <s>10x13 background=0 2=4,10 6,2 3,11 4,11 5,4 6,3 7,3 3=7,10 1,1 8,10 2,3 8,9 7,2 2,2 1,3 7,8 5,2 5=7,9 0,2 1,2 5,3 6,9 7=2,10 3,9 3,10 8=0,4 6,10 6,11 0,3 1,4 7,11|15x13 background=0 1=1,2 5,6 4,8 1,3 4,7 2=6,7 2,1 2,2 3,2 5,7 3=3,1 4,1 4=13,9 13,10 14,9 5=13,3 8,3 13,4 8,4 13,2 8,2 6=11,9 12,8 12,9 8=12,4 7,4 11,10 12,10 11,3 12,3 7,3 2,3 10,10 3,3 12,2 7,2 6,3|15x15 background=0 2=0,2 1,3 3=6,7 10,3 6,6 6,8 10,1 4=11,2 9,2 10,2 5=11,12 12,12 1,11 2,10 13,11 0,11 6=5,7 4,8 5,8 7=1,10 13,12 12,10 12,11 2,11 1,9 8=1,2 0,3 2,1 2,2 9=0,12 1,12 12,13 11,13
+3x4 background=3 0=2,3 2,0 0,0 8=0,2 0,3 1,3 5=0,1 1,1|4x3 background=0 1=0,1 0,2 3=2,0 3,0 5=1,0 1,1 2,1 8=1,2 2,2|3x4 background=0 9=0,3 1,3 5=0,2 1,2 2,1 7=1,0 1,1 2,2
+first training example labels <s>x1 = equality(TEN, NINE)
+x2 = objects(I, x1, F, T)
+x3 = argmax(x2, size)
+x4 = subgrid(x3, I)
+O = replace(x4, TWO, FIVE)</s>
+                                   
+Epoch 80: 100%|██████████| 6250/6250 [40:23<00:00,  2.58it/s, v_num=0, train/loss_step=0.0771, train/loss_epoch=0.0992]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 81 ********
+first training example inputs <s>3x3 background=0 3=0,1 7=1,1 1,2|4x4 background=0 8=1,1 0,2 5=2,3 1,2 1,3
+6x6 background=0 3=1,2 0,2 0,3 1,3 7=2,4 3,4 2,3 3,3 2,2 3,2 2,5 3,5|8x8 background=0 8=0,4 1,5 1,4 2,3 3,3 0,5 2,2 3,2 5=2,4 3,4 2,7 3,7 4,6 5,7 2,6 5,6 3,6 2,5 4,7 3,5
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, ZERO)
+x3 = sizefilter(x2, TWO)
+x4 = merge(x3)
+O = upscale(I, TWO)</s>
+                                   
+Epoch 81: 100%|██████████| 6250/6250 [40:19<00:00,  2.58it/s, v_num=0, train/loss_step=0.0774, train/loss_epoch=0.0992]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 82 ********
+first training example inputs <s>9x5 background=0 1=7,4 6,2 8,1 6,1 6,4 8,0 7,3 5,0 7,2 6,0 5,3 8,2 2=0,1 1,2 1,1 2,3 0,2 3,3 2,2 1,0 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,1 8,4 6,1 7,0 5,1 8,3 6,0 8,2 6,3 5,2 2=0,1 2,4 0,4 2,1 3,4 0,0 3,1 0,3 3,0 2,3 0,2 3,3 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,4 8,4 8,1 6,1 5,4 7,0 5,1 6,4 8,3 5,0 7,2 6,0 6,3 2=1,2 2,1 3,4 3,1 1,1 3,0 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,4 8,1 8,3 5,0 6,0 8,2 6,3 5,2 2=0,1 2,4 1,2 0,4 1,1 1,4 2,3 3,3 3,2 4=4,4 4,0 4,3 4,1 4,2
+4x5 background=3 0=2,0 0,4 2,1 3,4|4x5 background=3 0=1,2 1,4 2,2|4x5 background=3 0=2,3 0,2 0,3|4x5 background=3 0=2,1 3,4 2,2 0,3 2,0 3,0
+first training example labels <s>x1 = tophalf(I)
+x2 = tophalf(x1)
+x3 = bottomhalf(I)
+x4 = shape(x3)
+x5 = ofcolor(x1, ZERO)
+x6 = ofcolor(x3, ZERO)
+x7 = intersection(x5, x6)
+x8 = canvas(THREE, x4)
+O = fill(x8, ZERO, x7)</s>
+                                   
+Epoch 82: 100%|██████████| 6250/6250 [40:20<00:00,  2.58it/s, v_num=0, train/loss_step=0.0532, train/loss_epoch=0.0988]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+eval_code took longer than 0.25 seconds
+eval_code took longer than 0.25 seconds
+******** iteration 83 ********
+first training example inputs <s>13x15 background=0 8=4,3 4,9 3,7 5,4 4,6 5,7 8,3 8,9 8,6 2,2 1,6 2,5 1,3 1,9 2,8 7,4 6,2 6,5 4,2 4,5 3,9 5,6 4,8 3,6 5,3 5,9 8,2 8,5 8,8 1,2 2,7 1,5 1,8 6,4 7,3 7,9 7,6 3,2 4,7 3,5 5,2 4,4 3,8 5,5 8,4 5,8 8,7 1,4 2,9 1,7 2,6 7,2 6,6 7,5 6,3 6,9 2=2,3 2,4 3,3 3,4 3=6,7 6,8 7,7 7,8|14x16 background=0 3=8,2 8,3 9,2 9,3 4=3,7 4,6 4,7 3,6 5=3,2 3,3 4,2 4,3 8=12,4 12,1 4,9 5,4 5,1 8,9 10,6 9,8 11,5 2,2 8,6 10,3 1,9 2,8 7,4 6,2 7,1 6,8 12,3 3,9 5,6 4,8 5,3 9,1 11,7 2,4 8,8 10,5 1,2 2,1 1,8 6,4 7,3 12,5 4,1 3,8 5,5 8,4 8,1 11,9 10,7 1,4 11,6 2,3 6,6 7,5 6,3 12,7 3,4 3,1 5,7 9,5 11,2 10,9 1,6 11,8 2,5 1,3 7,7 6,5 12,9 12,6 4,5 5,9 9,7 11,4 8,5 10,2 9,4 11,1 10,8 1,5 2,7 6,1 7,9 6,7 7,6 12,2 12,8 3,5 5,2 4,4 9,9 5,8 8,7 10
+2x2 background=0 2=0,0 3=1,1|2x2 background=0 3=1,0 4=0,1 5=0,0|2x2 background=0 1=0,0 2=1,1 3=0,1
+first training example labels <s>x1 = compress(I)
+x2 = compress(x1)
+x3 = replace(x2, EIGHT, ZERO)
+x4 = downscale(x3, NEG_TWO)
+x5 = compress(x4)
+x6 = replace(x5, NINE, ZERO)
+O = compress(x6)</s>
+                                   
+Epoch 83: 100%|██████████| 6250/6250 [40:19<00:00,  2.58it/s, v_num=0, train/loss_step=0.0755, train/loss_epoch=0.0986]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 84 ********
+first training example inputs <s>10x9 background=0 5=3,1 5,4 4,6 5,1 8,0 9,5 0,2 8,3 0,5 2,2 1,3 6,5 6,8 4,5 4,8 5,3 8,2 8,5 1,2 2,1 1,5 6,1 6,7 4,1 4,7 5,2 5,5 8,4 8,1 2,0 1,4 6,0 6,6 7,5|10x12 background=0 5=4,0 4,9 3,7 4,6 8,3 9,8 8,6 2,2 1,6 1,9 7,1 6,5 4,2 3,9 5,6 3,6 4,11 0,1 8,8 2,4 0,4 2,1 1,5 7,0 6,4 7,3 7,6 3,2 4,1 4,10 3,8 9,3 8,7 1,1 0,9 1,4 2,3 2,9 2,6 7,2 6,6 6,3|15x5 background=0 5=12,4 12,1 3,1 14,1 5,4 2,2 1,0 10,3 1,3 7,1 4,2 3,0 12,3 5,3 9,1 10,2 2,4 13,1 7,0 7,3 12,2 3,2 5,2 0,0 8,1 0,3 2,0 10,1 11,3 13,0 2,3 7,2 6,3
+10x9 background=5 0=4,0 9,2 5,7 9,8 8,6 1,0 7,4 6,2 7,1 7,7 3,0 5,0 5,6 9,1 9,7 9,4 0,1 8,8 7,0 6,4 7,3 7,6 9,0 9,3 0,0 5,8 8,7 1,1 9,6 7,2 6,3 7,8 8=0,7 2,4 3,4 2,7 4,3 3,7 1,8 1,6 0,8 2,5 3,2 3,5 2,8 4,4 3,8 4,2 0,6 2,3 1,7 3,3 2,6 3,6 7=0,3 0,4|10x12 background=0 8=9,10 5,7 7,9 6,7 5,10 8,9 6,10 9,11 4,7 5,11 7,7 6,11 5,8 7,10 6,8 9,9 8,10 4,8 7,8 5,9 7,11 6,9 8,11 5=4,0 4,9 3,7 4,6 8,3 9,8 8,6 2,2 1,6 1,9 7,1 6,5 4,2 3,9 5,6 3,6 4,11 0,1 8,8 2,4 0,4 2,1 1,5 7,0 6,4 7,3 7,6 3,2 4,1 4,10 3,8 9,3 8,7 1,1 0,9 1,4 2,3 2,9 2,6 7,2 6,6 6,3 7=1,2 0,2 0,3 1,3|15x5 background=5 0=0,1 11,1 4,0 1,2 3,4 14,4 4,3 0,4 2,1 13,4 6,1 5,1 8,0 0,2 10,0 11,2 13,2 14,2 4,1 4,4 6,2 9,0 11,0 12,0 1,1 1,4 13,3 3,3 5,0 14,3 6,0 8=7,4 8,4 9
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, ZERO)
+x3 = argmin(x2, size)
+x4 = argmax(x2, size)
+x5 = underfill(I, EIGHT, x4)
+x6 = fill(x5, SEVEN, x3)
+O = cellwise(x6, x6, THREE)</s>
+                                   
+Epoch 84: 100%|██████████| 6250/6250 [40:22<00:00,  2.58it/s, v_num=0, train/loss_step=0.0792, train/loss_epoch=0.0985]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 85 ********
+first training example inputs <s>9x5 background=0 1=7,4 6,2 8,1 6,1 6,4 8,0 7,3 5,0 7,2 6,0 5,3 8,2 2=0,1 1,2 1,1 2,3 0,2 3,3 2,2 1,0 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,1 8,4 6,1 7,0 5,1 8,3 6,0 8,2 6,3 5,2 2=0,1 2,4 0,4 2,1 3,4 0,0 3,1 0,3 3,0 2,3 0,2 3,3 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,4 8,4 8,1 6,1 5,4 7,0 5,1 6,4 8,3 5,0 7,2 6,0 6,3 2=1,2 2,1 3,4 3,1 1,1 3,0 3,2 1,3 4=4,4 4,0 4,3 4,1 4,2|9x5 background=0 1=7,4 8,1 8,3 5,0 6,0 8,2 6,3 5,2 2=0,1 2,4 1,2 0,4 1,1 1,4 2,3 3,3 3,2 4=4,4 4,0 4,3 4,1 4,2
+4x5 background=3 0=2,0 0,4 2,1 3,4|4x5 background=3 0=1,2 1,4 2,2|4x5 background=3 0=2,3 0,2 0,3|4x5 background=3 0=2,1 3,4 2,2 0,3 2,0 3,0
+first training example labels <s>x1 = bottomhalf(I)
+x2 = tophalf(I)
+x3 = ofcolor(x2, ZERO)
+x4 = ofcolor(x1, ZERO)
+x5 = intersection(x3, x4)
+x6 = shape(x1)
+x7 = canvas(THREE, x6)
+O = fill(x7, ZERO, x5)</s>
+                                   
+Epoch 85: 100%|██████████| 6250/6250 [40:27<00:00,  2.58it/s, v_num=0, train/loss_step=0.0886, train/loss_epoch=0.0984]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 86 ********
+first training example inputs <s>4x8 background=0 5=0,4 2,7 1,5 1,4 0,6 2,6 3,6 3,5 6=0,1 0,0 0,3 2,0 2,3 0,2 2,2 1,0 3,2|4x8 background=0 5=2,4 0,4 2,7 3,7 1,4 0,6 1,7 2,6 0,5 2,5 3,5 6=0,1 2,1 1,1 3,0 2,3 0,2 2,2 1,3|4x8 background=0 5=0,7 0,4 3,4 1,5 0,6 1,7 1,6 3,5 6=0,1 0,0 3,1 2,0 0,2 3,3 1,0 3,2|4x8 background=0 5=0,7 2,4 3,4 2,7 1,4 0,6 1,7 2,6 1,6 6=1,2 2,1 0,0 3,1 1,1 2,0 3,0 2,3 0,2 1,3
+4x4 background=0 4=1,2 3,3 2,1 1,3 3,0|4x4 background=0 4=1,2 0,3 3,2|4x4 background=0 4=2,3 2,1 2,2|4x4 background=0 4=0,1 3,2 3,3
+first training example labels <s>x1 = righthalf(I)
+x2 = ofcolor(I, ZERO)
+x3 = ofcolor(x1, ZERO)
+x4 = intersection(x2, x3)
+x5 = shape(x1)
+x6 = canvas(ZERO, x5)
+O = fill(x6, FOUR, x4)</s>
+                                   
+Epoch 86: 100%|██████████| 6250/6250 [40:14<00:00,  2.59it/s, v_num=0, train/loss_step=0.102, train/loss_epoch=0.098]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 87 ********
+first training example inputs <s>20x20 background=0 2=3,4 4,3 5,4 4,6 6,4 3,5 4,4 5,5 6,5 5,3 4,5 3,3 5,6 3,6 6,6 6,3 4=14,7 16,9 15,7 14,10 17,9 16,6 15,10 17,6 18,9 18,6 16,7 14,8 17,7 16,10 15,8 18,7 17,10 18,10 14,6 15,6 14,9 15,9 16,8 17,8 18,8 6=17,3 3,16 14,16 8,9 19,9 9,8 10,3 13,2 0,14 10,12 13,11 0,11 11,11 18,4 6,2 2,17 15,14 7,10 14,0 0,18 4,8 5,12 17,14 9,10 2,4 13,4 13,1 16,0 11,13 2,19 13,19 12,5 6,0 8,4 19,4 0,0 8,1 19,10 1,4 0,15 2,12 18,5 16,17 12,7 17,0 12,13 4,12 0,2 3,19 4,18 8,3 19,12 0,8 16,1 13,14 7,16 12,0 18,13 14,3 17,2 4,14 17,11 9,7 9,4 0,1 11,1 8,14 19,14 13,7 6,1 0,19 11,19 1,14 2,13 18,18 17,4 14,14 8,7 19,7 2,0 17,19 11,12 10,10 13,9 1,16 11,18 18,11 7,8 7=12,4 6,18 12,1 6,15 4,9 9,2 8,0 12,19 5,13 3,13 14,13 17,12 0,5 11,5 7,4 1,18 1,15 6,8 18,19 3,0 6,17 19,2 11,7 19,8 0,4 19,17 1,11 1,8 13,10 3,2 4,1 3,11 3,8 9,3 3,17 17,13 8,
+3x3 background=4|3x3 background=3|3x3 background=8
+first training example labels <s>x1 = equality(I, I)
+x2 = objects(I, FIVE, x1, TEN)
+x3 = argmax(x2, size)
+x4 = color(x3)
+x5 = canvas(x4, THREE_BY_THREE)
+O = paint(x5, x3)</s>
+                                   
+Epoch 87: 100%|██████████| 6250/6250 [40:39<00:00,  2.56it/s, v_num=0, train/loss_step=0.0659, train/loss_epoch=0.098]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 88 ********
+first training example inputs <s>13x15 background=0 8=4,3 4,9 3,7 5,4 4,6 5,7 8,3 8,9 8,6 2,2 1,6 2,5 1,3 1,9 2,8 7,4 6,2 6,5 4,2 4,5 3,9 5,6 4,8 3,6 5,3 5,9 8,2 8,5 8,8 1,2 2,7 1,5 1,8 6,4 7,3 7,9 7,6 3,2 4,7 3,5 5,2 4,4 3,8 5,5 8,4 5,8 8,7 1,4 2,9 1,7 2,6 7,2 6,6 7,5 6,3 6,9 2=2,3 2,4 3,3 3,4 3=6,7 6,8 7,7 7,8|14x16 background=0 3=8,2 8,3 9,2 9,3 4=3,7 4,6 4,7 3,6 5=3,2 3,3 4,2 4,3 8=12,4 12,1 4,9 5,4 5,1 8,9 10,6 9,8 11,5 2,2 8,6 10,3 1,9 2,8 7,4 6,2 7,1 6,8 12,3 3,9 5,6 4,8 5,3 9,1 11,7 2,4 8,8 10,5 1,2 2,1 1,8 6,4 7,3 12,5 4,1 3,8 5,5 8,4 8,1 11,9 10,7 1,4 11,6 2,3 6,6 7,5 6,3 12,7 3,4 3,1 5,7 9,5 11,2 10,9 1,6 11,8 2,5 1,3 7,7 6,5 12,9 12,6 4,5 5,9 9,7 11,4 8,5 10,2 9,4 11,1 10,8 1,5 2,7 6,1 7,9 6,7 7,6 12,2 12,8 3,5 5,2 4,4 9,9 5,8 8,7 10
+2x2 background=0 2=0,0 3=1,1|2x2 background=0 3=1,0 4=0,1 5=0,0|2x2 background=0 1=0,0 2=1,1 3=0,1
+first training example labels <s>x1 = compress(I)
+x2 = replace(x1, EIGHT, ZERO)
+x3 = compress(x2)
+x4 = downscale(x3, TWO)
+x5 = compress(x4)
+x6 = compress(x5)
+x7 = replace(x6, EIGHT, ZERO)
+O = replace(x7, ONE, ONE)</s>
+                                   
+Epoch 88: 100%|██████████| 6250/6250 [40:37<00:00,  2.56it/s, v_num=0, train/loss_step=0.0652, train/loss_epoch=0.0978]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 89 ********
+first training example inputs <s>3x3 background=7 5=0,1 1,0 1,1 2,2|3x3 background=8 5=1,0 2,0 7=0,1 0,0|3x3 background=8 5=1,0 1,1 2,0 7=1,2 2,1|3x3 background=8 5=1,1 1,2 2,0 7=1,0 0,2 2,1
+3x12 background=7 5=0,1 0,7 1,2 0,4 0,10 1,8 2,5 2,11 1,3 1,9 1,1 2,0 1,4 1,7 2,6 1,10|3x12 background=8 5=1,2 1,8 2,3 2,9 2,2 1,3 1,9 2,8 7=0,1 0,7 0,4 0,10 0,3 0,9 0,2 0,8|3x12 background=8 5=1,2 1,1 1,8 1,4 2,3 2,9 1,7 1,10 2,2 1,3 1,9 2,8 7=2,4 2,1 2,7 1,5 1,11 2,10 1,0 1,6|3x12 background=8 5=1,5 1,11 1,1 1,4 2,3 2,9 1,7 1,10 2,2 1,0 1,6 2,8 7=2,4 1,2 2,1 2,7 0,0 2,10 1,8 0,6 0,5 1,3 1,9 0,11
+first training example labels <s>x1 = vmirror(I)
+x2 = hconcat(x1, I)
+x3 = ofcolor(x2, FIVE)
+O = hconcat(x2, x2)</s>
+                                   
+Epoch 89: 100%|██████████| 6250/6250 [40:27<00:00,  2.57it/s, v_num=0, train/loss_step=0.151, train/loss_epoch=0.0977]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 90 ********
+first training example inputs <s>2x2 background=0 7=1,1 0,0|3x3 background=0 8=0,1 1,0 1,2|4x4 background=0 4=1,2 2,2 0,0 3,1 1,1 1,3
+4x4 background=0 7=0,1 1,2 2,1 0,3 3,0 2,3 1,0 3,2|6x6 background=0 8=2,4 1,2 4,0 2,1 1,5 4,3 5,4 5,1 4,2 4,5 1,0 1,3|8x8 background=0 4=0,1 1,2 3,4 2,1 2,7 6,1 7,0 6,7 0,5 2,2 1,6 2,5 4,1 5,2 7,4 6,2 6,5 3,0 2,3 4,5 2,6 5,6 6,6 6,3
+first training example labels <s>x1 = rot270(I)
+x2 = hconcat(I, I)
+x3 = hmirror(x2)
+O = vconcat(x3, x3)</s>
+                                   
+Epoch 90: 100%|██████████| 6250/6250 [40:25<00:00,  2.58it/s, v_num=0, train/loss_step=0.0659, train/loss_epoch=0.0978]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 91 ********
+first training example inputs <s>13x15 background=0 8=4,3 4,9 3,7 5,4 4,6 5,7 8,3 8,9 8,6 2,2 1,6 2,5 1,3 1,9 2,8 7,4 6,2 6,5 4,2 4,5 3,9 5,6 4,8 3,6 5,3 5,9 8,2 8,5 8,8 1,2 2,7 1,5 1,8 6,4 7,3 7,9 7,6 3,2 4,7 3,5 5,2 4,4 3,8 5,5 8,4 5,8 8,7 1,4 2,9 1,7 2,6 7,2 6,6 7,5 6,3 6,9 2=2,3 2,4 3,3 3,4 3=6,7 6,8 7,7 7,8|14x16 background=0 3=8,2 8,3 9,2 9,3 4=3,7 4,6 4,7 3,6 5=3,2 3,3 4,2 4,3 8=12,4 12,1 4,9 5,4 5,1 8,9 10,6 9,8 11,5 2,2 8,6 10,3 1,9 2,8 7,4 6,2 7,1 6,8 12,3 3,9 5,6 4,8 5,3 9,1 11,7 2,4 8,8 10,5 1,2 2,1 1,8 6,4 7,3 12,5 4,1 3,8 5,5 8,4 8,1 11,9 10,7 1,4 11,6 2,3 6,6 7,5 6,3 12,7 3,4 3,1 5,7 9,5 11,2 10,9 1,6 11,8 2,5 1,3 7,7 6,5 12,9 12,6 4,5 5,9 9,7 11,4 8,5 10,2 9,4 11,1 10,8 1,5 2,7 6,1 7,9 6,7 7,6 12,2 12,8 3,5 5,2 4,4 9,9 5,8 8,7 10
+2x2 background=0 2=0,0 3=1,1|2x2 background=0 3=1,0 4=0,1 5=0,0|2x2 background=0 1=0,0 2=1,1 3=0,1
+first training example labels <s>x1 = compress(I)
+x2 = compress(x1)
+x3 = replace(x2, EIGHT, ZERO)
+x4 = compress(x3)
+x5 = compress(x4)
+x6 = replace(x5, NINE, ZERO)
+O = downscale(x6, TWO)</s>
+                                   
+Epoch 91: 100%|██████████| 6250/6250 [40:23<00:00,  2.58it/s, v_num=0, train/loss_step=0.0995, train/loss_epoch=0.0969]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 92 ********
+first training example inputs <s>13x13 background=0 3=2,11 5=4,2 7=11,7|14x14 background=0 3=5,9 4=10,3|16x16 background=0 8=2,4 5=9,10
+13x13 background=0 2=11,2 4,7 3=2,4 10,11 2,1 1,11 2,10 9,11 12,11 2,5 2,11 0,11 2,8 3,11 5,11 6,11 2,0 2,3 2,9 2,6 2,12 4,11 7,11 8,11 5=4,0 1,2 4,3 4,9 4,6 4,12 9,2 0,2 12,2 2,2 3,2 4,1 5,2 4,4 4,10 6,2 4,2 4,5 4,8 7,2 8,2 10,2 7=11,1 0,7 11,7 12,7 11,10 2,7 3,7 5,7 6,7 11,5 11,8 11,11 7,7 11,0 8,7 11,3 11,9 10,7 11,6 11,12 1,7 9,7 11,4|14x14 background=0 2=5,3 10,9 3=4,9 5,4 5,1 5,7 5,13 7,9 5,10 8,9 1,9 5,2 5,5 5,11 5,8 9,9 0,9 11,9 12,9 2,9 13,9 3,9 5,0 5,6 5,9 6,9 5,12 4=10,5 10,11 10,8 4,3 7,3 8,3 10,0 10,6 10,3 1,3 10,12 9,3 10,4 0,3 10,1 10,7 12,3 10,13 11,3 2,3 10,10 3,3 13,3 6,3 10,2|16x16 background=0 8=12,4 2,4 13,4 0,4 3,4 14,4 2,1 2,7 15,4 5,4 6,4 2,13 2,2 2,5 2,11 2,8 2,14 7,4 4,4 8,4 10,4 2,0 1,4 2,3 2,9 2,6 2,12 2,15 11,4 2=2,10 9,4 5=9,10 9,13 0,10 11,10 12,10
+first training example labels <s>x1 = greater(NEG_TWO, SIX)
+x2 = objects(I, T, x1, T)
+x3 = fork(combine, vfrontier, hfrontier)
+x4 = compose(x3, center)
+x5 = fork(recolor, color, x4)
+x6 = mapply(x5, x2)
+x7 = underpaint(I, x6)
+x8 = fork(intersection, first, last)
+x9 = apply(x4, x2)
+x10 = x8(x9)
+O = fill(x7, TWO, x10)</s>
+                                   
+Epoch 92: 100%|██████████| 6250/6250 [40:22<00:00,  2.58it/s, v_num=0, train/loss_step=0.0846, train/loss_epoch=0.097]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 93 ********
+first training example inputs <s>13x13 background=1 0=0,7 11,7 3,4 4,3 4,9 12,10 4,6 7,0 6,6 7,3 0,2 10,6 9,11 2,5 3,5 9,9 11,0 1,1 10,1 10,7 4,2 12,9 3,9 5,0 3,6 3,12 7,8|13x13 background=1 0=12,4 12,1 12,10 5,7 8,3 8,9 10,0 11,5 0,8 1,9 11,11 6,2 7,1 3,3 5,3 5,9 4,11 9,1 9,7 11,7 1,2 0,4 0,10 2,1 10,8 1,11 6,1 2,10 1,8 7,12 6,10 3,2 12,11 4,1 3,5 3,8 9,0 8,1 10,4 0,3 11,9 7,2 6,6 7,5 6,9|13x13 background=1 0=3,4 3,1 12,10 5,10 8,3 9,8 8,12 10,9 0,8 1,3 0,11 11,11 1,12 6,2 6,11 6,8 12,0 12,3 5,0 5,9 9,7 10,11 1,8 6,4 7,3 7,12 3,8 9,0 8,10 11,6 7,2 6,0 6,3
+13x13 background=1 0=0,7 9,9 11,0 1,1 7,0 6,6 10,1 7,3 0,2 5,0 3,12 9,11 7,8 8=11,7 3,4 4,3 4,9 12,10 4,6 10,7 4,2 12,9 3,9 10,6 3,6 2,5 3,5|13x13 background=1 8=0,4 12,10 6,1 1,8 10,0 6,10 0,8 3,2 12,11 1,9 11,11 6,2 9,0 7,1 8,1 0,3 3,3 7,2 5,9 9,1 6,9 0=12,4 11,7 12,1 1,2 2,1 0,10 10,8 1,11 7,5 2,10 6,6 5,7 8,3 8,9 7,12 11,5 4,1 3,5 3,8 10,4 11,9 5,3 4,11 9,7|13x13 background=1 8=10,11 1,8 6,4 7,3 5,10 8,3 7,12 9,8 8,12 0,8 11,11 6,2 5,0 7,2 6,0 5,9 6,3 9,7 0=1,12 3,8 9,0 3,4 6,11 3,1 12,10 6,8 12,0 8,10 12,3 11,6 10,9 1,3 0,11
+first training example labels <s>x1 = objects(I, T, F, T)
+x2 = colorfilter(x1, ZERO)
+x3 = replace(I, SEVEN, ONE)
+x4 = colorfilter(x1, TWO)
+x5 = sizefilter(x2, ONE)
+x6 = difference(x2, x5)
+x7 = merge(x6)
+O = fill(x3, EIGHT, x7)</s>
+                                   
+Epoch 93: 100%|██████████| 6250/6250 [40:27<00:00,  2.57it/s, v_num=0, train/loss_step=0.118, train/loss_epoch=0.0966]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 94 ********
+first training example inputs <s>3x3 background=3 4=0,1 0,2 2,1 2,2|3x3 background=7 2=1,1 1,2 2,2|3x3 background=9 6=1,1 2,1 2,2 7=0,1 1,2 2,0|3x3 background=2 1=2,2 3=0,1 1,0 1,1|3x3 background=1 8=1,1 0,0 2=0,1 2,0 3=1,2 2,2
+9x9 background=3 4=3,4 3,1 3,7 5,4 5,1 5,7 0,2 0,5 2,2 0,8 2,5 2,8 6,2 6,5 6,8 8,2 8,5 0,1 0,7 2,4 8,8 0,4 2,1 2,7 6,1 6,4 6,7 3,2 3,5 5,2 3,8 5,5 8,4 5,8 8,1 8,7|9x9 background=7 2=8,8 1,2 1,5 1,8 2,2 2,5 4,1 4,7 2,8 5,2 7,4 4,4 5,5 7,1 7,7 5,8 1,1 4,2 1,4 4,5 1,7 4,8 7,2 8,2 7,5 8,5 7,8|9x9 background=9 6=8,8 2,4 2,1 2,7 5,4 5,1 5,7 2,2 2,5 4,1 4,7 2,8 5,2 7,4 4,4 5,5 7,1 7,7 8,4 5,8 8,1 8,7 1,1 1,4 1,7 8,2 8,5 7=0,1 0,7 1,2 0,4 3,4 1,5 3,1 3,7 6,1 1,8 6,4 8,0 6,7 8,3 8,6 2,0 4,2 2,3 4,5 5,0 5,6 4,8 2,6 5,3 7,2 7,5 7,8|9x9 background=2 1=8,8 5,5 2,8 5,8 2,2 8,2 2,5 8,5 5,2 3=0,1 0,7 4,0 0,4 3,4 4,3 3,1 3,7 6,1 4,6 7,0 6,4 7,3 6,7 7,6 1,0 1,6 1,3 4,1 4,7 4,4 7,4 7,1 7,7 1,1 1,4 1,7|9x9 background=1 8=3,6 4
+first training example labels <s>x1 = rot270(I)
+x2 = numcolors(x1)
+x3 = decrement(x2)
+x4 = hconcat(I, I)
+x5 = hconcat(x4, I)
+x6 = vconcat(x5, x5)
+x7 = vconcat(x6, x5)
+O = cellwise(x7, x7, FOUR)</s>
+                                   
+Epoch 94: 100%|██████████| 6250/6250 [40:28<00:00,  2.57it/s, v_num=0, train/loss_step=0.152, train/loss_epoch=0.0965]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 95 ********
+first training example inputs <s>3x3 background=8|3x3 background=3|3x3 background=6 1=0,1 0,2 2,1 0,0|3x3 background=3 6=0,1 0,2 1,2 1,1|3x3 background=4 2=0,1 2,2 2,0 0,0|3x3 background=8 4=0,1 2,2 0,0 7=1,1 0,2 1,2|3x3 background=2 8=0,2 2,0 4=2,2 0,0 5=1,2 2,1
+3x3 background=8|3x3 background=3|6x6 background=6 1=0,1 1,2 0,4 1,5 4,3 0,2 0,5 1,0 1,3 5,2 0,0 1,1 0,3 1,4 4,2 5,3|6x6 background=3 6=2,4 1,2 0,4 3,4 1,5 0,2 0,5 2,2 3,2 2,5 1,3 3,5 0,3 1,4 2,3 3,3|6x6 background=4 2=0,1 1,2 4,0 5,4 5,1 0,2 1,0 4,1 1,3 4,4 5,5 0,0 1,1 0,3 4,5 5,0|9x9 background=8 4=0,1 8,8 2,4 1,2 0,4 2,1 1,5 6,7 0,2 7,6 0,5 2,2 1,0 8,6 2,5 1,3 7,7 0,0 8,7 6,8 1,1 0,3 2,0 1,4 2,3 6,6 7,8 7=0,7 3,4 2,7 4,3 3,7 5,4 4,6 1,8 5,7 1,6 0,8 4,7 3,5 2,8 4,4 3,8 5,5 5,8 0,6 4,5 3,3 1,7 5,6 4,8 3,6 5,3 2,6|12x12 background=2 8=3,10 8,0 9,2 8,3 10,0 11,2 10,3 0,8 2,11 1,9 0,11 2,8 3,9 8,2 9,1 10,2 11,1 0,10 1,11 2,10 1,8 3,11 3,8 9,0 9,3 8,1 11,0 11,3 0,9 10,1 2,9 1,10 4=3,1 0,2 8,9 9,8 2,2 1,0 9,11 10,9 11,8 1,3 11,11 3,0 3,3 8,11 0,1 8,
+first training example labels <s>x1 = upscale(I, TWO)
+x2 = numcolors(x1)
+O = upscale(I, x2)</s>
+                                   
+Epoch 95: 100%|██████████| 6250/6250 [40:34<00:00,  2.57it/s, v_num=0, train/loss_step=0.0863, train/loss_epoch=0.0964]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 96 ********
+first training example inputs <s>6x6 background=0 8=1,2 2,1 3,1 1,1 2,3 3,3 3,2 1,3|6x6 background=0 4=1,2 4,0 1,1 2,0 4,2 3,0 2,2 1,0 3,2 4,1|13x13 background=0 2=3,8 2,7 3,7 1,8 2,9 1,7 3,9 1,9 3=11,7 5,4 7,3 7,6 9,8 10,9 11,8 7,4 5,5 9,9 5,3 11,9 10,7 5,6 6,6 7,5 6,3 9,7 4=1,2 2,1 3,1 1,1 2,3 3,3 3,2 1,3 8=12,1 11,0 12,0 11,3 10,1 12,3 10,0 12,2 10,3 10,2|16x12 background=0 2=9,10 10,11 11,10 10,8 13,7 14,7 15,7 9,8 9,11 11,8 13,5 14,5 11,11 15,5 9,9 11,9 15,6 13,6 3=10,5 2,7 4,9 3,7 5,7 9,5 11,5 10,3 4,7 2,8 9,3 5,8 11,3 2,9 3,9 5,9 11,4 9,4 4=2,4 1,2 2,1 3,4 3,1 1,1 1,4 3,3 3,2 1,3
+6x6 background=0 8=1,2 2,1 3,1 1,1 2,3 3,3 3,2 1,3 5=2,2|6x6 background=0 4=1,2 4,0 1,1 2,0 4,2 3,0 2,2 1,0 3,2 4,1 5=3,1 2,1|13x13 background=0 2=3,8 2,7 3,7 1,8 2,9 1,7 3,9 1,9 3=11,7 5,4 7,3 7,6 9,8 10,9 11,8 7,4 5,5 9,9 5,3 11,9 10,7 5,6 6,6 7,5 6,3 9,7 4=1,2 2,1 3,1 1,1 2,3 3,3 3,2 1,3 5=11,1 11,2 2,2 10,8 6,5 6,4 2,8 8=12,1 11,0 12,0 11,3 10,1 12,3 10,0 12,2 10,3 10,2|16x12 background=0 2=9,10 10,11 11,10 10,8 13,7 14,7 15,7 9,8 9,11 11,8 13,5 14,5 11,11 15,5 9,9 11,9 15,6 13,6 3=10,5 2,7 4,9 3,7 5,7 9,5 11,5 10,3 4,7 2,8 9,3 5,8 11,3 2,9 3,9 5,9 11,4 9,4 4=2,4 1,2 2,1 3,4 3,1 1,1 1,4 3,3 3,2 1,3 5=3,8 10,4 2,3 10,10 14,6 4,8 2,2 10,9
+first training example labels <s>x1 = objects(I, T, F, F)
+x2 = colorfilter(x1, ZERO)
+x3 = apply(toindices, x2)
+x4 = rbind(bordering, I)
+x5 = compose(flip, x4)
+x6 = mfilter(x3, x5)
+x7 = underfill(I, FIVE, x6)
+x8 = objects(x7, F, F, T)
+x9 = mfilter(x8, x5)
+O = underfill(x7, SEVEN, x9)</s>
+                                   
+Epoch 96: 100%|██████████| 6250/6250 [40:29<00:00,  2.57it/s, v_num=0, train/loss_step=0.183, train/loss_epoch=0.0962]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]
+******** iteration 97 ********
+first training example inputs <s>3x3 background=0 5=0,1 1,1 1,2 2,2|7x7 background=0 5=0,1 1,2 3,1 6,1 5,4 5,1 6,4 2,2 3,2 2,5 4,1 3,5 4,4 1,1 4,5 2,6|9x12 background=0 5=3,4 3,7 5,4 4,6 5,1 8,3 8,9 0,5 2,2 8,6 0,8 2,5 2,8 7,4 6,11 4,2 5,0 5,6 8,2 0,1 2,4 2,1 2,7 1,5 1,8 6,4 7,3 7,9 7,6 6,10 3,2 4,7 5,2 4,4 8,1 1,1 6,6 6,9|12x12 background=0 5=4,9 4,6 5,1 9,5 8,9 8,6 2,2 1,0 10,9 0,8 11,8 2,8 7,4 7,1 6,5 4,2 4,8 3,6 5,9 9,1 11,4 9,4 11,1 0,7 2,1 2,7 10,8 6,1 1,8 6,4 7,3 7,9 7,6 3,2 4,7 5,2 9,0 9,9 10,4 1,1 9,6 10,1 2,6 7,2 6,6 6,9
+2x1 background=0|3x1 background=0|5x1 background=0|4x1 background=0
+first training example labels <s>x1 = equality(FOUR, ONE)
+x2 = equality(x1, NEG_TWO)
+x3 = objects(I, T, x2, F)
+x4 = colorfilter(x3, ZERO)
+x5 = size(x4)
+x6 = astuple(x5, ONE)
+x7 = canvas(ZERO, x6)
+O = replace(x7, FIVE, ONE)</s>
+                                   
+Epoch 97:  88%|████████▊ | 5482/6250 [35:29<04:58,  2.57it/s, v_num=0, train/loss_step=0.0796]
+Training:   0%|          | 0/6250 [00:00<?, ?it/s]

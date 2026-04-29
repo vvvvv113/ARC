@@ -182,9 +182,13 @@ sbatch --export=ALL,SEED=999,LAMBDA=0.5 slurm/method2_h200_full.sbatch
    runs overwrite each other. Use the saved CSV summary instead of the
    PNGs (or add an `--out-dir` flag).
 
-3. **No `config.yaml` is auto-saved by the method 2 runs** (baseline ones
-   do). Hyperparameters are captured by `slurm/method2_h200_full.sbatch`
-   for now.
+3. **`config.yaml` location**: each run dir on `/scratch/` contains a
+   `.hydra/config.yaml` with the full Hydra snapshot. Only the baseline
+   one was promoted into `CCS Project/baseline_results/config.yaml`; if
+   you need the method 2 hyperparameters, copy from
+   `/scratch/cy2941/codeit_outputs/method2_h200_full_*/.hydra/config.yaml`.
+   The exact CLI overrides used are in `slurm/method2_h200_full.sbatch`
+   regardless.
 
 4. **All 6 runs hit walltime, none reached iter 99.** The numbers in the
    reports are at iter 93 (the latest shared by all 6) or per-seed final

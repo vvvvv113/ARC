@@ -104,7 +104,7 @@ The cross-seed mean DTW shift is ≈0; the direction is inconsistent across seed
 
 - `analysis/07_method2_eval.py` had two hard-coded data paths that no longer exist after the repo restructure (`codelt/data/evaluation/` and `analysis/processed/human_traces.json`). Fixed via symlinks (non-destructive); the script should eventually take `--eval-dir` and `--human-traces` flags.
 - `07_method2_eval.py`'s plot output dir is a single shared path, so per-seed runs overwrite each other. The per-seed numbers are now persisted to `method2_dtw_comparison_summary.csv` so we no longer rely on the plots; if we want per-seed plots, we'll need to add an `--out-dir` flag.
-- No `config.yaml` is auto-saved by the method 2 run (baseline runs do save one). Worth adding for reproducibility.
+- (~~No `config.yaml` is auto-saved by the method 2 run~~ — correction: each run dir does contain `.hydra/{config.yaml, hydra.yaml, overrides.yaml}`; the gap was that the baseline `config.yaml` was *promoted* into `CCS Project/baseline_results/` but the method 2 ones were not. Mirroring the same way would be useful for reproducibility.)
 
 ---
 
