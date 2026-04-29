@@ -92,6 +92,51 @@ def execute_candidate_program(program_string, program_input, max_state_size=1_00
     return memory["O"]
 
 
+def execute_candidate_program_with_trace(program_string, program_input, max_state_size=1_000, sig_alarm=False):
+    """Like execute_candidate_program but also returns intermediate grid states.
+
+    Returns (output, trace) where trace is a list of (label, grid) tuples.
+    label is "I" for the input, or the DSL line string for each subsequent grid-valued variable.
+    On error returns (error_string, trace_so_far).
+    """
+    program_string = program_string.rstrip("\n")
+    valid_syntax = check_syntax(program_string)
+    if valid_syntax != "Valid Syntax":
+        return valid_syntax, []
+    if not valid_grid(program_input):
+        return "Invalid Input", []
+    lines = program_string.split("\n")
+    memory = {"I": program_input}
+    trace = [("I", program_input)]          # start with input grid
+    for line in lines:
+        var_name = None
+        try:
+            var_name, var_def = line.split("=")
+            environment = {**globals(), **memory}
+            state = execute_with_timeout(
+                func=eval_code,
+                timeout=0.25,
+                var_def=var_def.strip(),
+                environment=environment,
+                sig_alarm=sig_alarm,
+            )
+            if max_state_size:
+                if hasattr(state, "__len__"):
+                    if len(state) < max_state_size:
+                        memory[var_name.strip()] = state
+                else:
+                    memory[var_name.strip()] = state
+            else:
+                memory[var_name.strip()] = state
+            if valid_grid(state):            # only record grid-valued variables
+                trace.append((line.strip(), state))
+        except:
+            return f"Error evaluating {var_name}: {traceback.format_exc()}", trace
+    if "O" not in memory:
+        return "No output variable defined", trace
+    return memory["O"], trace
+
+
 class TimeoutException(Exception):
     pass
 
