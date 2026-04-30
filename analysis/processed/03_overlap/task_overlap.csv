@@ -1,0 +1,401 @@
+task_id,task_type,human_solved,codeit_solved,overlap_category
+00576224,evaluation,True,True,Both solved
+009d5c81,evaluation,True,True,Both solved
+00dbd492,evaluation,True,False,Only humans solved
+03560426,evaluation,True,False,Only humans solved
+05a7bcf2,evaluation,True,False,Only humans solved
+0607ce86,evaluation,True,False,Only humans solved
+0692e18c,evaluation,True,False,Only humans solved
+070dd51e,evaluation,True,True,Both solved
+08573cc6,evaluation,True,False,Only humans solved
+0934a4d8,evaluation,True,True,Both solved
+09c534e7,evaluation,True,False,Only humans solved
+0a1d4ef5,evaluation,True,False,Only humans solved
+0a2355a6,evaluation,True,False,Only humans solved
+0b17323b,evaluation,True,False,Only humans solved
+0bb8deee,evaluation,True,False,Only humans solved
+0becf7df,evaluation,True,False,Only humans solved
+0c786b71,evaluation,True,True,Both solved
+0c9aba6e,evaluation,True,True,Both solved
+0d87d2a6,evaluation,True,False,Only humans solved
+0e671a1a,evaluation,True,False,Only humans solved
+0f63c0b9,evaluation,True,False,Only humans solved
+103eff5b,evaluation,True,False,Only humans solved
+11e1fe23,evaluation,True,False,Only humans solved
+12422b43,evaluation,True,False,Only humans solved
+12997ef3,evaluation,True,False,Only humans solved
+12eac192,evaluation,True,True,Both solved
+136b0064,evaluation,True,False,Only humans solved
+13713586,evaluation,True,False,Only humans solved
+137f0df0,evaluation,True,False,Only humans solved
+140c817e,evaluation,True,False,Only humans solved
+14754a24,evaluation,True,False,Only humans solved
+15113be4,evaluation,True,False,Only humans solved
+15663ba9,evaluation,True,False,Only humans solved
+15696249,evaluation,True,True,Both solved
+16b78196,evaluation,True,False,Only humans solved
+17b80ad2,evaluation,True,False,Only humans solved
+17cae0c1,evaluation,True,False,Only humans solved
+18419cfa,evaluation,True,False,Only humans solved
+184a9768,evaluation,True,False,Only humans solved
+195ba7dc,evaluation,True,True,Both solved
+1990f7a8,evaluation,True,False,Only humans solved
+19bb5feb,evaluation,True,True,Both solved
+1a2e2828,evaluation,True,True,Both solved
+1a6449f1,evaluation,True,False,Only humans solved
+1acc24af,evaluation,True,False,Only humans solved
+1c02dbbe,evaluation,True,False,Only humans solved
+1c0d0a4b,evaluation,True,False,Only humans solved
+1c56ad9f,evaluation,True,False,Only humans solved
+1d0a4b61,evaluation,True,False,Only humans solved
+1d398264,evaluation,True,False,Only humans solved
+1da012fc,evaluation,True,False,Only humans solved
+1e81d6f9,evaluation,True,False,Only humans solved
+1e97544e,evaluation,True,False,Only humans solved
+2037f2c7,evaluation,True,False,Only humans solved
+2072aba6,evaluation,True,False,Only humans solved
+20818e16,evaluation,True,False,Only humans solved
+20981f0e,evaluation,True,False,Only humans solved
+212895b5,evaluation,True,False,Only humans solved
+21f83797,evaluation,True,False,Only humans solved
+22a4bbc2,evaluation,True,False,Only humans solved
+25094a63,evaluation,True,False,Only humans solved
+2546ccf6,evaluation,True,False,Only humans solved
+256b0a75,evaluation,True,False,Only humans solved
+2685904e,evaluation,True,False,Only humans solved
+2697da3f,evaluation,True,False,Only humans solved
+2753e76c,evaluation,True,False,Only humans solved
+27a77e38,evaluation,True,False,Only humans solved
+27f8ce4f,evaluation,True,True,Both solved
+281123b4,evaluation,True,False,Only humans solved
+292dd178,evaluation,True,False,Only humans solved
+29700607,evaluation,True,False,Only humans solved
+2a5f8217,evaluation,True,False,Only humans solved
+2b01abd0,evaluation,True,False,Only humans solved
+2c0b0aff,evaluation,True,False,Only humans solved
+2c737e39,evaluation,True,False,Only humans solved
+2f0c5170,evaluation,True,False,Only humans solved
+310f3251,evaluation,True,False,Only humans solved
+3194b014,evaluation,True,True,Both solved
+319f2597,evaluation,True,False,Only humans solved
+31adaf00,evaluation,True,False,Only humans solved
+31d5ba1a,evaluation,False,True,Only CodeIt solved
+32e9702f,evaluation,True,True,Both solved
+332efdb3,evaluation,True,False,Only humans solved
+3391f8c0,evaluation,True,False,Only humans solved
+33b52de3,evaluation,True,False,Only humans solved
+3490cc26,evaluation,True,False,Only humans solved
+34b99a2b,evaluation,True,True,Both solved
+351d6448,evaluation,True,False,Only humans solved
+358ba94e,evaluation,True,True,Both solved
+37d3e8b2,evaluation,True,False,Only humans solved
+3979b1a8,evaluation,True,False,Only humans solved
+3a301edc,evaluation,True,False,Only humans solved
+3b4c2228,evaluation,True,False,Only humans solved
+3d31c5b3,evaluation,True,False,Only humans solved
+3ed85e70,evaluation,True,False,Only humans solved
+3ee1011a,evaluation,True,False,Only humans solved
+3f23242b,evaluation,True,False,Only humans solved
+40f6cd08,evaluation,True,False,Only humans solved
+414297c0,evaluation,True,False,Only humans solved
+423a55dc,evaluation,True,False,Only humans solved
+42918530,evaluation,True,False,Only humans solved
+42a15761,evaluation,True,False,Only humans solved
+4364c1c4,evaluation,True,False,Only humans solved
+456873bc,evaluation,True,False,Only humans solved
+45737921,evaluation,True,False,Only humans solved
+45bbe264,evaluation,True,False,Only humans solved
+477d2879,evaluation,True,False,Only humans solved
+47996f11,evaluation,True,False,Only humans solved
+48131b3c,evaluation,True,True,Both solved
+4852f2fa,evaluation,True,False,Only humans solved
+48f8583b,evaluation,True,True,Both solved
+4aab4007,evaluation,True,False,Only humans solved
+4acc7107,evaluation,True,False,Only humans solved
+4b6b68e5,evaluation,True,False,Only humans solved
+4c177718,evaluation,True,False,Only humans solved
+4cd1b7b2,evaluation,True,False,Only humans solved
+4e45f183,evaluation,True,False,Only humans solved
+4e469f39,evaluation,True,False,Only humans solved
+4f537728,evaluation,True,False,Only humans solved
+4ff4c9da,evaluation,True,False,Only humans solved
+505fff84,evaluation,True,False,Only humans solved
+506d28a5,evaluation,True,True,Both solved
+50a16a69,evaluation,True,False,Only humans solved
+50aad11f,evaluation,True,False,Only humans solved
+50f325b5,evaluation,True,False,Only humans solved
+516b51b7,evaluation,True,False,Only humans solved
+5207a7b5,evaluation,True,False,Only humans solved
+5289ad53,evaluation,True,False,Only humans solved
+52fd389e,evaluation,True,False,Only humans solved
+54db823b,evaluation,True,False,Only humans solved
+55059096,evaluation,True,False,Only humans solved
+551d5bf1,evaluation,True,False,Only humans solved
+55783887,evaluation,True,False,Only humans solved
+575b1a71,evaluation,True,False,Only humans solved
+5783df64,evaluation,True,False,Only humans solved
+5833af48,evaluation,True,False,Only humans solved
+58743b76,evaluation,True,False,Only humans solved
+58e15b12,evaluation,True,False,Only humans solved
+59341089,evaluation,True,True,Both solved
+5a5a2103,evaluation,True,False,Only humans solved
+5af49b42,evaluation,True,False,Only humans solved
+5b526a93,evaluation,True,False,Only humans solved
+5b692c0f,evaluation,True,False,Only humans solved
+5b6cbef5,evaluation,True,False,Only humans solved
+5d2a5c43,evaluation,True,True,Both solved
+5ffb2104,evaluation,True,False,Only humans solved
+604001fa,evaluation,True,False,Only humans solved
+60a26a3e,evaluation,True,False,Only humans solved
+60c09cac,evaluation,True,True,Both solved
+626c0bcc,evaluation,True,False,Only humans solved
+62ab2642,evaluation,True,True,Both solved
+62b74c02,evaluation,True,False,Only humans solved
+639f5a19,evaluation,True,False,Only humans solved
+642248e4,evaluation,True,False,Only humans solved
+642d658d,evaluation,True,True,Both solved
+64a7c07e,evaluation,True,False,Only humans solved
+66e6c45b,evaluation,True,False,Only humans solved
+66f2d22f,evaluation,True,True,Both solved
+67636eac,evaluation,True,False,Only humans solved
+67b4a34d,evaluation,True,True,Both solved
+67c52801,evaluation,True,False,Only humans solved
+68b67ca3,evaluation,True,True,Both solved
+692cd3b6,evaluation,True,False,Only humans solved
+695367ec,evaluation,True,False,Only humans solved
+696d4842,evaluation,True,False,Only humans solved
+69889d6e,evaluation,True,False,Only humans solved
+6a11f6da,evaluation,True,False,Only humans solved
+6ad5bdfd,evaluation,True,False,Only humans solved
+6df30ad6,evaluation,True,True,Both solved
+6ea4a07e,evaluation,True,False,Only humans solved
+6f473927,evaluation,True,False,Only humans solved
+7039b2d7,evaluation,True,True,Both solved
+705a3229,evaluation,True,False,Only humans solved
+712bf12e,evaluation,True,False,Only humans solved
+72207abc,evaluation,True,False,Only humans solved
+72a961c9,evaluation,True,False,Only humans solved
+73182012,evaluation,True,False,Only humans solved
+73c3b0d8,evaluation,True,False,Only humans solved
+73ccf9c2,evaluation,True,False,Only humans solved
+759f3fd3,evaluation,True,False,Only humans solved
+762cd429,evaluation,True,False,Only humans solved
+770cc55f,evaluation,True,False,Only humans solved
+782b5218,evaluation,True,False,Only humans solved
+79369cc6,evaluation,True,False,Only humans solved
+7953d61e,evaluation,True,True,Both solved
+79fb03f4,evaluation,False,False,Neither solved
+7bb29440,evaluation,True,True,Both solved
+7c8af763,evaluation,True,False,Only humans solved
+7c9b52a0,evaluation,True,False,Only humans solved
+7d18a6fb,evaluation,True,False,Only humans solved
+7d1f7ee8,evaluation,True,False,Only humans solved
+7d419a02,evaluation,True,False,Only humans solved
+7e02026e,evaluation,True,False,Only humans solved
+7ee1c6ea,evaluation,True,False,Only humans solved
+817e6c09,evaluation,True,False,Only humans solved
+81c0276b,evaluation,True,False,Only humans solved
+833dafe3,evaluation,True,True,Both solved
+845d6e51,evaluation,True,False,Only humans solved
+84db8fc4,evaluation,True,True,Both solved
+84f2aca1,evaluation,True,True,Both solved
+8597cfd7,evaluation,True,True,Both solved
+85b81ff1,evaluation,True,False,Only humans solved
+85fa5666,evaluation,True,False,Only humans solved
+8719f442,evaluation,False,False,Neither solved
+88207623,evaluation,True,False,Only humans solved
+891232d6,evaluation,True,False,Only humans solved
+896d5239,evaluation,True,False,Only humans solved
+8a371977,evaluation,True,False,Only humans solved
+8b28cd80,evaluation,True,False,Only humans solved
+8ba14f53,evaluation,True,False,Only humans solved
+8cb8642d,evaluation,True,False,Only humans solved
+8dae5dfc,evaluation,True,False,Only humans solved
+8e2edd66,evaluation,True,False,Only humans solved
+8ee62060,evaluation,True,False,Only humans solved
+8fbca751,evaluation,True,True,Both solved
+90347967,evaluation,True,False,Only humans solved
+903d1b4a,evaluation,True,True,Both solved
+9110e3c5,evaluation,True,False,Only humans solved
+917bccba,evaluation,True,False,Only humans solved
+929ab4e9,evaluation,True,True,Both solved
+92e50de0,evaluation,True,False,Only humans solved
+9356391f,evaluation,True,False,Only humans solved
+93b4f4b3,evaluation,True,False,Only humans solved
+93c31fbe,evaluation,True,False,Only humans solved
+94133066,evaluation,True,True,Both solved
+94414823,evaluation,True,False,Only humans solved
+94be5b80,evaluation,True,False,Only humans solved
+95a58926,evaluation,True,False,Only humans solved
+963f59bc,evaluation,True,False,Only humans solved
+96a8c0cd,evaluation,True,False,Only humans solved
+97239e3d,evaluation,True,False,Only humans solved
+9772c176,evaluation,True,False,Only humans solved
+981571dc,evaluation,True,False,Only humans solved
+992798f6,evaluation,True,False,Only humans solved
+99306f82,evaluation,True,False,Only humans solved
+9a4bb226,evaluation,True,True,Both solved
+9b2a60aa,evaluation,True,False,Only humans solved
+9b365c51,evaluation,True,False,Only humans solved
+9b4c17c4,evaluation,True,True,Both solved
+9bebae7a,evaluation,True,False,Only humans solved
+9c1e755f,evaluation,True,False,Only humans solved
+9c56f360,evaluation,True,False,Only humans solved
+9caba7c3,evaluation,True,False,Only humans solved
+9ddd00f0,evaluation,True,False,Only humans solved
+9def23fe,evaluation,True,False,Only humans solved
+9f27f097,evaluation,True,False,Only humans solved
+a04b2602,evaluation,True,False,Only humans solved
+a096bf4d,evaluation,True,False,Only humans solved
+a3f84088,evaluation,True,False,Only humans solved
+a406ac07,evaluation,True,False,Only humans solved
+a57f2f04,evaluation,True,False,Only humans solved
+a59b95c0,evaluation,True,False,Only humans solved
+a680ac02,evaluation,True,False,Only humans solved
+a8610ef7,evaluation,False,False,Neither solved
+a934301b,evaluation,True,False,Only humans solved
+aa18de87,evaluation,True,False,Only humans solved
+aa300dc3,evaluation,True,False,Only humans solved
+aa4ec2a5,evaluation,True,False,Only humans solved
+aab50785,evaluation,True,False,Only humans solved
+ac0c5833,evaluation,True,False,Only humans solved
+ac2e8ecf,evaluation,True,False,Only humans solved
+ac3e2b04,evaluation,True,False,Only humans solved
+ac605cbb,evaluation,True,False,Only humans solved
+ad7e01d0,evaluation,True,False,Only humans solved
+ae58858e,evaluation,True,True,Both solved
+aee291af,evaluation,True,False,Only humans solved
+af22c60d,evaluation,True,False,Only humans solved
+af24b4cc,evaluation,True,False,Only humans solved
+b0722778,evaluation,True,False,Only humans solved
+b0f4d537,evaluation,True,False,Only humans solved
+b15fca0b,evaluation,True,False,Only humans solved
+b1fc8b8e,evaluation,True,False,Only humans solved
+b20f7c8b,evaluation,True,False,Only humans solved
+b457fec5,evaluation,True,False,Only humans solved
+b4a43f3b,evaluation,False,False,Neither solved
+b7999b51,evaluation,True,False,Only humans solved
+b7cb93ac,evaluation,True,False,Only humans solved
+b7f8a4d8,evaluation,True,False,Only humans solved
+b7fb29bc,evaluation,True,False,Only humans solved
+b942fd60,evaluation,True,False,Only humans solved
+b9630600,evaluation,True,False,Only humans solved
+ba9d41b8,evaluation,True,False,Only humans solved
+baf41dbf,evaluation,True,False,Only humans solved
+bb52a14b,evaluation,True,False,Only humans solved
+bbb1b8b6,evaluation,True,False,Only humans solved
+bc4146bd,evaluation,True,True,Both solved
+bcb3040b,evaluation,True,False,Only humans solved
+bd14c3bf,evaluation,True,False,Only humans solved
+be03b35f,evaluation,True,True,Both solved
+bf32578f,evaluation,True,False,Only humans solved
+bf699163,evaluation,True,False,Only humans solved
+bf89d739,evaluation,True,False,Only humans solved
+c074846d,evaluation,True,False,Only humans solved
+c1990cce,evaluation,True,False,Only humans solved
+c3202e5a,evaluation,True,False,Only humans solved
+c35c1b4c,evaluation,True,False,Only humans solved
+c48954c1,evaluation,True,False,Only humans solved
+c62e2108,evaluation,True,False,Only humans solved
+c64f1187,evaluation,True,False,Only humans solved
+c658a4bd,evaluation,True,False,Only humans solved
+c663677b,evaluation,True,False,Only humans solved
+c6e1b8da,evaluation,True,False,Only humans solved
+c7d4e6ad,evaluation,True,False,Only humans solved
+c87289bb,evaluation,True,False,Only humans solved
+c8b7cc0f,evaluation,True,False,Only humans solved
+c92b942c,evaluation,True,False,Only humans solved
+c97c0139,evaluation,True,False,Only humans solved
+ca8de6ea,evaluation,True,False,Only humans solved
+ca8f78db,evaluation,True,False,Only humans solved
+cad67732,evaluation,True,False,Only humans solved
+cb227835,evaluation,True,False,Only humans solved
+ccd554ac,evaluation,True,False,Only humans solved
+cd3c21df,evaluation,True,True,Both solved
+ce039d91,evaluation,True,False,Only humans solved
+ce8d95cc,evaluation,True,False,Only humans solved
+cf133acc,evaluation,True,False,Only humans solved
+cfb2ce5a,evaluation,True,False,Only humans solved
+d017b73f,evaluation,True,False,Only humans solved
+d19f7514,evaluation,True,True,Both solved
+d282b262,evaluation,True,False,Only humans solved
+d2acf2cb,evaluation,True,False,Only humans solved
+d304284e,evaluation,True,False,Only humans solved
+d37a1ef5,evaluation,True,False,Only humans solved
+d47aa2ff,evaluation,True,False,Only humans solved
+d492a647,evaluation,True,False,Only humans solved
+d4b1c2b1,evaluation,True,True,Both solved
+d4c90558,evaluation,True,False,Only humans solved
+d56f2372,evaluation,True,False,Only humans solved
+d5c634a2,evaluation,True,False,Only humans solved
+d931c21c,evaluation,True,False,Only humans solved
+d94c3b52,evaluation,True,False,Only humans solved
+da2b0fe3,evaluation,True,False,Only humans solved
+da515329,evaluation,True,False,Only humans solved
+dc2aa30b,evaluation,True,False,Only humans solved
+dc2e9a9d,evaluation,True,False,Only humans solved
+dd2401ed,evaluation,True,False,Only humans solved
+de493100,evaluation,True,False,Only humans solved
+df8cc377,evaluation,True,False,Only humans solved
+e0fb7511,evaluation,True,True,Both solved
+e133d23d,evaluation,True,True,Both solved
+e1baa8a4,evaluation,True,False,Only humans solved
+e1d2900e,evaluation,True,False,Only humans solved
+e2092e0c,evaluation,True,False,Only humans solved
+e21a174a,evaluation,True,False,Only humans solved
+e345f17b,evaluation,True,True,Both solved
+e4075551,evaluation,True,False,Only humans solved
+e41c6fd3,evaluation,True,False,Only humans solved
+e57337a4,evaluation,True,False,Only humans solved
+e5790162,evaluation,True,False,Only humans solved
+e5c44e8f,evaluation,True,False,Only humans solved
+e619ca6e,evaluation,True,False,Only humans solved
+e633a9e5,evaluation,True,False,Only humans solved
+e66aafb8,evaluation,True,True,Both solved
+e681b708,evaluation,True,False,Only humans solved
+e69241bd,evaluation,True,False,Only humans solved
+e6de6e8f,evaluation,True,False,Only humans solved
+e74e1818,evaluation,True,False,Only humans solved
+e760a62e,evaluation,True,False,Only humans solved
+e7639916,evaluation,True,True,Both solved
+e78887d1,evaluation,True,False,Only humans solved
+e7a25a18,evaluation,True,False,Only humans solved
+e7b06bea,evaluation,True,False,Only humans solved
+e7dd8335,evaluation,True,False,Only humans solved
+e872b94a,evaluation,True,True,Both solved
+e88171ec,evaluation,True,False,Only humans solved
+e95e3d8e,evaluation,True,False,Only humans solved
+e99362f0,evaluation,True,False,Only humans solved
+e9ac8c9e,evaluation,True,False,Only humans solved
+e9b4f6fc,evaluation,True,False,Only humans solved
+e9bb6954,evaluation,True,False,Only humans solved
+e9c9d9a1,evaluation,True,False,Only humans solved
+ea959feb,evaluation,True,False,Only humans solved
+ea9794b1,evaluation,True,False,Only humans solved
+ecaa0ec1,evaluation,True,False,Only humans solved
+ed74f2f2,evaluation,True,True,Both solved
+ed98d772,evaluation,True,True,Both solved
+ef26cbf6,evaluation,True,False,Only humans solved
+f0afb749,evaluation,True,False,Only humans solved
+f0df5ff0,evaluation,True,True,Both solved
+f21745ec,evaluation,True,False,Only humans solved
+f3b10344,evaluation,True,False,Only humans solved
+f3cdc58f,evaluation,True,False,Only humans solved
+f3e62deb,evaluation,True,False,Only humans solved
+f4081712,evaluation,True,True,Both solved
+f45f5ca7,evaluation,True,False,Only humans solved
+f5aa3634,evaluation,True,True,Both solved
+f5c89df1,evaluation,True,False,Only humans solved
+f823c43c,evaluation,True,False,Only humans solved
+f83cb3f6,evaluation,True,False,Only humans solved
+f8be4b64,evaluation,True,False,Only humans solved
+f9a67cb5,evaluation,True,False,Only humans solved
+f9d67f8b,evaluation,True,False,Only humans solved
+fafd9572,evaluation,True,False,Only humans solved
+fb791726,evaluation,True,False,Only humans solved
+fc754716,evaluation,True,False,Only humans solved
+fd096ab6,evaluation,True,False,Only humans solved
+fd4b2b02,evaluation,True,False,Only humans solved
+fe9372f3,evaluation,True,False,Only humans solved
+fea12743,evaluation,True,False,Only humans solved
+ff72ca3e,evaluation,True,False,Only humans solved

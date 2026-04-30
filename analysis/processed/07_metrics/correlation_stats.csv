@@ -1,0 +1,2 @@
+metric_x,metric_y,spearman_rho,p_value,n
+human_success_auc,codeit_success_auc,-0.3006,0.0218,58

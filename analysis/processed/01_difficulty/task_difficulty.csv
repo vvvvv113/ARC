@@ -1,0 +1,60 @@
+task_id,n_participants,n_solved,human_solve_rate,codeit_first_iter,difficulty_category
+00576224,6,5,0.8333333333333334,63,Only hard for AI
+009d5c81,9,7,0.7777777777777778,25,Easy for both
+070dd51e,12,9,0.75,15,Easy for both
+0934a4d8,9,1,0.1111111111111111,67,Hard for both
+0c786b71,12,8,0.6666666666666666,66,Only hard for AI
+0c9aba6e,9,1,0.1111111111111111,35,Hard for both
+12eac192,8,3,0.375,61,Hard for both
+15696249,15,9,0.6,27,Only hard for humans
+195ba7dc,10,4,0.4,26,Only hard for humans
+19bb5feb,9,9,1.0,24,Easy for both
+1a2e2828,8,6,0.75,17,Easy for both
+27f8ce4f,5,2,0.4,41,Hard for both
+3194b014,11,10,0.9090909090909091,8,Easy for both
+31d5ba1a,9,0,0.0,11,Only hard for humans
+32e9702f,12,6,0.5,49,Hard for both
+34b99a2b,9,1,0.1111111111111111,75,Hard for both
+358ba94e,10,9,0.9,12,Easy for both
+48131b3c,12,6,0.5,41,Hard for both
+48f8583b,16,6,0.375,32,Hard for both
+506d28a5,7,3,0.42857142857142855,20,Only hard for humans
+59341089,11,9,0.8181818181818182,33,Only hard for AI
+5d2a5c43,8,2,0.25,46,Hard for both
+60c09cac,9,5,0.5555555555555556,6,Only hard for humans
+62ab2642,6,5,0.8333333333333334,73,Only hard for AI
+642d658d,6,5,0.8333333333333334,10,Easy for both
+66f2d22f,11,4,0.36363636363636365,31,Only hard for humans
+67b4a34d,8,4,0.5,17,Only hard for humans
+68b67ca3,12,10,0.8333333333333334,11,Easy for both
+6df30ad6,14,12,0.8571428571428571,16,Easy for both
+7039b2d7,12,8,0.6666666666666666,50,Only hard for AI
+7953d61e,11,3,0.2727272727272727,58,Hard for both
+7bb29440,7,5,0.7142857142857143,12,Easy for both
+833dafe3,10,9,0.9,39,Only hard for AI
+84db8fc4,6,2,0.3333333333333333,34,Hard for both
+84f2aca1,9,7,0.7777777777777778,29,Easy for both
+8597cfd7,12,11,0.9166666666666666,11,Easy for both
+8fbca751,10,8,0.8,86,Only hard for AI
+903d1b4a,18,15,0.8333333333333334,64,Only hard for AI
+929ab4e9,8,2,0.25,47,Hard for both
+94133066,8,2,0.25,72,Hard for both
+9a4bb226,10,7,0.7,17,Easy for both
+9b4c17c4,6,5,0.8333333333333334,95,Only hard for AI
+ae58858e,10,7,0.7,57,Only hard for AI
+bc4146bd,12,5,0.4166666666666667,66,Hard for both
+be03b35f,10,7,0.7,56,Only hard for AI
+cd3c21df,12,11,0.9166666666666666,4,Easy for both
+d19f7514,13,4,0.3076923076923077,32,Hard for both
+d4b1c2b1,12,6,0.5,12,Only hard for humans
+e0fb7511,10,7,0.7,36,Only hard for AI
+e133d23d,10,6,0.6,29,Only hard for humans
+e345f17b,9,5,0.5555555555555556,23,Only hard for humans
+e66aafb8,13,10,0.7692307692307693,15,Easy for both
+e7639916,11,8,0.7272727272727273,37,Only hard for AI
+e872b94a,15,9,0.6,19,Only hard for humans
+ed74f2f2,11,7,0.6363636363636364,35,Hard for both
+ed98d772,10,3,0.3,29,Only hard for humans
+f0df5ff0,9,7,0.7777777777777778,22,Easy for both
+f4081712,12,8,0.6666666666666666,18,Easy for both
+f5aa3634,14,12,0.8571428571428571,11,Easy for both

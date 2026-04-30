@@ -1,0 +1,5 @@
+difficulty_category,human_success_auc,codeit_success_auc,human_failed_auc,codeit_failed_auc,human_success_n,codeit_success_n,human_failed_n,codeit_failed_n
+Easy for both,0.354,0.413,-0.33,0.147,155,6662,34,5408
+Hard for both,0.109,0.311,0.255,0.316,53,4800,104,1254
+Only hard for AI,-0.044,0.139,-0.681,0.2,101,3612,31,915
+Only hard for humans,0.614,0.33,0.277,0.16,58,5411,67,1034

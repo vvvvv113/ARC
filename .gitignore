@@ -36,5 +36,5 @@ codeit-1/
 
 # Data files - do not upload
 human_data/data/
-analysis/processed/
+# analysis/processed/
 human_data/h-arc/data/

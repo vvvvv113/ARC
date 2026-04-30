@@ -1,0 +1,17 @@
+pair,difficulty_category,task_count,median_l2,median_pearson_r
+codeit_success_vs_codeit_failed,Easy for both,18,3.9136,0.9401
+codeit_success_vs_codeit_failed,Hard for both,12,1.6949,0.9054
+codeit_success_vs_codeit_failed,Only hard for AI,10,2.1044,0.9716
+codeit_success_vs_codeit_failed,Only hard for humans,10,2.7753,0.9432
+human_failed_vs_codeit_failed,Easy for both,17,2.6671,-0.2787
+human_failed_vs_codeit_failed,Hard for both,12,3.1446,0.2684
+human_failed_vs_codeit_failed,Only hard for AI,10,3.5706,0.3385
+human_failed_vs_codeit_failed,Only hard for humans,10,3.0276,0.1986
+human_success_vs_codeit_success,Easy for both,18,2.7718,0.8782
+human_success_vs_codeit_success,Hard for both,16,5.154,0.7306
+human_success_vs_codeit_success,Only hard for AI,13,7.2381,0.6787
+human_success_vs_codeit_success,Only hard for humans,11,2.4274,0.8944
+human_success_vs_human_failed,Easy for both,17,5.7881,0.2318
+human_success_vs_human_failed,Hard for both,16,4.52,0.3619
+human_success_vs_human_failed,Only hard for AI,13,7.8727,0.1556
+human_success_vs_human_failed,Only hard for humans,11,4.2292,0.0252
