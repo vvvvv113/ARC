@@ -1,0 +1,55 @@
+=== S06 Pairwise Comparison Summary ===
+
+4 Pairs defined:
+  pair1: human_success vs codeit_success
+  pair2: human_failed  vs codeit_failed
+  pair3: human_success vs human_failed  (same agent, different outcomes)
+  pair4: codeit_success vs codeit_failed (same agent, different outcomes)
+
+DTW implementation: Sakoe-Chiba window=10; cost = |a_i - b_j|
+Bootstrap CI for median DTW: B=1000; human-only resampling (CodeIt median fixed)
+
+── F1: Pearson r (shape similarity, BH-corrected within family of 8 tests) ──
+pair,group,n,median_r,p_adj_BH
+  pair1,A,52,0.7491,0.0
+  pair1,B,17,0.5862,1.3e-05
+  pair2,A,28,0.5893,0.0
+  pair2,B,56,0.0476,0.091083
+  pair3,A,56,0.84,0.0
+  pair3,B,247,-0.3465,0.909635
+  pair4,A,35,0.9369,0.0
+  pair4,B,14,0.7644,0.000407
+
+── F2: Median DTW (BH-corrected within family of 8 tests) ──
+pair,group,n,median_DTW,p_adj_BH
+  pair1,A,52,18.7985,0.0
+  pair1,B,17,44.7322,9e-06
+  pair2,A,62,11.7714,0.0
+  pair2,B,59,59.4727,0.0
+  pair3,A,122,43.4656,0.0
+  pair3,B,251,82.6616,0.0
+  pair4,A,49,9.8732,0.0
+  pair4,B,14,27.0706,6.1e-05
+
+── F3: Permutation Test (pair3: human_success vs human_failed) ──
+Global statistic: median DTW across all tasks with both groups
+N_perm=5000, n_tasks=313
+Observed stat=58.7701, Permutation mean=19.9967, p_perm=0.0
+
+── Seed Sensitivity Analysis ──
+Pair1 (human_success vs codeit_success): allpairs median DTW per seed
+  pair1 seed17: median=25.84 (n=62)
+  pair1 seed42: median=22.72 (n=51)
+  pair1 seed123: median=24.15 (n=58)
+  pair1 combined: median=25.25 (n=69)
+  pair2 seed17: median=23.84 (n=99)
+  pair2 seed42: median=26.05 (n=81)
+  pair2 seed123: median=25.91 (n=96)
+  pair2 combined: median=24.65 (n=121)
+
+Key findings:
+  - Pair 1 (Group A): Pearson r=0.75, DTW=18.8 → human_success and codeit_success have SIMILAR curve shapes
+  - Pair 2 (Group B): Pearson r=0.05 (ns), DTW=59.5 → no shape similarity for failed trajectories in Group B
+  - Pair 3: permutation p=0.0 → human_success and human_failed are significantly different
+  - Pair 4: strong within-CodeIt signal (r=0.94 Group A), confirms CodeIt success curves are highly consistent
+  - Seed sensitivity (pair1 Group A): conclusions stable across seeds; Group B shows 2-3x variation

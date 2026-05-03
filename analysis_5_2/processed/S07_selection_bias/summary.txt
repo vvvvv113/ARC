@@ -1,0 +1,27 @@
+=== S07 Selection Bias Summary ===
+
+Comparison: tasks with any CodeIt data (n=134) vs without (n=266)
+Test: Mann-Whitney U + rank-biserial r effect size
+
+Results (Mann-Whitney U, rank-biserial r):
+metric,baseline_group,n_with,n_without,median_with,median_without,r,p,effect_size
+  human_success AUC,all,133,262,0.4364,0.3865,0.1037,0.09197,medium
+  human failed AUC,all,128,250,0.0,0.0,0.1285,0.040176,medium
+  human success rate,all,134,266,0.6795,0.6667,-0.0293,0.632865,small
+  baseline,all,134,266,0.0,0.7549,-0.2756,5e-06,medium
+  n_wrong_cells,all,134,266,25.0,40.5,-0.2066,0.000741,medium
+  human_success AUC,A,68,62,0.5489,0.6086,-0.1549,0.128616,medium
+  human success rate,A,69,64,0.6,0.7143,-0.1121,0.265729,medium
+  n_wrong_cells,A,69,64,24.0,46.5,-0.3003,0.002812,large
+  human_success AUC,B,65,200,0.2658,0.3149,-0.0885,0.284525,small
+  human success rate,B,65,202,0.7143,0.6667,0.0753,0.361239,small
+  n_wrong_cells,B,65,202,29.0,40.0,-0.1433,0.082546,medium
+
+Key conclusions:
+  - Human_success AUC: NOT significantly different between with/without CodeIt groups (p=0.09, r=0.10)
+  - Human success rate: NOT significantly different (p=0.63)
+  - n_wrong_cells: tasks WITH CodeIt data have fewer cells to change (median 25 vs 40.5, p=0.001)
+    → CodeIt tends to solve tasks with smaller state spaces, not necessarily "easier" cognitive tasks
+  - Baseline structure differs: CodeIt group has more Group A tasks (baseline=0)
+  - Within Group A: human AUC slightly LOWER in CodeIt tasks (0.549 vs 0.609, ns); within Group B: similar
+  - Conclusion: no systematic human ability bias, but CodeIt selects structurally simpler tasks

@@ -1,0 +1,27 @@
+=== S08 State Space Graph Summary ===
+
+Interactive HTML visualization for 6 selected tasks.
+File: analysis_5_2/processed/S08_state_space/state_space_interactive.html
+
+Selected tasks and rationale:
+  bf699163  Group A  baseline=0.0  — Type 1: human all-success, CodeIt mostly-failed
+  34b99a2b  Group A  baseline=0.0  — Type 2: CodeIt all-success, humans mostly-failed (smallest state space)
+  7953d61e  Group A  baseline=0.0  — Type 2: CodeIt all-success, humans mostly-failed
+  e7639916  Group B  baseline=0.83 — Type 3: both high success rate
+  1acc24af  Group B  baseline=0.92 — Type 4: Group B representative, both low success
+  32e9702f  Group B  baseline=0.12 — Type 4: Group B representative, mixed success
+
+Node/edge statistics:
+  task        | human_nodes | human_edges | codeit_nodes | codeit_edges | shared
+  bf699163    |      29     |      33     |      71      |     143      |   2
+  34b99a2b    |      95     |      92     |      19      |      41      |   4
+  7953d61e    |     206     |     211     |      13      |      33      |   2
+  e7639916    |     183     |     203     |      46      |     169      |   3
+  1acc24af    |     154     |     162     |      37      |      56      |   9
+  32e9702f    |     222     |     220     |      26      |      37      |   5
+
+Key observation: Shared nodes between human and CodeIt panels are near-zero (2-9 per task),
+indicating fundamentally different state space exploration even when both solve the same task.
+
+Note: For tasks where input ≠ output dimensions (7953d61e, bf699163), human traces are in
+output-grid space while CodeIt traces are in input-grid space — no overlap is expected.

@@ -1,0 +1,12 @@
+metric,n_with_codeit,n_no_codeit,median_with,median_without,U,p,rank_biserial_r,effect_size,baseline_group
+human_success AUC,133,262,0.4364,0.3865,19230.5,0.09197,0.1037,medium,all
+human failed AUC,128,250,0.0,0.0,18056.5,0.040176,0.1285,medium,all
+human success rate,134,266,0.6795,0.6667,17300.5,0.632865,-0.0293,small,all
+baseline,134,266,0.0,0.7549,12910.0,5e-06,-0.2756,medium,all
+n_wrong_cells,134,266,25.0,40.5,14140.0,0.000741,-0.2066,medium,all
+human_success AUC,68,62,0.5489,0.6086,1781.5,0.128616,-0.1549,medium,A
+human success rate,69,64,0.6,0.7143,1960.5,0.265729,-0.1121,medium,A
+n_wrong_cells,69,64,24.0,46.5,1545.0,0.002812,-0.3003,large,A
+human_success AUC,65,200,0.2658,0.3149,5925.0,0.284525,-0.0885,small,B
+human success rate,65,202,0.7143,0.6667,7059.5,0.361239,0.0753,small,B
+n_wrong_cells,65,202,29.0,40.0,5624.5,0.082546,-0.1433,medium,B

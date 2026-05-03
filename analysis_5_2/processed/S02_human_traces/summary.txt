@@ -1,0 +1,16 @@
+=== S02 Human Traces Summary ===
+Input: human_data/data/data.csv (task_type == 'evaluation')
+Analysis unit: last attempt per (hashed_id, task_id)
+
+Tasks with any human trace: 400 / 400
+Tasks with ≥1 success trace: 395
+Tasks with ≥1 failed trace:  378
+Total traces (success+failed): 4101
+  - success: 2664
+  - failed:  1437
+Median traces per task: 10.0
+
+Pre-processing:
+  - Consecutive identical grids de-duplicated within each trace
+  - Input grid prepended so norm[0] = 0 in S04
+  - Negative normalized progress values retained (not clipped)

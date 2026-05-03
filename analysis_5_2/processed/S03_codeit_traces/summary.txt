@@ -1,0 +1,21 @@
+=== S03 CodeIt Traces Summary (3 Seeds Combined) ===
+Seeds: seed17 (h200_full_6686251), seed42 (h200_full_6686252), seed123 (h200_full_6686253)
+De-duplication: two-stage — (1) program string, (2) trace content via SHA1 hash
+
+Tasks in replay buffer (any trace): 134
+  - with ≥1 success trace: 70
+  - with ≥1 failed trace:  127
+
+Total unique traces retained:
+  - success: 7312
+  - failed:  10868
+
+Execution errors discarded:
+  - success programs: 0
+  - failed programs:  165
+
+Seed concentration (failed traces, HHI):
+  Median HHI: 0.540
+  Mean HHI:   0.628
+  Tasks with HHI = 1.0 (all from one seed): 28
+  [HHI ∈ [1/3, 1]; 1/3 = uniform across 3 seeds, 1 = all from one seed]

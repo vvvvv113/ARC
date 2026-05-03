@@ -1,0 +1,29 @@
+=== S04 Progress Curves Summary ===
+Total tasks: 400 (Group A: 133, Group B: 267)
+Numerically coarse (n_wrong_cells < 3): 4 tasks (flagged, not excluded)
+
+Normalization (v2):
+  norm(t) = (progress(t) - baseline) / (1 - baseline)
+  baseline = progress(input_grid, target_grid)
+  norm=0: input grid state; norm=1: target solved
+  Negative values retained (trajectory below baseline)
+
+Groups available per task:
+  Group/baseline | n_task_group_rows
+  codeit_failed        Group A: n_tasks=65, median_traces=66
+  codeit_failed        Group B: n_tasks=62, median_traces=32
+  codeit_success       Group A: n_tasks=53, median_traces=85
+  codeit_success       Group B: n_tasks=17, median_traces=26
+  human_failed         Group A: n_tasks=125, median_traces=4
+  human_failed         Group B: n_tasks=253, median_traces=3
+  human_success        Group A: n_tasks=130, median_traces=7
+  human_success        Group B: n_tasks=265, median_traces=7
+
+Plot subdirectories:
+  curve_400/A_with_codeit/   (53 tasks)
+  curve_400/A_no_codeit/     (80 tasks)
+  curve_400/B_with_codeit/   (17 tasks)
+  curve_400/B_no_codeit/     (250 tasks)
+
+Each curve resampled to 100 equal time points via linear interpolation.
+Summary statistics per group: median, p25, p75 (element-wise across traces).

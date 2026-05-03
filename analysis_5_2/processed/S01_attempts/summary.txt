@@ -1,0 +1,28 @@
+=== S01 Attempt Distribution Summary ===
+总条目数（hashed_id × task_id）：4101
+max_attempt 分布：
+max_attempt
+1    1987
+2     509
+3    1348
+4     257
+
+last_attempt_n_actions 统计：
+count    4101.000000
+mean       40.933431
+std        52.360274
+min         1.000000
+25%         8.000000
+50%        24.000000
+75%        52.000000
+max       523.000000
+
+≤ 3 行动的比例：9.61%
+✓ 低于 20% 阈值，假设成立
+
+attempt_number vs 中位数 final progress：
+ attempt_number  median_final_progress  n_entries
+              1               0.994083       4101
+              2               0.840000       2114
+              3               0.750000       1605
+              4               0.690476        257

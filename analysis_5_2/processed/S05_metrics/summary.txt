@@ -1,0 +1,25 @@
+=== S05 AUC & Steps-to-90pct Summary ===
+
+Metric: AUC = np.trapz(median_curve, dx=1/99), range (-inf, 1]
+steps_to_90pct: first normalized timepoint where median_curve >= 0.90
+
+AUC medians by group and baseline_group:
+  human_success        Group A: median=0.584  n=130
+  human_success        Group B: median=0.308  n=265
+  human_failed         Group A: median=0.000  n=125
+  human_failed         Group B: median=-0.098  n=253
+  codeit_success       Group A: median=0.250  n=53
+  codeit_success       Group B: median=0.307  n=17
+  codeit_failed        Group A: median=0.099  n=65
+  codeit_failed        Group B: median=-0.143  n=62
+
+steps_to_90pct medians (human_success vs codeit_success):
+  Group A: human_success=0.87 (n=130), codeit_success=0.96 (n=53)
+  Group B: human_success=0.92 (n=264), codeit_success=0.94 (n=17)
+
+Spearman ρ (human_success AUC vs codeit_success AUC per task):
+FDR family: Group A + Group B tests, BH-corrected (2 tests)
+  Group A: ρ=-0.0764  95%CI=[-0.3186,0.1805]  p_raw=0.590592  p_adj_BH=0.786327  n_tasks=52
+  Group B: ρ=0.0711  95%CI=[-0.4344,0.5494]  p_raw=0.786327  p_adj_BH=0.786327  n_tasks=17
+
+Conclusion: No significant correlation between human and CodeIt AUC at task level (both Groups A and B).
