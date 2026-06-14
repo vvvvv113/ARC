@@ -219,12 +219,14 @@ ax.grid(alpha=0.3, axis="y")
 
 # Panel 2：last attempt 行动数分布
 ax = axes[0, 1]
-n_actions = attempt_stats["last_attempt_n_actions"].clip(upper=50)
+n_actions = attempt_stats["last_attempt_n_actions"].clip(upper=250)
 ax.hist(n_actions, bins=30, color="salmon", edgecolor="white", alpha=0.85)
 ax.axvline(3, color="red", linestyle="--", linewidth=1.5, label="n_actions = 3（信息量下限）")
 ax.axvline(attempt_stats["last_attempt_n_actions"].median(), color="orange",
-           linestyle="--", linewidth=1.5, label=f"中位数 = {attempt_stats['last_attempt_n_actions'].median():.0f}")
-ax.set_xlabel("最后一次 attempt 的行动数（上限截断为 50）")
+           linestyle="--", linewidth=1.5, label=f"median = {attempt_stats['last_attempt_n_actions'].median():.0f}")
+ax.axvline(attempt_stats["last_attempt_n_actions"].mean(), color="blue",
+           linestyle="--", linewidth=1.5, label=f"mean = {attempt_stats['last_attempt_n_actions'].mean():.0f}")
+ax.set_xlabel("最后一次 attempt 的行动数（上限截断为 250）")
 ax.set_ylabel("条目数")
 ax.set_title(f"最后一次 attempt 的行动数分布\n（≤3 的比例：{pct_few*100:.1f}%）")
 ax.legend(fontsize=8)

@@ -1,0 +1,19 @@
+Tasks: 400
+
+Percentiles:
+  p10:  0.0000
+  p25:  0.0000
+  p50:  0.7210
+  p75:  0.8624
+  p90:  0.9300
+  p95:  0.9583
+
+Mean: 0.5275,  Std: 0.3931
+Min: 0.0000,  Max: 0.9911
+
+Baseline == 0:      133 tasks (33.2%)
+Baseline > 0:       267 tasks (66.8%)
+Baseline > 0.5:     256 tasks (64.0%)
+Baseline > 0.75:    180 tasks
+Baseline > 0.84:    122 tasks (30.5%)
+Baseline > p75=0.8624:  100 tasks

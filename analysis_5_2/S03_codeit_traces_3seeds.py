@@ -91,27 +91,85 @@ def trace_key(grids_list):
     """用 grids 序列的 SHA1 hash 作为轨迹内容的唯一 key，避免存大列表做 dict key。"""
     return hashlib.sha1("|".join(grids_list).encode()).hexdigest()
 
+def compute_step_labels(program_str, trace):
+    """
+    给每条箭头（相邻 grid 状态之间）计算完整的 DSL 标签。
+
+    trace 格式：[("I", input_grid), (stripped_dsl_line, grid), ...]
+    对于箭头 k→k+1，标签 = 程序里从上一个 grid 行之后到本 grid 行（含）的
+    所有 DSL 行，用 " → " 连接。这样可以捕获被折叠的非 grid 中间步骤，例如：
+      "x2 = fgpartition(x1) → x3 = first(x2) → x4 = subgrid(x3, x1)"
+
+    如果有多个程序产生完全相同的 grid 序列（trace 内容去重命中），只保存
+    第一个程序的 step_labels（先到先得，非 grid 步骤在语义等价程序间可能不同）。
+    """
+    lines_stripped = [l.strip() for l in program_str.strip().split("\n")]
+    traced_line_strs = [label for label, _ in trace[1:]]  # 产生了 grid 的那些行
+
+    # 在程序行中顺序定位每条产生 grid 的行的下标
+    traced_indices = []
+    search_from = 0
+    for tl in traced_line_strs:
+        for i in range(search_from, len(lines_stripped)):
+            if lines_stripped[i] == tl:
+                traced_indices.append(i)
+                search_from = i + 1
+                break
+
+    # 每条箭头 = 从上一个 grid 行之后到本 grid 行之间的全部 DSL 行（含本行）
+    step_labels = []
+    prev_idx = -1
+    for li in traced_indices:
+        segment = [lines_stripped[j] for j in range(prev_idx + 1, li + 1)]
+        step_labels.append(" → ".join(segment))
+        prev_idx = li
+
+    return step_labels
+
+
+def compute_full_steps(program_str, trace):
+    """
+    给程序的每一行 DSL 生成一个条目，记录该行是否产生了合法 grid。
+
+    返回 list of dict，每个 dict：
+      {"dsl": "x1 = vmirror(I)", "has_grid": True}
+      {"dsl": "x2 = fgpartition(x1)", "has_grid": False}
+
+    用途：S08 等可视化脚本可以直接读取，对 has_grid=True 的行显示真实 grid 图像，
+    对 has_grid=False 的行显示占位虚线框，无需重新执行程序。
+    grid 图像本身从 trace 对应的 "grids" 字段按顺序读取即可。
+    """
+    lines_stripped = [l.strip() for l in program_str.strip().split("\n")]
+    # trace[1:] 里的 label 就是产生了 grid 的那些行（stripped）
+    grid_lines = {label for label, _ in trace[1:]}
+    return [{"dsl": line, "has_grid": line in grid_lines} for line in lines_stripped]
+
+
 def execute_safe(program_str, input_grid_tuple):
     """
-    安全执行 DSL 程序，返回 (grids_list, error_flag)。
-    grids_list: 轨迹中每个 grid 状态的管道字符串列表（包含 input grid）
-    error_flag: True 表示执行出错或结果无效
+    安全执行 DSL 程序，返回 (grids_list, step_labels, full_steps, error_flag)。
+    grids_list:  轨迹中每个 grid 状态的管道字符串列表（含 input grid）
+    step_labels: 每条箭头的折叠 DSL 标签（len = len(grids_list) - 1）
+    full_steps:  每条 DSL 行的条目列表，含 has_grid 标记（len = 程序行数）
+    error_flag:  True 表示执行出错或结果无效
     """
     try:
         output, trace = execute_candidate_program_with_trace(program_str, input_grid_tuple)
     except Exception:
-        return [], True
+        return [], [], [], True
 
     # output 是字符串 → 执行错误
     if isinstance(output, str):
-        return [], True
+        return [], [], [], True
 
     # trace 为空 → 无中间状态
     if not trace:
-        return [], True
+        return [], [], [], True
 
-    grids = [grid_to_str(g) for (_, g) in trace]
-    return grids, False
+    grids       = [grid_to_str(g) for (_, g) in trace]
+    step_labels = compute_step_labels(program_str, trace)
+    full_steps  = compute_full_steps(program_str, trace)
+    return grids, step_labels, full_steps, False
 
 # ── 加载所有 solutions 文件 ───────────────────────────────────────────────────
 
@@ -191,39 +249,45 @@ for task_id in tqdm(tasks_to_process, desc="Tasks"):
     # ── success 程序 ──────────────────────────────────────────────────────────
     # Step 1: program string 去重已在加载时完成
     # Step 2: 执行全部，按 trace 内容去重（语义等价程序产生相同轨迹，去重后不重复计数）
-    unique_success = {}   # trace_key -> (grids, seed_name)
+    unique_success = {}   # trace_key -> {grids, seed, step_labels, full_steps}
     n_success_errors = 0
     for prog_str, seed_name in prog_data["success"].items():
-        grids, err = execute_safe(prog_str, input_grid)
+        grids, step_labels, full_steps, err = execute_safe(prog_str, input_grid)
         if err:
             n_success_errors += 1
             continue
         tk = trace_key(grids)
         if tk not in unique_success:
-            unique_success[tk] = {"grids": grids, "seed": seed_name}
+            unique_success[tk] = {"grids": grids, "seed": seed_name,
+                                  "step_labels": step_labels,
+                                  "full_steps":  full_steps}
 
     for item in unique_success.values():
         task_traces.append({
-            "program": "",   # 内容去重后不再对应唯一程序，留空
-            "class":   "success",
-            "seed":    item["seed"],
-            "grids":   item["grids"],
+            "program":     "",          # trace 内容去重后不再对应唯一程序，留空
+            "class":       "success",
+            "seed":        item["seed"],
+            "grids":       item["grids"],
+            "step_labels": item["step_labels"],   # 每条箭头的折叠 DSL 标签
+            "full_steps":  item["full_steps"],    # 每行 DSL 的 {dsl, has_grid} 条目
         })
 
     # ── failed 程序 ───────────────────────────────────────────────────────────
     # Step 1: program string 去重已在加载时完成
     # Step 2: 执行全部，按 trace 内容去重
-    unique_traces = {}   # trace_key -> (grids, seed_name)
+    unique_traces = {}   # trace_key -> {grids, seed, step_labels, full_steps}
     n_failed_errors = 0
     for prog_str, seed_name in prog_data["failed"].items():
-        grids, err = execute_safe(prog_str, input_grid)
+        grids, step_labels, full_steps, err = execute_safe(prog_str, input_grid)
         if err:
             n_failed_errors += 1
             continue
         tk = trace_key(grids)
         if tk not in unique_traces:
             # 首次出现的 trace 内容，记录并标注 seed 来源
-            unique_traces[tk] = {"grids": grids, "seed": seed_name}
+            unique_traces[tk] = {"grids": grids, "seed": seed_name,
+                                 "step_labels": step_labels,
+                                 "full_steps":  full_steps}
 
     # 保留所有唯一 trace 内容，不设数量上限
     unique_list = list(unique_traces.values())
@@ -231,10 +295,12 @@ for task_id in tqdm(tasks_to_process, desc="Tasks"):
 
     for item in unique_list:
         task_traces.append({
-            "program": "",          # trace 去重后不再对应唯一程序，留空
-            "class":   "failed",
-            "seed":    item["seed"],
-            "grids":   item["grids"],
+            "program":     "",          # trace 内容去重后不再对应唯一程序，留空
+            "class":       "failed",
+            "seed":        item["seed"],
+            "grids":       item["grids"],
+            "step_labels": item["step_labels"],   # 每条箭头的折叠 DSL 标签
+            "full_steps":  item["full_steps"],    # 每行 DSL 的 {dsl, has_grid} 条目
         })
 
     # ── seed breakdown 统计 ───────────────────────────────────────────────────

@@ -38,3 +38,13 @@ codeit-1/
 human_data/data/
 # analysis/processed/
 human_data/h-arc/data/
+
+# Large derived data files (>10 MB — regenerate with pipeline scripts)
+analysis_5_2/processed/S02_human_traces/human_traces_all.json
+analysis_5_2/processed/S03_codeit_traces/codeit_traces_3seeds.json
+analysis_5_2/processed/S04_curves/progress_curves_400.json
+analysis_5_2/processed/S04_curves/curve_400/
+analysis/processed/codeit_traces.json
+
+# Downloads data (local only)
+~/Downloads/codeit_data/
